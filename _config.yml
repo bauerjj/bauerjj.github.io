@@ -7,15 +7,15 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "Site Title"
-title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
+title                    : "bauerjj.com"
+title_separator          : "|"
+name                     : "Justin Bauer"
+description              : "Thoughts on my mind - blog - website - random"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : bauerjj/bauerjj 
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-# breadcrumbs            : false # true, false (default)
+breadcrumbs              : true 
 words_per_minute         : 200
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
@@ -77,34 +77,35 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
-  email            :
-  uri              :
-  bitbucket        :
+  name             : "Justin Bauer"
+  avatar           : /assets/images/bio-photo.jpg
+  bio              : "Embedded Software Engineer with a mix of linux, microcontrollers, and bad tastes"
+  location         : "Tempe, AZ"
+  email            : justinjbauer1@gmail.com
+  uri              : http://mcuhq.com
+  bitbucket        : 
   codepen          :
   dribbble         :
   flickr           :
-  facebook         :
   foursquare       :
-  github           :
+  github           :  bauerjj
   google_plus      :
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         :
+  linkedin         : justin-bauer-a7a9ba116
   pinterest        :
   soundcloud       :
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
-  steam            :
+  steam            : 
   tumblr           :
   twitter          :
   vine             :
   weibo            :
   xing             :
   youtube          : # "https://youtube.com/c/MichaelRoseDesign"
+  facebook         :  630130201
+
 
 
 # Reading Files
