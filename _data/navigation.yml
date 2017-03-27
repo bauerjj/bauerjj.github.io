@@ -5,8 +5,8 @@ main:
    - title: "About"
      url: /about/
    - title: "Posts"
-     url: /posts/
+     url: /year-archive/
    - title: "Microcontroller Stuff"
      url: http://mcuhq.com  
    - title: "Things to do in Phoenix"
-     url: /resume/
+     url: /stuff-to-do-in-phoenix/
