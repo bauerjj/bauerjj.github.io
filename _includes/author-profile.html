@@ -178,6 +178,15 @@
           </a>
         </li>
       {% endif %}
+	  
+	  {% if author.upwork %}
+        <li>
+          <a href="https://www.upwork.com/o/profiles/users/_~0143336a2b30982239/" itemprop="sameAs">
+            <i class="fa fa-fw fa-briefcase" aria-hidden="true"></i> Upwork
+          </a>
+        </li>
+      {% endif %}
+	  
 
       {% if author.youtube %}
         {% if author.youtube contains "://" %}
