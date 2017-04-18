@@ -4,9 +4,17 @@ main:
   #  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
    - title: "About"
      url: /about/
-   - title: "Posts"
+   - title: "Tech Posts"
      url: /year-archive/
    - title: "Microcontroller Stuff"
-     url: http://mcuhq.com  
-   - title: "Things to do in Phoenix"
+     url: http://mcuhq.com
+   - title: "Linux Tips"
+     url: /linux-tips/
+   - title: "Electrical Engineering Links"
+     url: /ee-links/     
+   - title: "Things to do in Phoenix, AZ"
      url: /stuff-to-do-in-phoenix/
+   - title: "Documentaries"
+     url: /documentaries/
+   - title: "General Life Lessons"
+     url: /life-lessons/     

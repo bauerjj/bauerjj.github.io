@@ -6,9 +6,11 @@ date: 2017-04-13 08:03:00
 categories: blog
 ---
 
+It took me years to finally realize that I could greatly speed up compilation time using a utility called `ccache`. 
+
 {% include toc %}
 
-It took me years to finally realize that I could greatly speed up compilation time using a utility called `ccache`. It is essentially a wrapper around your compiler, most likely g++, that caches the compiled objects from your source and saves them in your home directory (`.ccache` folder) so that subsequent builds with the *identical environment settings* will use the cache. Not using it is pretty much wasting time. Sourcing an environment script that changes any compiler flags or targets that are different from the already compiled objects from the same source files in prior builds will inflict a "cache miss". 
+It is essentially a wrapper around your compiler, most likely g++, that caches the compiled objects from your source and saves them in your home directory (`.ccache` folder) so that subsequent builds with the *identical environment settings* will use the cache. Not using it is pretty much wasting time. Sourcing an environment script that changes any compiler flags or targets that are different from the already compiled objects from the same source files in prior builds will inflict a "cache miss". 
 
 To install: `sudo apt-get install ccache`
 
@@ -78,11 +80,10 @@ Similar methodology can be used to have your cross-compilers utilize `ccache`. I
 
 
 ## Setting up QtCreator
-You can utilize `ccache` inside of QtCreator by selecting your native and cross-compiler links inside of the `ccache` directory. Below shows two screenshots of setting up my cross-compiler. Notice how I had to manually locate both gcc and g++ and instruct Qt what they are targeting.  
+You can utilize `ccache` inside of QtCreator by selecting your native and cross-compiler links inside of the `ccache` directory. Below shows two screenshots of setting up my cross-compiler. Notice how I had to manually locate both gcc and g++ and instruct Qt what they are targeting. Your paths will differ slightly since I have my project defined as "Armadillo" or "ado".  
 
 ![QtCreator Cross-Compiler](/assets/images/kit-overall.png)
 
 ![QtCreator Cross-Compiler](/assets/images/gcc-ccache.png)
 
-
-
+Be sure to source your environment before launching QtCreator!
