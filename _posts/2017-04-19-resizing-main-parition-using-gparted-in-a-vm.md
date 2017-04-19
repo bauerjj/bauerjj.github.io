@@ -18,7 +18,7 @@ If your main partition (`/dev/sda1`) is filling up inside of your virtual machin
 8. Resize the main partition (/dev/sda1) to include all of the space MINUS 1024 MB!
 9. Create an logical partition at the end and make it as the swap space.
 
-![QtCreator Cross-Compiler](/assets/images/gparted.png)
+![QtCreator Cross-Compiler](/assets/images/gparted.PNG)
 
 10. Make sure to right-click the swap partition and select "SwapOn" 
 11. Exit the live-cd and unmount the CD image inside of VMware player. You can leave the bios as is
