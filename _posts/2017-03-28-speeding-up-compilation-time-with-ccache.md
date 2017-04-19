@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Speeding Up Native Compiling and Cross-Compiling Time with CCACHE
+title: Speeding Up Native Compiling and Cross-Compiling Time with ccache
 context: Ramblings
 date: 2017-04-13 08:03:00
 categories: blog
@@ -50,8 +50,8 @@ Similar methodology can be used to have your cross-compilers utilize `ccache`. I
 3. Create two soft links in your `ccache` directory
 
 		$ cd /usr/lib/ccache
-		$ ln -s arm-poky-linux-gnueabi-g++ /usr/lib/ccache
-		$ ln -s arm-poky-linux-gnueabi-gcc /usr/lib/ccache
+		$ ln -s /usr/bin/ccache arm-poky-linux-gnueabi-g++ 
+		$ ln -s /usr/bin/ccache arm-poky-linux-gnueabi-gcc 
 
 
 4. Re-open your environment script and prepend `/usr/lib/ccache` in the `PATH` variable. This ensures that your machine will first look in your `ccache` directory for the compilers. Omitting this step will require you to manually export the PATH variable after sourcing the script or else `ccache` will never do its job. 
