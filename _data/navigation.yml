@@ -10,11 +10,11 @@ main:
      url: http://mcuhq.com
    - title: "Linux Tips"
      url: /linux-tips/
-   - title: "Electrical Engineering Links"
+   - title: "Engineering Links"
      url: /ee-links/     
    - title: "Things to do in Phoenix, AZ"
-     url: /stuff-to-do-in-phoenix/
+     url: /things-to-do-in-phoenix/
    - title: "Documentaries"
      url: /documentaries/
-   - title: "General Life Lessons"
-     url: /life-lessons/     
+   - title: "Life Pro Tips"
+     url: /life-pro-tips/     
