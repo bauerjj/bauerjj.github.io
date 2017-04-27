@@ -5,7 +5,7 @@
 /*
    Breadcrumb navigation links
    ========================================================================== */
-   
+
 .breadcrumbs {
   @include container;
   @include clearfix;
@@ -183,8 +183,8 @@
 
   a {
     display: block;
-    margin: 0 0.4rem;
-    padding: 0.3rem 0;
+    margin: 0 1rem;
+    padding: 0.5rem 0;
     color: $masthead-link-color;
     text-decoration: none;
 
@@ -525,7 +525,7 @@
     display: block;
     padding: 0.5rem 1rem;
     color: $gray;
-    font-size: $type-size-7;
+    font-size: $type-size-6;
     font-weight: bold;
     line-height: 1.5;
     border-bottom: 1px solid $border-color;
