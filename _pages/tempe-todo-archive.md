@@ -6,7 +6,12 @@ permalink: /stuff-to-do-in-phoenix/
 author_profile: false
 excerpt:
 tags: []
+
+latitude: 51.5285582
+longitude: -0.2416807
 ---
+
+{% google_map zoom="10" %}
 
 ## Active
 Botanical gardens  

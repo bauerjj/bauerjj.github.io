@@ -187,6 +187,7 @@ gems:
   - jekyll-feed
   - jemoji
   - jekyll-archives
+  - jekyll-maps
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -247,3 +248,7 @@ defaults:
       comments: # true
       share: true
       related: true
+      
+maps:
+  google:
+    api_key: AIzaSyAXLh78qn2J9yanLecJNuH_UglO8W8vGIo
