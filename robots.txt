@@ -1,1 +1,1 @@
-Sitemap: http://github.com/pages/bauerjj/bauerjj/sitemap.xml
+Sitemap: https://bauerjj.github.io//sitemap.xml
