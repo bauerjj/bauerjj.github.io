@@ -13,7 +13,7 @@ A list of intriguing documentaries that I believe are worthwhile to watch
 
 Water and power; the California heist 
 Of Doubt - How we are all conned
-
+Betting on Zero - How Herbalife is a scam
 
 ## Diet
 

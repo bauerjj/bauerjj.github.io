@@ -11,8 +11,8 @@ title                    : "bauerjj.com"
 title_separator          : "|"
 name                     : "Justin Bauer"
 description              : "Thoughts on my mind - blog - website - random"
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+url                      : https://bauerjj.github.io
+baseurl                  : /
 repository               : bauerjj/bauerjj 
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 breadcrumbs              : true 

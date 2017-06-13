@@ -7,7 +7,7 @@ author_profile: false
 
 ---
 
-{% google_map src="_data/places.yml" %}
+{% google_map src="_data/places.yml" no_cluster%}
 
 ## Active
 Botanical gardens  
@@ -40,22 +40,22 @@ Comedor Guadalajara
 Angels Trumpet - dt scottsdale  
 Patties - dt scottsdale  
 Old Town Tavern -dt scottsdale    
-Capriotts -dt scottsdale  
+Capriotts -dt scottsdale  Tasty late-night meal when at the bars
 The Vig
 Greens - Supresingly good vegan food. I get the "dough-boy"  
 Taco Shack - A bit of a wait, but worth it  
 Boulders on Broadway - food is meh, beer is good, trivia is fun  
 Polibertos taco shop - authentic mexican. Beware of wait time  
 Los 2 Diablitos  
-Chuckbox  
-Comedy Club - dt phoenix  
-Hurts Donughts  
+Chuckbox  - Authentic, classic cheeseburgers. Get it before the building is knocked down. Crowded when school in session 
+Hurts Donughts
+Flemings - Get their sunday special of prime rid which comes with salad and dessert for only $36 each. Also, seafood tower is awesome
 
 ## Leisure
 
 Tortilla Flats - Decent restauarnt, but mostly it is a nice scenic drive  
 Casino Arizona, Talking stick, etc  
-
+Jesterz
 
 ## Non-phx places
 
