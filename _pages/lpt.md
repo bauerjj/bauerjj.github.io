@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: full
 title: Life Pro Tips
 sitemap: true
 permalink: /life-pro-tips/

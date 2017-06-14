@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: full
 title: Stuff to do in Phoenix
 sitemap: true
 permalink: /stuff-to-do-in-phoenix/
@@ -34,7 +34,7 @@ Venezia Pizza - Really good pizza, but super greasy
 McFate brewing Company  
 Papago Brewing  
 Toms BBQ off Mill  
-Hannyes - my favorite place in dt phoenix  
+Hanny's - my favorite place in dt phoenix  
 Bitter and Twisted Cocktails - Best place for creative drinks. Gets busy quickly on weekends  
 Comedor Guadalajara  
 Angels Trumpet - dt scottsdale  

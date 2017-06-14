@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: full
 title: Intresting Articles
 sitemap: true
 permalink: /articles/

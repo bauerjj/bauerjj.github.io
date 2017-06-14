@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: 
 permalink: /documentaries/
 title: "Documentaries"
 author_profile: false

@@ -5,7 +5,7 @@
 /*
    Breadcrumb navigation links
    ========================================================================== */
-
+ 
 .breadcrumbs {
   @include container;
   @include clearfix;
@@ -50,6 +50,24 @@
     font-weight: bold;
   }
 }
+
+/* JJB full width breadcrumbs */
+.breadcrumbs-full{
+  ol {
+    padding: 0;
+    list-style: none;
+    font-size: $type-size-5;
+
+    @include breakpoint($large) {
+      @include span(12 of 12 last);
+    }
+
+    @include breakpoint($x-large) {
+      @include prefix(0.5 of 12);
+    }
+  }
+}
+/* End JJB */ 
 
 
 /*
