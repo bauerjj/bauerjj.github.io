@@ -24,3 +24,7 @@ I'm going to dedicate this page to be a "living document" of random articles and
 ## Cryptocurrency
 
  - [Bitcoin Alts](http://www.investopedia.com/tech/6-most-important-cryptocurrencies-other-bitcoin/)
+ 
+ ## Funny
+ 
+  - [facebook banner ideas](http://www.hongkiat.com/blog/creative-facebook-timeline-covers/)
