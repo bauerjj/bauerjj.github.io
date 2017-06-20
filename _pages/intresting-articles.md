@@ -15,8 +15,10 @@ I'm going to dedicate this page to be a "living document" of random articles and
 
 ## Engineering
 
-- https://beginners.re/RE4B-EN.pdf - Extremely through guide on how to reverse engineer from looking at the dissasembly of a program
+- [Reverse Engineer] (https://beginners.re/RE4B-EN.pdf) Extremely through guide on how to reverse engineer from looking at the disassembly of a program  
 
+## Cooking
 
+[Stir Fry recipe](https://www.lifehacker.com.au/2016/04/make-foolproof-stir-fry-dishes-with-this-simple-formula/)
 
 
