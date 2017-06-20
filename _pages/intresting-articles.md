@@ -19,6 +19,8 @@ I'm going to dedicate this page to be a "living document" of random articles and
 
 ## Cooking
 
-[Stir Fry recipe](https://www.lifehacker.com.au/2016/04/make-foolproof-stir-fry-dishes-with-this-simple-formula/)
+ - [Stir Fry recipe](https://www.lifehacker.com.au/2016/04/make-foolproof-stir-fry-dishes-with-this-simple-formula/)
 
+## Cryptocurrency
 
+ - [Bitcoin Alts](http://www.investopedia.com/tech/6-most-important-cryptocurrencies-other-bitcoin/)
