@@ -8,7 +8,7 @@ excerpt: A bunch of tips I've discovered to be useful
 tags: []
 ---
 
-A bunch of tips I've discovered to be useful 
+A bunch of tips I've discovered to be useful. 
 
 {% include toc %}
 

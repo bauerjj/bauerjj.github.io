@@ -9,12 +9,12 @@ main:
    - title: "Microcontroller Stuff"
      url: http://mcuhq.com
    - title: "Linux Tips"
-     url: /linux-tips/
-   - title: "Engineering Links"
-     url: /ee-links/     
+     url: /linux-tips/    
    - title: "Stuff to do in Phoenix, AZ"
      url: /stuff-to-do-in-phoenix/
    - title: "Documentaries"
      url: /documentaries/
    - title: "Life Pro Tips"
-     url: /life-pro-tips/     
+     url: /life-pro-tips/   
+   - title: "Web Links"
+     url: /links/      

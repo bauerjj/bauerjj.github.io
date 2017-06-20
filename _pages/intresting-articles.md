@@ -1,14 +1,14 @@
 ---
 layout: full
-title: Intresting Articles
+title: Articles of Intrest
 sitemap: true
-permalink: /articles/
+permalink: /links/
 author_profile: false
 excerpt: I'm going to dedicate this page to be a "living document" of random articles and links that I come across
 tags: []
 ---
 
-I'm going to dedicate this page to be a "living document" of random articles and links that I come across 
+I'm going to dedicate this page to be a "living document" of random articles and links that I come across.
 
 {% include toc %}
 
