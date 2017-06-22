@@ -98,3 +98,10 @@ The will place the packages inside of: `build/tmp/work/cortexa8hf-neon-poky-linu
 You get this error when bitbake can't find the file in the PACKAGES directive. You can check in the `/tmp/work/cortexa.../<package>` directory to see that it did actually compile the source. Consult the mailing list for more info.
 One solution was to add a bbappend file for the <package> that included one line: `ALLOW_EMPTY_${PN} = "1"`. This will get rid of the error, but it WON'T actually include anything since the <package> binary is missing in the work folder. 
 
+## Random
+
+### Cryptography
+
+ > An analogy to public key encryption is that of a locked mail box with a mail slot. The mail slot is exposed and accessible to the public – its location (the  street address) is, in essence, the public key. Anyone knowing the street address can go to the door and drop a written message through the slot. However, only the person who possesses the key can open the mailbox and read the message.
+
+ > An analogy for digital signatures is the sealing of an envelope with a personal wax seal. The message can be opened by anyone, but the presence of the unique seal authenticates the sender.
