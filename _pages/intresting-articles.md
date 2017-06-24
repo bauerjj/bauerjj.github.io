@@ -24,7 +24,11 @@ I'm going to dedicate this page to be a "living document" of random articles and
 ## Cryptocurrency
 
  - [Bitcoin Alts](http://www.investopedia.com/tech/6-most-important-cryptocurrencies-other-bitcoin/)
+ - [Big Brother](https://www.socialcooling.com/)
  
  ## Funny
  
   - [facebook banner ideas](http://www.hongkiat.com/blog/creative-facebook-timeline-covers/)
+  
+ ## Scams
+  - [Skeptical Overview of MLM schemes](http://www.mlmwatch.org/)
