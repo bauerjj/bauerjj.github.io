@@ -32,3 +32,6 @@ I'm going to dedicate this page to be a "living document" of random articles and
   
  ## Scams
   - [Skeptical Overview of MLM schemes](http://www.mlmwatch.org/)
+  
+ ## Investing
+  - [Rate Company 401k Plans](https://www.brightscope.com/ratings/)
