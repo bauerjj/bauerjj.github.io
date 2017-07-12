@@ -2,7 +2,7 @@
 layout: single
 title: UD-3900 Pluggable Docking Station with Ubuntu Dual-Monitors
 context: Ramblings
-date: 2017-0-11 08:03:00
+date: 2017-07-11 08:03:00
 categories: blog
 ---
 
