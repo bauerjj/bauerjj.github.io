@@ -3,7 +3,7 @@
   Minimal Mistakes Jekyll Theme 4.2.2 by Michael Rose
   Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
-  https:/github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
 -->
 <html lang="en" class="no-js">
   <head>
@@ -36,8 +36,8 @@
 <meta property="og:title" content="Linux Tips">
 
 
-  <link rel="canonical" href="https://bauerjj.github.io//linux-tips/">
-  <meta property="og:url" content="https://bauerjj.github.io//linux-tips/">
+  <link rel="canonical" href="https://bauerjj.github.io/linux-tips/">
+  <meta property="og:url" content="https://bauerjj.github.io/linux-tips/">
 
 
 
@@ -80,7 +80,7 @@
 <!-- end SEO -->
 
 
-<link href="https://bauerjj.github.io//feed.xml" type="application/atom+xml" rel="alternate" title="bauerjj.com Feed">
+<link href="https://bauerjj.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="bauerjj.com Feed">
 
 <!-- http:/t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -92,7 +92,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="https://bauerjj.github.io//assets/css/main.css">
+<link rel="stylesheet" href="https://bauerjj.github.io/assets/css/main.css">
 
 <!--[if lte IE 9]>
   <style>
@@ -126,32 +126,32 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="https://bauerjj.github.io//">bauerjj.com</a>
+        <a class="site-title" href="https://bauerjj.github.io/">bauerjj.com</a>
         <ul class="visible-links">
           
             
-            <li class="masthead__menu-item"><a href="https://bauerjj.github.io//about/">About</a></li>
+            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/about/">About</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://bauerjj.github.io//year-archive/">Tech Posts</a></li>
+            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/year-archive/">Tech Posts</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://mcuhq.com">Microcontroller Stuff</a></li>
+            <li class="masthead__menu-item"><a href="http:/mcuhq.com">Microcontroller Stuff</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://bauerjj.github.io//linux-tips/">Linux Tips</a></li>
+            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/linux-tips/">Linux Tips</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://bauerjj.github.io//stuff-to-do-in-phoenix/">Stuff to do in Phoenix, AZ</a></li>
+            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/stuff-to-do-in-phoenix/">Stuff to do in Phoenix, AZ</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://bauerjj.github.io//documentaries/">Documentaries</a></li>
+            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/documentaries/">Documentaries</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://bauerjj.github.io//life-pro-tips/">Life Pro Tips</a></li>
+            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/life-pro-tips/">Life Pro Tips</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://bauerjj.github.io//links/">Web Links</a></li>
+            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/links/">Web Links</a></li>
           
         </ul>
         <button><div class="navicon"></div></button>
@@ -177,7 +177,7 @@
     
       
         <li itemprop="itemListElement" itemscope itemtype="http:/schema.org/ListItem">
-          <a href="https://bauerjj.github.io//" itemprop="item"><span itemprop="name">Home</span></a>
+          <a href="https://bauerjj.github.io/" itemprop="item"><span itemprop="name">Home</span></a>
           <meta itemprop="position" content="1" />
         </li>
         <span class="sep">/</span>
@@ -256,7 +256,7 @@
 
 <p>It is useful to look at the output from the kernel if it crashes so that you can see the root cause of the problem. This happened a bunch of times to me when developing kernel modules.</p>
 
-<p>Follow this <a href="http://blog.zedroot.org/linux-kernel-debuging-using-kdump-and-crash/">tutorial</a> to use ubuntu’s crash utility and <a href="https://people.netfilter.org/hawk/presentations/debugging_conf2013/debug2013_kernel_panic_decode_JesperBrouer.pdf">here</a> for commands: Download the <a href="https://launchpad.net/ubuntu/xenial/amd64/linux-image-4.4.0-53-generic-dbgsym/4.4.0-53.74">uncompressed kernel image</a> for ubuntu-xenial.</p>
+<p>Follow this <a href="http:/blog.zedroot.org/linux-kernel-debuging-using-kdump-and-crash/">tutorial</a> to use ubuntu’s crash utility and <a href="https://people.netfilter.org/hawk/presentations/debugging_conf2013/debug2013_kernel_panic_decode_JesperBrouer.pdf">here</a> for commands: Download the <a href="https://launchpad.net/ubuntu/xenial/amd64/linux-image-4.4.0-53-generic-dbgsym/4.4.0-53.74">uncompressed kernel image</a> for ubuntu-xenial.</p>
 
 <p>ex usage: <code class="highlighter-rouge">sudo crash /usr/lib/debug/boot/vmlinux-4.4.0-53-generic /var/crash/201701201431/dump.201701201431</code>
 Type in <code class="highlighter-rouge">log</code> and scroll down till the last few seconds to see the root cause</p>
@@ -265,16 +265,16 @@ Type in <code class="highlighter-rouge">log</code> and scroll down till the last
 
 <ul>
   <li><code class="highlighter-rouge">lsmod</code> = list current loaded modules
-http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
+http:/free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
   <li><code class="highlighter-rouge">insmod/modprobe</code> = insert module</li>
   <li><code class="highlighter-rouge">rmmod</code> = remove module</li>
   <li><code class="highlighter-rouge">ifconfig -a</code> = lists all connectivity, even the deactivate ones. Use it to view how many bytes have been TX/RX</li>
-  <li><code class="highlighter-rouge">history | grep xxxx</code> = filter history commands - http://www.linfo.org/pipes.html</li>
+  <li><code class="highlighter-rouge">history | grep xxxx</code> = filter history commands - http:/www.linfo.org/pipes.html</li>
   <li><code class="highlighter-rouge">dmesg | tail -20</code> = show last 20 lines of dmesg</li>
   <li>To search through the previous commandline output, use the following: <code class="highlighter-rouge">make | tee output.txt</code></li>
   <li><code class="highlighter-rouge">grep "warning" output.txt</code></li>
   <li>Use <code class="highlighter-rouge">sync</code> anytime after issuing a <code class="highlighter-rouge">dd</code> command</li>
-  <li>To search for a specfic string in a bunch of files: <code class="highlighter-rouge">grep -rnw '/path/to/somewhere/' -e "pattern"</code>     <code class="highlighter-rouge">http://stackoverflow.com/questions/16956810/how-to-find-all-files-containing-specific-text-on-linux</code></li>
+  <li>To search for a specfic string in a bunch of files: <code class="highlighter-rouge">grep -rnw '/path/to/somewhere/' -e "pattern"</code>     <code class="highlighter-rouge">http:/stackoverflow.com/questions/16956810/how-to-find-all-files-containing-specific-text-on-linux</code></li>
   <li>Send the <code class="highlighter-rouge">SIGQUIT</code> signal with <code class="highlighter-rouge">Ctrl+\</code></li>
   <li><code class="highlighter-rouge">lsof | grep '&lt;process&gt;'</code> will list any process that are holding a handle on the given <process></process></li>
   <li><code class="highlighter-rouge">rm -rf &lt;dir&gt;</code> does not remove hidden files/folders!!!</li>
@@ -294,7 +294,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
   <li>Page 19 shows how to tell if module was built and how to auto-load it
 rootfs: build-root/poky/build-max-atom/tmp/work/max_atom-poky-linux/max-image-install/1.0-r0</li>
   <li>CheatSheet bitbake cmds: https://community.nxp.com/docs/DOC-94953</li>
-  <li>Another cheatsheet: http://www.openembedded.org/wiki/Bitbake_cheat_sheet</li>
+  <li>Another cheatsheet: http:/www.openembedded.org/wiki/Bitbake_cheat_sheet</li>
   <li>bitbake max-image-base and bitbake linux-yocto -f -c compile
 main config: yocto/build-root/poky/meta-agj/meta-max/conf/distro/poky-max.conf
  PN - Name of package.
@@ -317,8 +317,8 @@ main config: yocto/build-root/poky/meta-agj/meta-max/conf/distro/poky-max.conf
   </li>
   <li>Good info on creating layers
 bitbake-layers show-appends shows all of the .bbappend files</li>
-  <li>It is vital that the S variable is set to ${WORKDIR} or else you may see “lic_files_chksum invalid: points to invalid location” errors. @see http://www.yoctoproject.org/docs/1.7.1/ref-manual/ref-manual.html#var-S</li>
-  <li>Good info on how to include files in the rootfs: http://stackoverflow.com/questions/34067897/bitbake-not-installing-my-file-in-the-rootfs-image</li>
+  <li>It is vital that the S variable is set to ${WORKDIR} or else you may see “lic_files_chksum invalid: points to invalid location” errors. @see http:/www.yoctoproject.org/docs/1.7.1/ref-manual/ref-manual.html#var-S</li>
+  <li>Good info on how to include files in the rootfs: http:/stackoverflow.com/questions/34067897/bitbake-not-installing-my-file-in-the-rootfs-image</li>
   <li>To learn how to replace the default splash image: https://www.mail-archive.com/yocto@yoctoproject.org/msg08094.html</li>
   <li>Differences between, clean, cleanall, and cleansstate</li>
   <li>clean: Removes all output files for a target</li>
@@ -334,7 +334,7 @@ bitbake-layers show-appends shows all of the .bbappend files</li>
 <code class="highlighter-rouge">FILES_${PN} += "init"</code>
 This says to package the “init” file from the resultant recipe. Omitting this line will cause the above error. If you want to include the -dev binary, simply do:
 <code class="highlighter-rouge">FILES_${PN}-dev += "init"</code>
-The will place the packages inside of: <code class="highlighter-rouge">build/tmp/work/cortexa8hf-neon-poky-linux-gnueabi</code>. <a href="http://www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html#var-FILES">See here for more info</a></p>
+The will place the packages inside of: <code class="highlighter-rouge">build/tmp/work/cortexa8hf-neon-poky-linux-gnueabi</code>. <a href="http:/www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html#var-FILES">See here for more info</a></p>
 
 <h4 id="error-qa-issue--not-found-in-the-base-feeds-ad10-coretex-blah-blah">Error: “QA Issue: <package> not found in the base feeds (ad10 coretex-......blah blah)"</package></h4>
 
@@ -393,15 +393,15 @@ One solution was to add a bbappend file for the <package> that included one line
       <li><a href="http:/github.com/bauerjj"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    <li><a href="https://bauerjj.github.io//feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    <li><a href="https://bauerjj.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2017 Justin Bauer. Powered by <a href="http:/jekyllrb.com" rel="nofollow">Jekyll</a> &amp; modified version of <a href="https:/mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</div>
+<div class="page__footer-copyright">&copy; 2017 Justin Bauer. Powered by <a href="http:/jekyllrb.com" rel="nofollow">Jekyll</a> &amp; modified version of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</div>
       </footer>
     </div>
 
-    <script src="https://bauerjj.github.io//assets/js/main.min.js"></script>
+    <script src="https://bauerjj.github.io/assets/js/main.min.js"></script>
 
 
 
