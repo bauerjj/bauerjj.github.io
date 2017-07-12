@@ -8,5 +8,3 @@ for file in $FILES; do
         #echo "yes"
  fi
 done
-
-
