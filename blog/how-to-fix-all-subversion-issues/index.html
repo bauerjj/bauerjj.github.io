@@ -19,12 +19,12 @@
 
 
 
-<title>            Resizing Main Partition Using gparted in a VM      bauerjj.com      </title>
+<title>            How to Fix All SubVersion Issues      bauerjj.com      </title>
 
 
 
 
-<meta name="description" content="If your main partition (/dev/sda1) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player">
+<meta name="description" content="I’m going to meticulously outline how I solve all of the problems that I encounter with SVN:">
 
 
 
@@ -33,15 +33,15 @@
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="bauerjj.com">
-<meta property="og:title" content="Resizing Main Partition Using gparted in a VM">
+<meta property="og:title" content="How to Fix All SubVersion Issues">
 
 
-  <link rel="canonical" href="https://bauerjj.github.io//blog/resizing-main-parition-using-gparted-in-a-vm/">
-  <meta property="og:url" content="https://bauerjj.github.io//blog/resizing-main-parition-using-gparted-in-a-vm/">
+  <link rel="canonical" href="https://bauerjj.github.io//blog/how-to-fix-all-subversion-issues/">
+  <meta property="og:url" content="https://bauerjj.github.io//blog/how-to-fix-all-subversion-issues/">
 
 
 
-  <meta property="og:description" content="If your main partition (/dev/sda1) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player">
+  <meta property="og:description" content="I’m going to meticulously outline how I solve all of the problems that I encounter with SVN:">
 
 
 
@@ -56,7 +56,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-04-19T01:03:00-07:00">
+  <meta property="article:published_time" content="2017-06-12T01:03:00-07:00">
 
 
 
@@ -195,7 +195,7 @@
     
       
       
-        <li class="current">Resizing Main Partition Using gparted in a VM</li>
+        <li class="current">How to Fix All SubVersion Issues</li>
       
     
   </ol>
@@ -334,15 +334,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Resizing Main Partition Using gparted in a VM">
-    <meta itemprop="description" content="If your main partition (/dev/sda1) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player">
-    <meta itemprop="datePublished" content="April 19, 2017">
+    <meta itemprop="headline" content="How to Fix All SubVersion Issues">
+    <meta itemprop="description" content="I’m going to meticulously outline how I solve all of the problems that I encounter with SVN:">
+    <meta itemprop="datePublished" content="June 12, 2017">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Resizing Main Partition Using gparted in a VM
+          <h1 class="page__title" itemprop="headline">How to Fix All SubVersion Issues
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -350,37 +350,17 @@
 
 
 
-  1 minute read
+  less than 1 minute read
 </p>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>If your main partition (<code class="highlighter-rouge">/dev/sda1</code>) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player</p>
+        <p>I’m going to meticulously outline how I solve all of the problems that I encounter with SVN:</p>
 
-<ol>
-  <li>Locate the originally downloaded Ubuntu download image (~1.2GIG) or download it again</li>
-  <li>In VMware player, right-click the image and goto settings. Select CD/DVD (SATA) and then browse for the ubuntu image under Connection. Check the Enable at PowerOn checkbox.</li>
-  <li>Power on the image and during the initial splash screen, press F2to enter the BIOS.</li>
-  <li>Change the boot sequence so that Boot From CD is first in queue.</li>
-  <li>Restart the VM and when the CD boots up, press <code class="highlighter-rouge">Try Ubuntu</code></li>
-  <li>Launch <code class="highlighter-rouge">gparted</code></li>
-  <li>Temporarily remove the swap partition so that the unallocated region aligns with the first partition.</li>
-  <li>Resize the main partition (/dev/sda1) to include all of the space MINUS 1024 MB!</li>
-  <li>Create an logical partition at the end and make it as the swap space.</li>
-</ol>
+<p>DELETE THE WHOLE FOLDER AND DO AN <code class="highlighter-rouge">svn checkout &lt;folder&gt;</code></p>
 
-<p><img src="/assets/images/gparted.PNG" alt="QtCreator Cross-Compiler" /></p>
-
-<ol>
-  <li>Make sure to right-click the swap partition and select “SwapOn”</li>
-  <li>Exit the live-cd and unmount the CD image inside of VMware player. You can leave the bios as is</li>
-</ol>
-
-<h2 id="converting-a-monolithic-image-to-multiple-separate-files">Converting a monolithic image to multiple separate files</h2>
-
-<p>When creating a VM, you can either create a single file or multiple files. The single file is better for performance, while the multiple file setup is easier to expand in 2GIG increments. Read <a href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=2006898">this article</a> and then download <a href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=1023856">vdisk-manager</a> since it doesn’t come with VMPlayer and only Workstation in order to convert the large image into a lot of smaller separate files.</p>
 
         
       </section>
@@ -410,7 +390,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-19T01:03:00-07:00">April 19, 2017</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-06-12T01:03:00-07:00">June 12, 2017</time></p>
         
       </footer>
 
@@ -419,24 +399,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Resizing Main Partition Using gparted in a VM https://bauerjj.github.io//blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=How to Fix All SubVersion Issues https://bauerjj.github.io//blog/how-to-fix-all-subversion-issues/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://bauerjj.github.io//blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://bauerjj.github.io//blog/how-to-fix-all-subversion-issues/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=https://bauerjj.github.io//blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=https://bauerjj.github.io//blog/how-to-fix-all-subversion-issues/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://bauerjj.github.io//blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://bauerjj.github.io//blog/how-to-fix-all-subversion-issues/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="https://bauerjj.github.io//blog/speeding-up-compilation-time-with-ccache/" class="pagination--pager" title="Speeding Up Native Compiling and Cross-Compiling Time with ccache
+      <a href="https://bauerjj.github.io//blog/amazon-paid-reviews/" class="pagination--pager" title="Amazon and Paid Reviews
 ">Previous</a>
     
     
-      <a href="https://bauerjj.github.io//blog/samsung-migration-tool-fail/" class="pagination--pager" title="Samsung Migration Tool Fail
+      <a href="https://bauerjj.github.io//blog/how-to-install-plugable-usb-3-0-docking-station-ubuntu/" class="pagination--pager" title="UD-3900 Pluggable Docking Station with Ubuntu Dual-Monitors
 ">Next</a>
     
   </nav>
