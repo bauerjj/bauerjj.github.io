@@ -12,7 +12,7 @@ title_separator          : "|"
 name                     : "Justin Bauer"
 description              : "Thoughts on my mind - blog - website - random"
 url                      : https://bauerjj.github.io
-baseurl                  : /
+baseurl                  : "/"
 repository               : bauerjj/bauerjj 
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 breadcrumbs              : true 
