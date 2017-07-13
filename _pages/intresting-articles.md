@@ -19,6 +19,8 @@ I'm going to dedicate this page to be a "living document" of random articles and
 
 - [Software Update System for Embedded Devices (yocto)](https://github.com/sbabic/swupdate) 
 
+- [IoT Platform Called MQTT](http://mqtt.org/faq)
+
 ## Cooking
 
  - [Stir Fry recipe](https://www.lifehacker.com.au/2016/04/make-foolproof-stir-fry-dishes-with-this-simple-formula/)
