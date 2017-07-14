@@ -21,6 +21,11 @@ I'm going to dedicate this page to be a "living document" of random articles and
 
 - [IoT Platform Called MQTT](http://mqtt.org/faq)
 
+## Security
+
+- [USB Exploits](https://security.stackexchange.com/questions/102873/how-can-usb-sticks-be-dangerous)
+- [Rubber Ducky](http://usbrubberducky.com/#!index.md)
+
 ## Cooking
 
  - [Stir Fry recipe](https://www.lifehacker.com.au/2016/04/make-foolproof-stir-fry-dishes-with-this-simple-formula/)
