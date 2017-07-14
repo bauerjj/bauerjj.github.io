@@ -52,6 +52,17 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * `rsync` looks to be useful in copying files remotely and locally
  * `udhcpc -i eth0` gets new IP from dhcp server for `eth0`
 
+## Bash
+
+ * To ignore a section of code: 
+  ```
+  : <<'END'
+  <blah>
+  <blah>
+  END
+  ```
+
+
 ## Yocto Stuff
 
  * Use [hands-on labs about kernel development](https://www.yoctoproject.org/sites/yoctoproject.org/files/elc2013-kernel-lab.pdf)
