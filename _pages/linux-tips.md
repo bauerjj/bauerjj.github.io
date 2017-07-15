@@ -61,7 +61,8 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
   <blah>
   END
   ```
-
+ * To copy/paste pipe inside the terminal using BASH: https://stackoverflow.com/a/27456981
+   - `sudo apt-get install xclip` then `xclip -sel clip < <whatever you want to copy to clipboard>
 
 ## Yocto Stuff
 
