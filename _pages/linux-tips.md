@@ -64,6 +64,8 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * To copy/paste pipe inside the terminal using BASH: https://stackoverflow.com/a/27456981
    - `sudo apt-get install xclip` then `xclip -sel clip < <whatever you want to copy to clipboard>
 
+
+
 ## Yocto Stuff
 
  * Use [hands-on labs about kernel development](https://www.yoctoproject.org/sites/yoctoproject.org/files/elc2013-kernel-lab.pdf)
