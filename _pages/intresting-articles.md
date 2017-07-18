@@ -15,7 +15,16 @@ I'm going to dedicate this page to be a "living document" of random articles and
 
 ## Engineering
 
-- [Reverse Engineer] (https://beginners.re/RE4B-EN.pdf) Extremely through guide on how to reverse engineer from looking at the disassembly of a program  
+- [Reverse Engineer] (https://beginners.re/RE4B-EN.pdf) Extremely through guide on how to reverse engineer from looking at the disassembly of a program 
+
+- [Software Update System for Embedded Devices (yocto)](https://github.com/sbabic/swupdate) 
+
+- [IoT Platform Called MQTT](http://mqtt.org/faq)
+
+## Security
+
+- [USB Exploits](https://security.stackexchange.com/questions/102873/how-can-usb-sticks-be-dangerous)
+- [Rubber Ducky](http://usbrubberducky.com/#!index.md)
 
 ## Cooking
 
@@ -25,13 +34,14 @@ I'm going to dedicate this page to be a "living document" of random articles and
 
  - [Bitcoin Alts](http://www.investopedia.com/tech/6-most-important-cryptocurrencies-other-bitcoin/)
  - [Big Brother](https://www.socialcooling.com/)
+ - [How cryptocurrencies work](https://www.youtube.com/watch?time_continue=741&v=bBC-nXj3Ng4)
  
- ## Funny
+## Funny
  
-  - [facebook banner ideas](http://www.hongkiat.com/blog/creative-facebook-timeline-covers/)
+ - [facebook banner ideas](http://www.hongkiat.com/blog/creative-facebook-timeline-covers/)
   
- ## Scams
-  - [Skeptical Overview of MLM schemes](http://www.mlmwatch.org/)
+## Scams
+ - [Skeptical Overview of MLM schemes](http://www.mlmwatch.org/)
   
- ## Investing
-  - [Rate Company 401k Plans](https://www.brightscope.com/ratings/)
+## Investing
+ - [Rate Company 401k Plans](https://www.brightscope.com/ratings/)
