@@ -24,7 +24,11 @@
     display: flex;
     -webkit-box-pack: justify;
      justify-content: space-between;
-    padding: 0.3em 0.3em 0.3em;
+	 /* jjb*/
+    padding-top: 0.3em
+   	padding-right: 0.3em
+	padding-bottom: 0.3em
+	padding-left: 1em
     font-family: $sans-serif-narrow;
 
     @include breakpoint($x-large) {
