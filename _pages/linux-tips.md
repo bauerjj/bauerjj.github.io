@@ -51,6 +51,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * `CTRL+D` will send an "end of file" to the running script, usually shutting it down
  * `rsync` looks to be useful in copying files remotely and locally
  * `udhcpc -i eth0` gets new IP from dhcp server for `eth0`
+ * `dmesg | grep tty` to find connected serial ports. Often virtual USB->Serial devices enumerate as ttyUSB0/ttyUSB1/etc
 
 ## Bash
 
@@ -113,6 +114,9 @@ You get this error when bitbake can't find the file in the PACKAGES directive. Y
 One solution was to add a bbappend file for the <package> that included one line: `ALLOW_EMPTY_${PN} = "1"`. This will get rid of the error, but it WON'T actually include anything since the <package> binary is missing in the work folder. 
 
 ## Random
+
+## Ubuntu
+ - Chromium doesn't support panning out of the box like it does in Windows. You have to download the [AutoScroll Extension](https://chrome.google.com/webstore/detail/occjjkgifpmdgodlplnacmkejpdionan) to get the panning working with the push of the middle button
 
 ### Cryptography
 

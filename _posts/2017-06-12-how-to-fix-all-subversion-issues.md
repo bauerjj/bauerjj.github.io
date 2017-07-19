@@ -6,7 +6,7 @@ date: 2017-06-12 08:03:00
 categories: blog
 ---
 
-I'm going to meticulously outline how I solve all of the problems that I encounter with SVN:
+I'm going to meticulously outline how I solve all of the problems that I encounter with SVN. It is usually after some frustration of trying known solutions. 
 
 DELETE THE WHOLE FOLDER AND DO AN `svn checkout <folder>`
 

@@ -6,7 +6,7 @@ date: 2017-06-07 08:03:00
 categories: blog
 ---
 
-I find it irritating that Amazon is either allowing or turning a blind eye towards the paid reviews. I also find it hard to believe that they don't implement a better algorithm for detecting fake reviews like that of Yelp. After discovering [FakeSpot](http://fakespot.com/) and looking up a few of my prior purchases, I felt betrayed. I've come to realize that 5-star reviews on Amazon products not only help the seller, but Amazon as well since people are more prone to spend money on their website. 
+I find it troublesome that Amazon is either allowing or turning a blind eye towards the paid reviews. I also find it hard to believe that they don't implement a better algorithm for detecting fake reviews like that of Yelp. After discovering [FakeSpot](http://fakespot.com/) and looking up a few of my prior purchases, I felt betrayed. I've come to realize that 5-star reviews on Amazon products not only help the seller, but Amazon as well since people are more prone to spend money on their website. 
 
 I recently had a Microdermabrasion done and thought that I'd just get the machine to do it for me instead of at a spa. So I tried the [#1 recommended one](https://www.amazon.com/Microdermabrasion-Blackhead-Rechargeable-Comedone-Extractor). Long story short, it sucked (or not at all) and so I left a prompt review. Soon after, I started getting emails - 6 total thus far over the course of a month of the manufacturer trying to bribe me to take down the review.
 
