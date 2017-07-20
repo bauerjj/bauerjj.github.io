@@ -218,10 +218,20 @@
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
   <li><a href="#jekyll" id="markdown-toc-jekyll">Jekyll</a></li>
-  <li><a href="#linux-kernel" id="markdown-toc-linux-kernel">Linux Kernel</a>    <ul>
-      <li><a href="#debugging" id="markdown-toc-debugging">Debugging</a></li>
-      <li><a href="#common-various-commands" id="markdown-toc-common-various-commands">Common Various Commands</a></li>
-      <li><a href="#bash" id="markdown-toc-bash">Bash</a></li>
+  <li><a href="#debugging-linux-kernel" id="markdown-toc-debugging-linux-kernel">Debugging Linux Kernel</a></li>
+  <li><a href="#common-linux-commands" id="markdown-toc-common-linux-commands">Common Linux Commands</a></li>
+  <li><a href="#bash" id="markdown-toc-bash">Bash</a></li>
+  <li><a href="#yocto-stuff" id="markdown-toc-yocto-stuff">Yocto Stuff</a>    <ul>
+      <li><a href="#yocto-errors" id="markdown-toc-yocto-errors">Yocto Errors</a>        <ul>
+          <li><a href="#error-filesdirectories-were-installed-but-not-shipped-in-any-package-xxx" id="markdown-toc-error-filesdirectories-were-installed-but-not-shipped-in-any-package-xxx">Error: “Files/directories were installed, but not shipped in any package: xxx”</a></li>
+          <li><a href="#error-qa-issue--not-found-in-the-base-feeds-ad10-coretex-blah-blah" id="markdown-toc-error-qa-issue--not-found-in-the-base-feeds-ad10-coretex-blah-blah">Error: “QA Issue: <package> not found in the base feeds (ad10 coretex-......blah blah)"</package></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#random" id="markdown-toc-random">Random</a>    <ul>
+      <li><a href="#ubuntu" id="markdown-toc-ubuntu">Ubuntu</a></li>
+      <li><a href="#cryptography" id="markdown-toc-cryptography">Cryptography</a></li>
     </ul>
   </li>
 </ul>
@@ -239,9 +249,7 @@
   <li>See installed gems and their version: <code class="highlighter-rouge">gem list</code></li>
 </ul>
 
-<h1 id="linux-kernel">Linux Kernel</h1>
-
-<h2 id="debugging">Debugging</h2>
+<h2 id="debugging-linux-kernel">Debugging Linux Kernel</h2>
 
 <p>It is useful to look at the output from the kernel if it crashes so that you can see the root cause of the problem. This happened a bunch of times to me when developing kernel modules.</p>
 
@@ -250,7 +258,7 @@
 <p>ex usage: <code class="highlighter-rouge">sudo crash /usr/lib/debug/boot/vmlinux-4.4.0-53-generic /var/crash/201701201431/dump.201701201431</code>
 Type in <code class="highlighter-rouge">log</code> and scroll down till the last few seconds to see the root cause</p>
 
-<h2 id="common-various-commands">Common Various Commands</h2>
+<h2 id="common-linux-commands">Common Linux Commands</h2>
 
 <ul>
   <li><code class="highlighter-rouge">lsmod</code> = list current loaded modules
@@ -271,85 +279,104 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
   <li><code class="highlighter-rouge">rsync</code> looks to be useful in copying files remotely and locally</li>
   <li><code class="highlighter-rouge">udhcpc -i eth0</code> gets new IP from dhcp server for <code class="highlighter-rouge">eth0</code></li>
   <li><code class="highlighter-rouge">dmesg | grep tty</code> to find connected serial ports. Often virtual USB-&gt;Serial devices enumerate as ttyUSB0/ttyUSB1/etc</li>
+  <li><a href="https://fedoraproject.org/wiki/SysVinit_to_Systemd_Cheatsheet">SysV to SysD Cheatsheet</a></li>
 </ul>
 
 <h2 id="bash">Bash</h2>
 
 <ul>
-  <li>
-    <dl>
-      <dt>To ignore a section of code:</dt>
-      <dt>  ```</dt>
-      <dd>«‘END’</dd>
-    </dl>
+  <li>To ignore a section of code:</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  : &lt;&lt;'END'
+  &lt;blah&gt;
+  &lt;blah&gt;
+  END
+</code></pre>
+</div>
+
+<ul>
+  <li>To copy/paste pipe inside the terminal using BASH: https://stackoverflow.com/a/27456981
+    <ul>
+      <li><code class="highlighter-rouge">sudo apt-get install xclip</code> then `xclip -sel clip &lt; <whatever you="" want="" to="" copy="" clipboard=""></whatever></li>
+    </ul>
   </li>
 </ul>
-<blah>
-  <blah>
-  END
-  ```
- * To copy/paste pipe inside the terminal using BASH: https://stackoverflow.com/a/27456981
-   - `sudo apt-get install xclip` then `xclip -sel clip &lt; <whatever you="" want="" to="" copy="" clipboard="">
 
+<h2 id="yocto-stuff">Yocto Stuff</h2>
 
-
-## Yocto Stuff
-
- * Use [hands-on labs about kernel development](https://www.yoctoproject.org/sites/yoctoproject.org/files/elc2013-kernel-lab.pdf)
-
- * [Good resource for adding stuff to kernel](https://www.yoctoproject.org/sites/yoctoproject.org/files/elc2013-kernel-lab.pdf) 
- * Excellent resource on bitbake stuff [Yocto / Bitbake notes](https://confluence.agjunction.net:8443/pages/viewpage.action?pageId=82481008)
- * Page 19 shows how to tell if module was built and how to auto-load it
-rootfs: build-root/poky/build-max-atom/tmp/work/max_atom-poky-linux/max-image-install/1.0-r0
- * CheatSheet bitbake cmds: https://community.nxp.com/docs/DOC-94953
- * Another cheatsheet: http://www.openembedded.org/wiki/Bitbake_cheat_sheet
- * bitbake max-image-base and bitbake linux-yocto -f -c compile
+<ul>
+  <li>
+    <p>Use <a href="https://www.yoctoproject.org/sites/yoctoproject.org/files/elc2013-kernel-lab.pdf">hands-on labs about kernel development</a></p>
+  </li>
+  <li><a href="https://www.yoctoproject.org/sites/yoctoproject.org/files/elc2013-kernel-lab.pdf">Good resource for adding stuff to kernel</a></li>
+  <li>Excellent resource on bitbake stuff <a href="https://confluence.agjunction.net:8443/pages/viewpage.action?pageId=82481008">Yocto / Bitbake notes</a></li>
+  <li>Page 19 shows how to tell if module was built and how to auto-load it
+rootfs: build-root/poky/build-max-atom/tmp/work/max_atom-poky-linux/max-image-install/1.0-r0</li>
+  <li>CheatSheet bitbake cmds: https://community.nxp.com/docs/DOC-94953</li>
+  <li>Another cheatsheet: http://www.openembedded.org/wiki/Bitbake_cheat_sheet</li>
+  <li>bitbake max-image-base and bitbake linux-yocto -f -c compile
 main config: yocto/build-root/poky/meta-agj/meta-max/conf/distro/poky-max.conf
-	PN - Name of package.
-	PR - Revision of package. The default value is "r0"
-	PV - Version of package.
- * On deleting images: https://lists.yoctoproject.org/pipermail/yocto/2012-July/008296.html
-	bitbake -c clean TARGET
-	then, bitbake TARGET
- * To force more threads for compilation, use:  in local.conf
- * If you run into build errors, run bitbake -c cleansstate <packagename>
- * List Recipes :: bitbake-layers show-recipes | less
- * Good info on creating layers
-bitbake-layers show-appends shows all of the .bbappend files
- * It is vital that the S variable is set to ${WORKDIR} or else you may see "lic_files_chksum invalid: points to invalid location" errors. @see http://www.yoctoproject.org/docs/1.7.1/ref-manual/ref-manual.html#var-S
- * Good info on how to include files in the rootfs: http://stackoverflow.com/questions/34067897/bitbake-not-installing-my-file-in-the-rootfs-image
- * To learn how to replace the default splash image: https://www.mail-archive.com/yocto@yoctoproject.org/msg08094.html
- * Differences between, clean, cleanall, and cleansstate
- * clean: Removes all output files for a target 
- * cleansstate:Removes all output files and shared state (sstate) cache for a target
- * cleanall: Removes all output files, shared state (sstate) cache, and downloaded source files for a target
+ PN - Name of package.
+ PR - Revision of package. The default value is “r0”
+ PV - Version of package.</li>
+  <li>On deleting images: https://lists.yoctoproject.org/pipermail/yocto/2012-July/008296.html
+ bitbake -c clean TARGET
+ then, bitbake TARGET</li>
+  <li>To force more threads for compilation, use:  in local.conf</li>
+  <li>If you run into build errors, run bitbake -c cleansstate <packagename></packagename></li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>List Recipes :: bitbake-layers show-recipes</td>
+          <td>less</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Good info on creating layers
+bitbake-layers show-appends shows all of the .bbappend files</li>
+  <li>It is vital that the S variable is set to ${WORKDIR} or else you may see “lic_files_chksum invalid: points to invalid location” errors. @see http://www.yoctoproject.org/docs/1.7.1/ref-manual/ref-manual.html#var-S</li>
+  <li>Good info on how to include files in the rootfs: http://stackoverflow.com/questions/34067897/bitbake-not-installing-my-file-in-the-rootfs-image</li>
+  <li>To learn how to replace the default splash image: https://www.mail-archive.com/yocto@yoctoproject.org/msg08094.html</li>
+  <li>Differences between, clean, cleanall, and cleansstate</li>
+  <li>clean: Removes all output files for a target</li>
+  <li>cleansstate:Removes all output files and shared state (sstate) cache for a target</li>
+  <li>cleanall: Removes all output files, shared state (sstate) cache, and downloaded source files for a target</li>
+</ul>
 
-### Yocto Errors
+<h3 id="yocto-errors">Yocto Errors</h3>
 
-#### Error: "Files/directories were installed, but not shipped in any package: xxx"
+<h4 id="error-filesdirectories-were-installed-but-not-shipped-in-any-package-xxx">Error: “Files/directories were installed, but not shipped in any package: xxx”</h4>
 
-This means that the recipe was successfully compiled, but doesn't know what files to add to the resultant package. This can be resolved by adding this to the individual recipe file (for example, see the init-script.bb file inside of armadillo):
-`FILES_${PN} += "init"`
-This says to package the "init" file from the resultant recipe. Omitting this line will cause the above error. If you want to include the -dev binary, simply do:
-`FILES_${PN}-dev += "init"`
-The will place the packages inside of: `build/tmp/work/cortexa8hf-neon-poky-linux-gnueabi`. [See here for more info](http://www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html#var-FILES) 
+<p>This means that the recipe was successfully compiled, but doesn’t know what files to add to the resultant package. This can be resolved by adding this to the individual recipe file (for example, see the init-script.bb file inside of armadillo):
+<code class="highlighter-rouge">FILES_${PN} += "init"</code>
+This says to package the “init” file from the resultant recipe. Omitting this line will cause the above error. If you want to include the -dev binary, simply do:
+<code class="highlighter-rouge">FILES_${PN}-dev += "init"</code>
+The will place the packages inside of: <code class="highlighter-rouge">build/tmp/work/cortexa8hf-neon-poky-linux-gnueabi</code>. <a href="http://www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html#var-FILES">See here for more info</a></p>
 
-#### Error: "QA Issue: <package> not found in the base feeds (ad10 coretex-......blah blah)"
+<h4 id="error-qa-issue--not-found-in-the-base-feeds-ad10-coretex-blah-blah">Error: “QA Issue: <package> not found in the base feeds (ad10 coretex-......blah blah)"</package></h4>
 
-You get this error when bitbake can't find the file in the PACKAGES directive. You can check in the `/tmp/work/cortexa.../<package>` directory to see that it did actually compile the source. Consult the mailing list for more info.
-One solution was to add a bbappend file for the <package> that included one line: `ALLOW_EMPTY_${PN} = "1"`. This will get rid of the error, but it WON'T actually include anything since the <package> binary is missing in the work folder. 
+<p>You get this error when bitbake can’t find the file in the PACKAGES directive. You can check in the <code class="highlighter-rouge">/tmp/work/cortexa.../&lt;package&gt;</code> directory to see that it did actually compile the source. Consult the mailing list for more info.
+One solution was to add a bbappend file for the <package> that included one line: `ALLOW_EMPTY_${PN} = "1"`. This will get rid of the error, but it WON'T actually include anything since the <package> binary is missing in the work folder.</package></package></p>
 
-## Random
+<h2 id="random">Random</h2>
 
-## Ubuntu
- - Chromium doesn't support panning out of the box like it does in Windows. You have to download the [AutoScroll Extension](https://chrome.google.com/webstore/detail/occjjkgifpmdgodlplnacmkejpdionan) to get the panning working with the push of the middle button
+<h3 id="ubuntu">Ubuntu</h3>
+<ul>
+  <li>Chromium doesn’t support panning out of the box like it does in Windows. You have to download the <a href="https://chrome.google.com/webstore/detail/occjjkgifpmdgodlplnacmkejpdionan">AutoScroll Extension</a> to get the panning working with the push of the middle button</li>
+</ul>
 
-### Cryptography
+<h3 id="cryptography">Cryptography</h3>
 
- &gt; An analogy to public key encryption is that of a locked mail box with a mail slot. The mail slot is exposed and accessible to the public – its location (the  street address) is, in essence, the public key. Anyone knowing the street address can go to the door and drop a written message through the slot. However, only the person who possesses the key can open the mailbox and read the message.
+<blockquote>
+  <p>An analogy to public key encryption is that of a locked mail box with a mail slot. The mail slot is exposed and accessible to the public – its location (the  street address) is, in essence, the public key. Anyone knowing the street address can go to the door and drop a written message through the slot. However, only the person who possesses the key can open the mailbox and read the message.</p>
+</blockquote>
 
- &gt; An analogy for digital signatures is the sealing of an envelope with a personal wax seal. The message can be opened by anyone, but the presence of the unique seal authenticates the sender.
-</package></package></package></package></packagename></whatever></blah></blah>
+<blockquote>
+  <p>An analogy for digital signatures is the sealing of an envelope with a personal wax seal. The message can be opened by anyone, but the presence of the unique seal authenticates the sender.</p>
+</blockquote>
 
         
       </section>
