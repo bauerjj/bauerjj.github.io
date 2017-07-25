@@ -21,9 +21,8 @@ I'm going to dedicate this page to be a "living document" of random linux tips t
 - To actually use the newer gem version: `bundle update`
 - See installed gems and their version: `gem list`
 
-# Linux Kernel
 
-## Debugging
+## Debugging Linux Kernel
 
 It is useful to look at the output from the kernel if it crashes so that you can see the root cause of the problem. This happened a bunch of times to me when developing kernel modules. 
 
@@ -32,7 +31,7 @@ Follow this [tutorial](http://blog.zedroot.org/linux-kernel-debuging-using-kdump
 ex usage: `sudo crash /usr/lib/debug/boot/vmlinux-4.4.0-53-generic /var/crash/201701201431/dump.201701201431`
 Type in `log` and scroll down till the last few seconds to see the root cause
 
-## Common Various Commands
+## Common Linux Commands
 
  * `lsmod` = list current loaded modules
 http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
@@ -52,16 +51,24 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * `rsync` looks to be useful in copying files remotely and locally
  * `udhcpc -i eth0` gets new IP from dhcp server for `eth0`
  * `dmesg | grep tty` to find connected serial ports. Often virtual USB->Serial devices enumerate as ttyUSB0/ttyUSB1/etc
+ * [SysV to SysD Cheatsheet](https://fedoraproject.org/wiki/SysVinit_to_Systemd_Cheatsheet)
+
+## Utilities 
+
+disks for formatting
+
 
 ## Bash
 
  * To ignore a section of code: 
+
   ```
   : <<'END'
   <blah>
   <blah>
   END
   ```
+
  * To copy/paste pipe inside the terminal using BASH: https://stackoverflow.com/a/27456981
    - `sudo apt-get install xclip` then `xclip -sel clip < <whatever you want to copy to clipboard>
 
@@ -115,7 +122,7 @@ One solution was to add a bbappend file for the <package> that included one line
 
 ## Random
 
-## Ubuntu
+### Ubuntu
  - Chromium doesn't support panning out of the box like it does in Windows. You have to download the [AutoScroll Extension](https://chrome.google.com/webstore/detail/occjjkgifpmdgodlplnacmkejpdionan) to get the panning working with the push of the middle button
 
 ### Cryptography

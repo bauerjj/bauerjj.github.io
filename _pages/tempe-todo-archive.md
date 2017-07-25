@@ -47,10 +47,10 @@ Taco Shack - A bit of a wait, but worth it
 Boulders on Broadway - food is meh, beer is good, trivia is fun  
 Polibertos taco shop - authentic mexican. Beware of wait time  
 Los 2 Diablitos  
-Chuckbox  - Authentic, classic cheeseburgers. Get it before the building is knocked down. Crowded when school in session 
-Hurts Donughts
-Flemings - Get their sunday special of prime rid which comes with salad and dessert for only $36 each. Also, seafood tower is awesome
-The Henry - Trendy place for brunch
+Chuckbox  - Authentic, classic cheeseburgers. Get it before the building is knocked down. Crowded when school in session  
+Hurts Donughts  
+Flemings - Get their sunday special of prime rid which comes with salad and dessert for only $36 each. Also, seafood tower is awesome  
+The Henry - Trendy place for brunch  
 
 ## Leisure
 

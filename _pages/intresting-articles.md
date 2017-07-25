@@ -15,11 +15,13 @@ I'm going to dedicate this page to be a "living document" of random articles and
 
 ## Engineering
 
-- [Reverse Engineer](https://beginners.re/RE4B-EN.pdf) Extremely through guide on how to reverse engineer from looking at the disassembly of a program 
+- [How to reverse engineer from looking at the disassembly of a program](https://beginners.re/RE4B-EN.pdf)
 
 - [Software Update System for Embedded Devices (yocto)](https://github.com/sbabic/swupdate) 
 
 - [IoT Platform Called MQTT](http://mqtt.org/faq)
+
+- [Lean `awk`](https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux)
 
 ## Security
 

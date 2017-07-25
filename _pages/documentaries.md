@@ -11,10 +11,10 @@ A list of intriguing documentaries that I believe are worthwhile to watch
 
 ## Social 
 
-Water and power; the California heist  - Water == $$$
-Of Doubt - How we are all conned
-Betting on Zero - How Herbalife is a scam
+ - [Water and Power:  the California heist](http://www.imdb.com/title/tt6290202/)  Water == $$$
+ - [Merchants of Doubt](http://www.imdb.com/title/tt3675568/) - Public health research 
+ - [Betting on Zero](https://www.netflix.com/title/80108609) - How Herbalife is a scam
 
 ## Diet
 
-Sour Grapes - counterfeit wine is apparently easy to fool even the best connoisseur.  
+ - [Sour Grapes](http://www.imdb.com/title/tt5728684/) - counterfeit wine is apparently easy to fool even the best connoisseur.  
