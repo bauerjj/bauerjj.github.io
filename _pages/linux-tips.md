@@ -52,10 +52,13 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * `udhcpc -i eth0` gets new IP from dhcp server for `eth0`
  * `dmesg | grep tty` to find connected serial ports. Often virtual USB->Serial devices enumerate as ttyUSB0/ttyUSB1/etc
  * [SysV to SysD Cheatsheet](https://fedoraproject.org/wiki/SysVinit_to_Systemd_Cheatsheet)
+ * `>>` appends, use `>` for overwriting. 
+	  - Ex: Appends to text file `echo "foo" >> ~/tmp.txt`
+      - Ex: Overwrites `echo "foo" > ~/tmp.txt' 
 
 ## Utilities 
 
-disks for formatting
+`disks` for formatting
 
 
 ## Bash
