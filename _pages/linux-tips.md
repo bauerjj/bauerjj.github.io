@@ -55,6 +55,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * `>>` appends, use `>` for overwriting. 
 	  - Ex: Appends to text file `echo "foo" >> ~/tmp.txt`
       - Ex: Overwrites `echo "foo" > ~/tmp.txt' 
+ * To extract zip files: `unzip <file.zip> -d <destination>`
 
 ## Utilities 
 
