@@ -57,6 +57,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
       - Ex: Overwrites `echo "foo" > ~/tmp.txt' 
  * To extract zip files: `unzip <file.zip> -d <destination>`
  * Get the last error code `$?` 
+ * `test`
 
 ## Utilities 
 
