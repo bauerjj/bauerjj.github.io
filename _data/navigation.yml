@@ -11,10 +11,7 @@ main:
    - title: "Linux Tips"
      url: /linux-tips/    
    - title: "Stuff to do in Phoenix, AZ"
-     url: /stuff-to-do-in-phoenix/
-   - title: "Documentaries"
-     url: /documentaries/
-   - title: "Life Pro Tips"
-     url: /life-pro-tips/   
-   - title: "Web Links"
-     url: /links/      
+     url: /stuff-to-do-in-phoenix/  
+   - title: "Misc"
+     url: /misc/      
+
