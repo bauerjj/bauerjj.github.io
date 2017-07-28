@@ -19,12 +19,12 @@
 
 
 
-<title>            Installing jekyll on Linux      bauerjj.com      </title>
+<title>            Automate Jekyll Production      bauerjj.com      </title>
 
 
 
 
-<meta name="description" content="I use jekyll on some of my projects to produce a static html web page, like this one. I can easily edit the source and have an OK looking frontend without doing much CSS work. I find myself googling a few things from the errors I get inside the terminal as I try to install jekyll and all the necessary components needed to serve my web page. Here is a condensed version of what needs to be installed to have your github page served locally.">
+<meta name="description" content="The main benefit I see of using jekyll is being able to edit a plain markdown file and have it appear live on the Internet in just a few seconds. In order for this to happen, I have to perform the following:">
 
 
 
@@ -33,7 +33,7 @@
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="bauerjj.com">
-<meta property="og:title" content="Installing jekyll on Linux">
+<meta property="og:title" content="Automate Jekyll Production">
 
 
   <link rel="canonical" href="https://bauerjj.github.io/blog/install-jekyll-on-linux-(copy)/">
@@ -41,7 +41,7 @@
 
 
 
-  <meta property="og:description" content="I use jekyll on some of my projects to produce a static html web page, like this one. I can easily edit the source and have an OK looking frontend without doing much CSS work. I find myself googling a few things from the errors I get inside the terminal as I try to install jekyll and all the necessary components needed to serve my web page. Here is a condensed version of what needs to be installed to have your github page served locally.">
+  <meta property="og:description" content="The main benefit I see of using jekyll is being able to edit a plain markdown file and have it appear live on the Internet in just a few seconds. In order for this to happen, I have to perform the following:">
 
 
 
@@ -189,7 +189,7 @@
     
       
       
-        <li class="current">Installing jekyll on Linux</li>
+        <li class="current">Automate Jekyll Production</li>
       
     
   </ol>
@@ -328,15 +328,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Installing jekyll on Linux">
-    <meta itemprop="description" content="I use jekyll on some of my projects to produce a static html web page, like this one. I can easily edit the source and have an OK looking frontend without doing much CSS work. I find myself googling a few things from the errors I get inside the terminal as I try to install jekyll and all the necessary components needed to serve my web page. Here is a condensed version of what needs to be installed to have your github page served locally.">
+    <meta itemprop="headline" content="Automate Jekyll Production">
+    <meta itemprop="description" content="The main benefit I see of using jekyll is being able to edit a plain markdown file and have it appear live on the Internet in just a few seconds. In order for this to happen, I have to perform the following:">
     <meta itemprop="datePublished" content="July 27, 2017">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Installing jekyll on Linux
+          <h1 class="page__title" itemprop="headline">Automate Jekyll Production
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -344,22 +344,55 @@
 
 
 
-  less than 1 minute read
+  2 minute read
 </p>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>I use <a href="https://jekyllrb.com/docs/installation/">jekyll</a> on some of my projects to produce a static html web page, like this one. I can easily edit the source and have an OK looking frontend without doing much CSS work. I find myself googling a few things from the errors I get inside the terminal as I try to install jekyll and all the necessary components needed to serve my web page. Here is a condensed version of what needs to be installed to have your github page served locally.</p>
+        <p>The main benefit I see of using jekyll is being able to edit a plain markdown file and have it appear live on the Internet in just a few seconds. In order for this to happen, I have to perform the following:</p>
 
 <ol>
-  <li><code class="highlighter-rouge">sudo apt-get install ruby gem ruby-dev ruby-bundler zlib1g-dev nodejs</code></li>
-  <li><code class="highlighter-rouge">sudo gem install jekyll nokogiri</code></li>
-  <li><code class="highlighter-rouge">bundle install</code></li>
+  <li>Make an edit</li>
+  <li>Build the website</li>
+  <li>Commit and push the changes to <code class="highlighter-rouge">gh-pages</code> branch</li>
+  <li>Copy the contents under <code class="highlighter-rouge">_site</code> from the <code class="highlighter-rouge">gh-pages</code> folder into the <code class="highlighter-rouge">production</code> folder</li>
+  <li><code class="highlighter-rouge">CD</code> into the production-ready folder</li>
+  <li>Commit and push the changes to the <code class="highlighter-rouge">master</code> branch</li>
+  <li>Wait 5 seconds for github to publish the changes live on github.io.</li>
 </ol>
 
-<p>Finally, in your github pages repo, you can now run <code class="highlighter-rouge">bundle exec jekyll serve</code></p>
+<p>I wanted a way to automate this.</p>
+
+<p>I have to perform the above steps since I am using <a href="https://github.com/ayastreb/jekyll-maps">jekyll-maps</a> which is not one of the <a href="https://pages.github.com/versions/">approved plugins</a> that I can use on github pages. This forces me to NOT have github automatically build my jekyll site. I must therefore upload all of the static HTML content on my master branch and have my source files in a <code class="highlighter-rouge">gh-pages</code> branch. Github pages will serve the static content from the master branch live for you for free!</p>
+
+<p>I created two folders, one for production and one for source edits. I did the following after already creating the gh-pages branch previously:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">cd ~/Documents/github</code></li>
+  <li><code class="highlighter-rouge">mkdir production source</code></li>
+  <li><code class="highlighter-rouge">cd production; git pull &lt;my_git_repo&gt;.git; git checkout master</code></li>
+  <li><code class="highlighter-rouge">cd ../source; git pull &lt;my_git_repo&gt;.git; git checkout gh-pages</code></li>
+</ol>
+
+<p>I have already forked a <a href="https://github.com/mmistakes/minimal-mistakes">jekyll theme</a> that includes all of the scaffolding. I can <code class="highlighter-rouge">CD</code> into the <code class="highlighter-rouge">source</code> folder, make an edit, and push my changes. I can see the website live on my localhost by running <code class="highlighter-rouge">bundle exec jekyll serve</code>. All of the links are relative to my localhost, so I now need to <code class="highlighter-rouge">export JEKYLL_ENV=production</code> so that jekyll will produce links with my <code class="highlighter-rouge">http://bauerjj.github.io</code> baseurl.</p>
+
+<p>This is where I encounter a <a href="https://github.com/jekyll/jekyll/issues/6057">jekyll bug</a> that causes a double slash (//) in place of where a single slash should be (/). For example, links will show up as <code class="highlighter-rouge">http://bauerjj.github.io//blog</code> instead of <code class="highlighter-rouge">http://bauerjj.github.io/blog</code>. I followed this jira and its proposed solution of using <a href="https://github.com/jekyll/jekyll/pull/6058">URLFilters</a>, however I was not able to resolve my problem. I created a simple script instead that fixes the slashes in the <code class="highlighter-rouge">_site</code> directory by iteratiing through all of the files and performing a replace. My config has this: <code class="highlighter-rouge">baseurl                  : "////"</code>. Notice how I put multiple slahes. This was so that the script could look for 5 slashes and do the replace since some valid <code class="highlighter-rouge">//</code> occur such as those in an <code class="highlighter-rouge">http://</code> url.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="c"># Small script that replaces \\\\\ with a single \ </span>
+<span class="nv">FILES</span><span class="o">=</span><span class="k">$(</span>find ./ -type f -name <span class="s1">'*'</span><span class="k">)</span>
+<span class="k">for </span>file <span class="k">in</span> <span class="nv">$FILES</span>; <span class="k">do
+   </span>sed -i -e <span class="s1">'s/\/\/\/\/\//\//g'</span> <span class="nv">$file</span>
+<span class="k">done</span>
+</code></pre>
+</div>
+
+<p>I then needed a method to monitor the source directory for any changes and then commit, push, and deploy the static content up to github for me. I used <a href="https://github.com/nevik/gitwatch">gitwatch</a> and forked it so that I could customize it do run my <code class="highlighter-rouge">replace.sh</code> script, copy the static contents to my production folder, and then commit/push everything to github. You can see my simple changes to the script <a href="https://github.com/bauerjj/gitwatch/blob/master/gitwatch.sh">on my own fork</a>. Now, just execute <code class="highlighter-rouge">./gitwatch</code> and watch it do its magic whenever you edit a source file!</p>
+
+<p>Please let me know if you have any problems.</p>
+
 
         
       </section>
@@ -398,7 +431,7 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Installing jekyll on Linux https://bauerjj.github.io/blog/install-jekyll-on-linux-(copy)/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Automate Jekyll Production https://bauerjj.github.io/blog/install-jekyll-on-linux-(copy)/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=https://bauerjj.github.io/blog/install-jekyll-on-linux-(copy)/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
