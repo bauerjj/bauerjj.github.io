@@ -1,6 +1,6 @@
-//////
+//
 // Import Parser Pieces
-//////
+//
 @import "parsers/query";
 @import "parsers/single";
 @import "parsers/double";
@@ -9,9 +9,9 @@
 
 $Memo-Exists: function-exists(memo-get) and function-exists(memo-set);
 
-//////
+//
 // Breakpoint Function
-//////
+//
 @function breakpoint($query, $contexts...) {
   $run: true;
   $return: ();
@@ -102,9 +102,9 @@ $Memo-Exists: function-exists(memo-get) and function-exists(memo-set);
   @return $return;
 }
 
-//////
+//
 // General Breakpoint Parser
-//////
+//
 @function breakpoint-parse($query) {
   // Increase number of 'and' queries
   $private-breakpoint-query-count: $private-breakpoint-query-count + 1 !global;
