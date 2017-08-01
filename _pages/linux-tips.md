@@ -56,8 +56,12 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
 	  - Ex: Appends to text file `echo "foo" >> ~/tmp.txt`
       - Ex: Overwrites `echo "foo" > ~/tmp.txt' 
  * To extract zip files: `unzip <file.zip> -d <destination>`
- * Get the last error code `$?` 
- * `test`
+ * Get the last error code: `$?`
+ * Get kernel headers: `sudo apt-get update` && `sudo apt-get install linux-generic`. Note, this will only install the headers for the currently booted kernel version. You can find the files in `/lib/modules`
+ 
+
+Get the correct headers: `sudo apt-get update && sudo apt-get install linux-headers-$(uname -r)`
+
 
 ## Utilities 
 
