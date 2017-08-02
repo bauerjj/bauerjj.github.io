@@ -1,6 +1,6 @@
-//////////////////////////////
+//
 // Converts the input value to Base EMs
-//////////////////////////////
+//
 @function breakpoint-to-base-em($value) {
   $value-unit: unit($value);
 
@@ -42,9 +42,9 @@
   }
 }
 
-//////////////////////////////
+//
 // Returns whether the feature can have a min/max pair
-//////////////////////////////
+//
 $breakpoint-min-max-features: 'color',
                               'color-index',
                               'aspect-ratio',
@@ -65,9 +65,9 @@ $breakpoint-min-max-features: 'color',
   @return false;
 }
 
-//////////////////////////////
+//
 // Returns whether the feature can have a string value
-//////////////////////////////
+//
 $breakpoint-string-features:  'orientation',
                               'scan',
                               'color',
@@ -90,9 +90,9 @@ $breakpoint-string-features:  'orientation',
   @return false;
 }
 
-//////////////////////////////
+//
 // Returns whether the feature is a media type
-//////////////////////////////
+//
 $breakpoint-media-types:  'all',
                           'braille',
                           'embossed',
@@ -114,9 +114,9 @@ $breakpoint-media-types:  'all',
   @return false;
 }
 
-//////////////////////////////
+//
 // Returns whether the feature can stand alone
-//////////////////////////////
+//
 $breakpoint-single-string-features: 'color',
                                     'color-index',
                                     'grid',
@@ -131,9 +131,9 @@ $breakpoint-single-string-features: 'color',
   @return false;
 }
 
-//////////////////////////////
+//
 // Returns whether the feature
-//////////////////////////////
+//
 @function breakpoint-is-resolution($feature) {
   $resolutions: 'device-pixel-ratio', 'dpr';
 

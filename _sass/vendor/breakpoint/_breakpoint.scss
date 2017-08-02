@@ -1,6 +1,6 @@
-//////////////////////////////
+//
 // Default Variables
-//////////////////////////////
+//
 $Breakpoint-Settings: (
   'default media': all,
   'default feature': min-width,
@@ -20,9 +20,9 @@ $Breakpoint-Settings: (
 
 $breakpoint: () !default;
 
-//////////////////////////////
+//
 // Imports
-//////////////////////////////
+//
 @import "settings";
 @import "context";
 @import "helpers";
@@ -33,9 +33,9 @@ $breakpoint: () !default;
 
 @import "legacy-settings";
 
-//////////////////////////////
+//
 // Breakpoint Mixin
-//////////////////////////////
+//
 
 @mixin breakpoint($query, $no-query: false) {
   @include legacy-settings-warning;

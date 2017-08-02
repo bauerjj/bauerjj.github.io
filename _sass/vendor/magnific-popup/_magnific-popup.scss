@@ -2,7 +2,7 @@
 
 @import "settings";
 
-////////////////////////
+////
 //
 // Contents:
 //
@@ -23,13 +23,13 @@
 //    - Media query where size of arrows is reduced
 //    - IE7 support
 //
-////////////////////////
+////
 
 
 
-////////////////////////
+////
 // 1. Default Settings
-////////////////////////
+////
 
 $mfp-overlay-color:                   #0b0b0b !default;
 $mfp-overlay-opacity:                 0.8 !default;
@@ -70,9 +70,9 @@ $mfp-use-visuallyhidden:              false !default; // Hide content from brows
 
 
 
-////////////////////////
+////
 // 2. General styles
-////////////////////////
+////
 
 // Transluscent overlay
 .mfp-bg {
@@ -212,9 +212,9 @@ $mfp-use-visuallyhidden:              false !default; // Hide content from brows
 }
 
 
-////////////////////////
+////
 // 3. Appearance
-////////////////////////
+////
 
 // Preloader and text that displays error messages
 .mfp-preloader {

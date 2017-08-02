@@ -8,6 +8,7 @@ permalink: /about/
 header:
   image: /assets/images/lake.jpg
   caption: "Grandma's lake"
+
 ---
 
 My name is Justin Bauer and I'm an electrical Engineer that works mostly on software coincidently. I've spent vast more numbers of hours on a keyboard compared to that with a soldering iron or electronics in general. This website is meant to catalog technology related ideas and tips among other various topics that I think myself and other people may find useful. Most of the pages are "living documents" that I edit continuously such as places to visit in Phoenix, AZ.  
