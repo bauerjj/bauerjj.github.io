@@ -52,6 +52,14 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * `udhcpc -i eth0` gets new IP from dhcp server for `eth0`
  * `dmesg | grep tty` to find connected serial ports. Often virtual USB->Serial devices enumerate as ttyUSB0/ttyUSB1/etc
  * [SysV to SysD Cheatsheet](https://fedoraproject.org/wiki/SysVinit_to_Systemd_Cheatsheet)
+ * To open a 2-way socket connection via shell: `socat - UNIX-CONNECT:<location_of_socket>`
+ * [Reason behind `kilall -9`](https://unix.stackexchange.com/a/254506)
+
+
+### systemd
+
+ * Currently running processes: `systemctl | grep running`
+ * Show enabled processes: `systemctl list-unit-files | grep enabled`
 
 ## Utilities 
 
