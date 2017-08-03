@@ -55,6 +55,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * To open a 2-way socket connection via shell: `socat - UNIX-CONNECT:<location_of_socket>`
  * [Reason behind `kilall -9`](https://unix.stackexchange.com/a/254506)
  * `aplay -D hw:0,0 <my_file.wav>` specifies the card and device. [More Info](https://superuser.com/questions/53957/what-do-alsa-devices-like-hw0-0-mean-how-do-i-figure-out-which-to-use)
+ * Find active sshd connections with IP or other services (if running systemV): `systemctl | grep running`. [More Info](https://askubuntu.com/a/795242)
 
 
 ### systemd
