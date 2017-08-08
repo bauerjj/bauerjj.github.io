@@ -22,7 +22,9 @@
 .page-full {
   @include breakpoint($large) {
     @include span(12 of 12 last);
-    
+  /* JJB - this caused too much padding on large screens (not x-large or small)
+  /* @include prefix(0.5 of 12); 
+    @include suffix(0.5 of 12); */
   }
 
   .page__inner-wrap {
