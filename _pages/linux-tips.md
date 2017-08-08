@@ -57,6 +57,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * `aplay -D hw:0,0 <my_file.wav>` specifies the card and device. [More Info](https://superuser.com/questions/53957/what-do-alsa-devices-like-hw0-0-mean-how-do-i-figure-out-which-to-use)
  * Find active sshd connections with IP or other services (if running systemV): `systemctl | grep running`. [More Info](https://askubuntu.com/a/795242)
  * [Formatting with colors inside of bash](http://misc.flogisoft.com/bash/tip_colors_and_formatting)
+ * temp
 
 
 ### systemd
