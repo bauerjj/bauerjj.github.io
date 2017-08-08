@@ -133,13 +133,16 @@
             <li class="masthead__menu-item"><a href="https://bauerjj.github.io/about/">About</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/year-archive/">Tech Posts</a></li>
+            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/year-archive/">Posts</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://mcuhq.com">Microcontroller Stuff</a></li>
+            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/projects/">Projects</a></li>
           
             
-            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/linux-tips/">Linux Tips</a></li>
+            <li class="masthead__menu-item"><a href="http://mcuhq.com">Microcontrollers</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://bauerjj.github.io/linux-tips/">Linux</a></li>
           
             
             <li class="masthead__menu-item"><a href="https://bauerjj.github.io/stuff-to-do-in-phoenix/">Stuff to do in Phoenix, AZ</a></li>
@@ -213,7 +216,10 @@
 <ul class="toc__menu" id="markdown-toc">
   <li><a href="#jekyll" id="markdown-toc-jekyll">Jekyll</a></li>
   <li><a href="#debugging-linux-kernel" id="markdown-toc-debugging-linux-kernel">Debugging Linux Kernel</a></li>
-  <li><a href="#common-linux-commands" id="markdown-toc-common-linux-commands">Common Linux Commands</a></li>
+  <li><a href="#common-linux-commands" id="markdown-toc-common-linux-commands">Common Linux Commands</a>    <ul>
+      <li><a href="#systemd" id="markdown-toc-systemd">systemd</a></li>
+    </ul>
+  </li>
   <li><a href="#utilities" id="markdown-toc-utilities">Utilities</a></li>
   <li><a href="#bash" id="markdown-toc-bash">Bash</a></li>
   <li><a href="#yocto-stuff" id="markdown-toc-yocto-stuff">Yocto Stuff</a>    <ul>
@@ -275,6 +281,19 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
   <li><code class="highlighter-rouge">udhcpc -i eth0</code> gets new IP from dhcp server for <code class="highlighter-rouge">eth0</code></li>
   <li><code class="highlighter-rouge">dmesg | grep tty</code> to find connected serial ports. Often virtual USB-&gt;Serial devices enumerate as ttyUSB0/ttyUSB1/etc</li>
   <li><a href="https://fedoraproject.org/wiki/SysVinit_to_Systemd_Cheatsheet">SysV to SysD Cheatsheet</a></li>
+  <li>To open a 2-way socket connection via shell: <code class="highlighter-rouge">socat - UNIX-CONNECT:&lt;location_of_socket&gt;</code></li>
+  <li><a href="https://unix.stackexchange.com/a/254506">Reason behind <code class="highlighter-rouge">kilall -9</code></a></li>
+  <li><code class="highlighter-rouge">aplay -D hw:0,0 &lt;my_file.wav&gt;</code> specifies the card and device. <a href="https://superuser.com/questions/53957/what-do-alsa-devices-like-hw0-0-mean-how-do-i-figure-out-which-to-use">More Info</a></li>
+  <li>Find active sshd connections with IP or other services (if running systemV): <code class="highlighter-rouge">systemctl | grep running</code>. <a href="https://askubuntu.com/a/795242">More Info</a></li>
+  <li><a href="http://misc.flogisoft.com/bash/tip_colors_and_formatting">Formatting with colors inside of bash</a></li>
+  <li>temp</li>
+</ul>
+
+<h3 id="systemd">systemd</h3>
+
+<ul>
+  <li>Currently running processes: <code class="highlighter-rouge">systemctl | grep running</code></li>
+  <li>Show enabled processes: <code class="highlighter-rouge">systemctl list-unit-files | grep enabled</code></li>
   <li><code class="highlighter-rouge">&gt;&gt;</code> appends, use <code class="highlighter-rouge">&gt;</code> for overwriting.
     <ul>
       <li>Ex: Appends to text file <code class="highlighter-rouge">echo "foo" &gt;&gt; ~/tmp.txt</code></li>
@@ -282,9 +301,11 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
     </ul>
   </li>
   <li>To extract zip files: <code class="highlighter-rouge">unzip &lt;file.zip&gt; -d &lt;destination&gt;</code></li>
-  <li>Get the last error code <code class="highlighter-rouge">$?</code></li>
-  <li><code class="highlighter-rouge">test</code></li>
+  <li>Get the last error code: <code class="highlighter-rouge">$?</code></li>
+  <li>Get kernel headers: <code class="highlighter-rouge">sudo apt-get update</code> &amp;&amp; <code class="highlighter-rouge">sudo apt-get install linux-generic</code>. Note, this will only install the headers for the currently booted kernel version. You can find the files in <code class="highlighter-rouge">/lib/modules</code></li>
 </ul>
+
+<p>Get the correct headers: <code class="highlighter-rouge">sudo apt-get update &amp;&amp; sudo apt-get install linux-headers-$(uname -r)</code></p>
 
 <h2 id="utilities">Utilities</h2>
 
