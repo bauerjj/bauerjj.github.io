@@ -57,8 +57,17 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * `aplay -D hw:0,0 <my_file.wav>` specifies the card and device. [More Info](https://superuser.com/questions/53957/what-do-alsa-devices-like-hw0-0-mean-how-do-i-figure-out-which-to-use)
  * Find active sshd connections with IP or other services (if running systemV): `systemctl | grep running`. [More Info](https://askubuntu.com/a/795242)
  * [Formatting with colors inside of bash](http://misc.flogisoft.com/bash/tip_colors_and_formatting)
- * temp
+    - RED='\033[0;31m'
+    - GREEN='\033[0;32m'
+    - YELLOW='\033[0;33m'
+    - NC='\033[0m' # no color
+ * `set -e` causes the shell to exit if any subcommand or pipeline returns a non-zero status.
 
+
+## Git
+
+ * [Merging/rebasing](https://stackoverflow.com/questions/25933056/how-can-i-do-a-bugfix-on-master-and-integrate-it-into-my-less-stable-branches/25934341#25934341)
+ * [Pretty git branches software](https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs)
 
 ### systemd
 
