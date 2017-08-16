@@ -28,7 +28,7 @@ feature_row:
     btn_label: "Plugin Page"
     btn_class: "btn--inverse"
               
-  - image_path: /assets/images/350x250.png
+  - image_path: /assets/images/350x250.png 
     alt: "placeholder image 2"
     title: "AC Induction Motor"
     excerpt: "This is some sample content that goes here with **Markdown** formatting."
