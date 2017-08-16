@@ -216,7 +216,8 @@
 <ul class="toc__menu" id="markdown-toc">
   <li><a href="#jekyll" id="markdown-toc-jekyll">Jekyll</a></li>
   <li><a href="#debugging-linux-kernel" id="markdown-toc-debugging-linux-kernel">Debugging Linux Kernel</a></li>
-  <li><a href="#common-linux-commands" id="markdown-toc-common-linux-commands">Common Linux Commands</a>    <ul>
+  <li><a href="#common-linux-commands" id="markdown-toc-common-linux-commands">Common Linux Commands</a></li>
+  <li><a href="#git" id="markdown-toc-git">Git</a>    <ul>
       <li><a href="#systemd" id="markdown-toc-systemd">systemd</a></li>
     </ul>
   </li>
@@ -285,8 +286,22 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
   <li><a href="https://unix.stackexchange.com/a/254506">Reason behind <code class="highlighter-rouge">kilall -9</code></a></li>
   <li><code class="highlighter-rouge">aplay -D hw:0,0 &lt;my_file.wav&gt;</code> specifies the card and device. <a href="https://superuser.com/questions/53957/what-do-alsa-devices-like-hw0-0-mean-how-do-i-figure-out-which-to-use">More Info</a></li>
   <li>Find active sshd connections with IP or other services (if running systemV): <code class="highlighter-rouge">systemctl | grep running</code>. <a href="https://askubuntu.com/a/795242">More Info</a></li>
-  <li><a href="http://misc.flogisoft.com/bash/tip_colors_and_formatting">Formatting with colors inside of bash</a></li>
-  <li>temp</li>
+  <li><a href="http://misc.flogisoft.com/bash/tip_colors_and_formatting">Formatting with colors inside of bash</a>
+    <ul>
+      <li>RED=’\033[0;31m’</li>
+      <li>GREEN=’\033[0;32m’</li>
+      <li>YELLOW=’\033[0;33m’</li>
+      <li>NC=’\033[0m’ # no color</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">set -e</code> causes the shell to exit if any subcommand or pipeline returns a non-zero status.</li>
+</ul>
+
+<h2 id="git">Git</h2>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/25933056/how-can-i-do-a-bugfix-on-master-and-integrate-it-into-my-less-stable-branches/25934341#25934341">Merging/rebasing</a></li>
+  <li><a href="https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs">Pretty git branches software</a></li>
 </ul>
 
 <h3 id="systemd">systemd</h3>
