@@ -13,7 +13,7 @@ name                     : "Justin Bauer"
 description              : "Thoughts on my mind - blog - website - random"
 url                      : "https://bauerjj.github.io"
 baseurl                  : "////"
-repository               : bauerjj/bauerjj.github.io 
+repository               : bauerjj/bauerjj.github.io
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 breadcrumbs              : true 
 words_per_minute         : 200
@@ -29,14 +29,14 @@ comments:
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
 staticman:
-  allowedFields          : ['name', 'message'] 
+  allowedFields          : ['name', 'email', 'url', 'message']
   branch                 : "gh-pages"
-  commitMessage          : "New comment." 
+  commitMessage          : "New comment."
   filename               : comment-{@timestamp}
   format                 : "yml"
   moderation             : false
   path                   : "_data/comments/{options.slug}"
-  requiredFields         : ['name','message']
+  requiredFields         : ['name', 'email', 'message']
   transforms:
     email                : "md5"
   generatedFields:
