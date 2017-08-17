@@ -13,7 +13,7 @@ name                     : "Justin Bauer"
 description              : "Thoughts on my mind - blog - website - random"
 url                      : "https://bauerjj.github.io"
 baseurl                  : "////"
-repository               : bauerjj/bauerjj 
+repository               : bauerjj/bauerjj.github.io 
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 breadcrumbs              : true 
 words_per_minute         : 200
