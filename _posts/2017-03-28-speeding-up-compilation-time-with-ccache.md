@@ -4,6 +4,7 @@ title: Speeding Up Native Compiling and Cross-Compiling Time with ccache
 context: Ramblings
 date: 2017-04-13 08:03:00
 categories: blog
+comments: true
 ---
 
 It took me years to finally realize that I could greatly speed up compilation time using a utility called `ccache`. 

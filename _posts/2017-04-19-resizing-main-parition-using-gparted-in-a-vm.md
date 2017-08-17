@@ -4,6 +4,7 @@ title: Resizing Main Partition Using gparted in a VM
 context: Ramblings
 date: 2017-04-19 08:03:00
 categories: blog
+comments: true
 ---
 
 If your main partition (`/dev/sda1`) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player

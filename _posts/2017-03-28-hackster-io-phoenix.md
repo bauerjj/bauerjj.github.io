@@ -4,6 +4,7 @@ title: Hackster.io Phoenix - What Happened?
 context: Ramblings
 date: 2017-03-28 08:03:00
 categories: blog
+comments: true
 ---
 
 I attended a [meetup](https://www.meetup.com/hacksterlivephx/events/227876099/) last April (April 2016) that featured using a [Particle Photon](https://store.particle.io/collections/photon) to communicate with a simple temp sensor. I was primarily interested in meeting new people in the scene and to finally use my photon that I purchased a few months prior. 
