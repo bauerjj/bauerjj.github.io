@@ -36,9 +36,17 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
  - [Big Brother](https://www.socialcooling.com/)
  - [How cryptocurrencies work](https://www.youtube.com/watch?time_continue=741&v=bBC-nXj3Ng4)
  
-## Funny
- 
- - [facebook banner ideas](http://www.hongkiat.com/blog/creative-facebook-timeline-covers/)
+### Monero 
+
+ - [Main Page](https://bitcointalk.org/index.php?topic=583449.0)
+ - [The CryptoNote Whitepaper](https://cryptonote.org/whitepaper.pdf)
+ - [Initial Review of the CryptoNote Whitepaper](http://downloads.getmonero.org/whitepaper_review.pdf)
+ - [MRL-0001: A Note on Chain Reactions in Traceability in CryptoNote 2.0](https://lab.getmonero.org/pubs/MRL-0001.pdf)
+ - [MRL-0002: Counterfeiting via Merkle Tree Exploits within Virtual Currencies Employing the CryptoNote Protocol](https://lab.getmonero.org/pubs/MRL-0002.pdf)
+ - [MRL-0003: Monero is Not That Mysterious](https://lab.getmonero.org/pubs/MRL-0003.pdf)
+ - [MRL-0004: Improving Obfuscation in the CryptoNote Protocol](https://lab.getmonero.org/pubs/MRL-0004.pdf)
+ - [MRL-0005: Ring Signature Confidential Transactions](https://lab.getmonero.org/pubs/MRL-0005.pdf)
+
   
 ## Scams
  - [Skeptical Overview of MLM schemes](http://www.mlmwatch.org/)
