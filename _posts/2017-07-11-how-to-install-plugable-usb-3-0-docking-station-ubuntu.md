@@ -4,6 +4,7 @@ title: UD-3900 Pluggable Docking Station with Ubuntu Dual-Monitors
 context: Ramblings
 date: 2017-07-11 08:03:00
 categories: blog
+comments: true
 ---
 
 I struggled for a bit to get my [UD-3900](plugable.com/products/ud-3900/) working under Ubuntu MATE 16.04.2. Here are the steps I took:

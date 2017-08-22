@@ -4,6 +4,7 @@ title: Automate Jekyll Production
 context: Ramblings
 date: 2017-07-27 
 categories: blog
+comments: true
 ---
 
 The main benefit I see of using jekyll is being able to edit a plain markdown file and have it appear live on the Internet in just a few seconds. In order for this to happen, I have to perform the following:
