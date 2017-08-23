@@ -63,6 +63,31 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
     - NC='\033[0m' # no color
  * `set -e` causes the shell to exit if any subcommand or pipeline returns a non-zero status.
 
+### Variables and Quotes
+ * Putting spaces around equals sign (=) will cause the shell to mistake the variable name for a command name
+ * Can surround variable name with curly braces for clarity: `${myvar}
+   - `lang="dutch"
+   - `echo "I speak ${lang}" => I speak dutch
+   - `echo 'I speak ${lang}' => I speak ${lang}
+ * Back quotes, or back-ticks, are treated the same as double quotes, but they also execut contents of the string as a shell command
+   - echo "There are `wc -l < /etc/passwd` lines in the passwd file => There are 28 lines in the passwd file
+ * STDIN, STDOUT, STDERR correspond to file descriptors of 0, 1, and 2 ALWAYS
+   - Redirects both STDOUT and STDERR: `>&`
+   - Redirect only STDERR: `2>`
+   - To use the search command and ignore all ERR messages such as when running as an unprivledged user, use: `find / -name core 2> /dev/null
+ * `tee` copies input to two places, like a tee fixture in plumbing. 
+   - `find / -name core | tee /dev/tty | wc -l`: Prints both the pathnames of files named core and the number of files that were found to BOTH the terminal and tty serial output
+   - Use `tee` most often when using a command that will take a long time to run. You can preview the initial results to make sure eveyrthing is working before letting it run and save to a file. 
+ * `tail -f` wait for newlines to be printed to the end of the file and print them. Beware of buffered outputs tho
+ * `grep`
+   - -i to ignore case
+   - -l print only names of matching files rather than printing each line that matches
+   - `grep -l mdadm /var/log/*` prints log entries from `mdadm` have appeared such as `/var/log/auth.log` and `/var/log/syslog.0`
+ * `find . -type f -name '*.log' | while read fname; do echo mv $fname ${fname/log/.LOG/}; done | bash -x` finds files with matching .log extension and then ranames them all to uppercase .LOG. This prints the commands to the terminal and then executes the steps in bash. @see pg 39
+ * `$0`: name of file of script that is invoked. `$#` total of arguments supplied. 
+
+
+
 
 ## Git
 
