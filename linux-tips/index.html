@@ -216,7 +216,10 @@
 <ul class="toc__menu" id="markdown-toc">
   <li><a href="#jekyll" id="markdown-toc-jekyll">Jekyll</a></li>
   <li><a href="#debugging-linux-kernel" id="markdown-toc-debugging-linux-kernel">Debugging Linux Kernel</a></li>
-  <li><a href="#common-linux-commands" id="markdown-toc-common-linux-commands">Common Linux Commands</a></li>
+  <li><a href="#common-linux-commands" id="markdown-toc-common-linux-commands">Common Linux Commands</a>    <ul>
+      <li><a href="#variables-and-quotes" id="markdown-toc-variables-and-quotes">Variables and Quotes</a></li>
+    </ul>
+  </li>
   <li><a href="#git" id="markdown-toc-git">Git</a>    <ul>
       <li><a href="#systemd" id="markdown-toc-systemd">systemd</a></li>
     </ul>
@@ -295,6 +298,46 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
     </ul>
   </li>
   <li><code class="highlighter-rouge">set -e</code> causes the shell to exit if any subcommand or pipeline returns a non-zero status.</li>
+</ul>
+
+<h3 id="variables-and-quotes">Variables and Quotes</h3>
+<ul>
+  <li>Putting spaces around equals sign (=) will cause the shell to mistake the variable name for a command name</li>
+  <li>Can surround variable name with curly braces for clarity: `${myvar}
+    <ul>
+      <li>`lang=”dutch”</li>
+      <li>`echo “I speak ${lang}” =&gt; I speak dutch</li>
+      <li>`echo ‘I speak ${lang}’ =&gt; I speak ${lang}</li>
+    </ul>
+  </li>
+  <li>Back quotes, or back-ticks, are treated the same as double quotes, but they also execut contents of the string as a shell command
+    <ul>
+      <li>echo “There are <code class="highlighter-rouge">wc -l &lt; /etc/passwd</code> lines in the passwd file =&gt; There are 28 lines in the passwd file</li>
+    </ul>
+  </li>
+  <li>STDIN, STDOUT, STDERR correspond to file descriptors of 0, 1, and 2 ALWAYS
+    <ul>
+      <li>Redirects both STDOUT and STDERR: <code class="highlighter-rouge">&gt;&amp;</code></li>
+      <li>Redirect only STDERR: <code class="highlighter-rouge">2&gt;</code></li>
+      <li>To use the search command and ignore all ERR messages such as when running as an unprivledged user, use: `find / -name core 2&gt; /dev/null</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">tee</code> copies input to two places, like a tee fixture in plumbing.
+    <ul>
+      <li><code class="highlighter-rouge">find / -name core | tee /dev/tty | wc -l</code>: Prints both the pathnames of files named core and the number of files that were found to BOTH the terminal and tty serial output</li>
+      <li>Use <code class="highlighter-rouge">tee</code> most often when using a command that will take a long time to run. You can preview the initial results to make sure eveyrthing is working before letting it run and save to a file.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">tail -f</code> wait for newlines to be printed to the end of the file and print them. Beware of buffered outputs tho</li>
+  <li><code class="highlighter-rouge">grep</code>
+    <ul>
+      <li>-i to ignore case</li>
+      <li>-l print only names of matching files rather than printing each line that matches</li>
+      <li><code class="highlighter-rouge">grep -l mdadm /var/log/*</code> prints log entries from <code class="highlighter-rouge">mdadm</code> have appeared such as <code class="highlighter-rouge">/var/log/auth.log</code> and <code class="highlighter-rouge">/var/log/syslog.0</code></li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">find . -type f -name '*.log' | while read fname; do echo mv $fname ${fname/log/.LOG/}; done | bash -x</code> finds files with matching .log extension and then ranames them all to uppercase .LOG. This prints the commands to the terminal and then executes the steps in bash. @see pg 39</li>
+  <li><code class="highlighter-rouge">$0</code>: name of file of script that is invoked. <code class="highlighter-rouge">$#</code> total of arguments supplied.</li>
 </ul>
 
 <h2 id="git">Git</h2>
