@@ -21,6 +21,10 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [IoT Platform Called MQTT](http://mqtt.org/faq)
 - [Lean `awk`](https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux)
 
+## Web
+
+- [Pixels vs density](http://teknosrc.com/resolution-vs-pixel-density-in-displays-all-you-need-to-know/)
+
 ## Security
 
 - [USB Exploits](https://security.stackexchange.com/questions/102873/how-can-usb-sticks-be-dangerous)
