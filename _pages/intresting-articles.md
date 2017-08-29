@@ -39,6 +39,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
  - [Bitcoin Alts](http://www.investopedia.com/tech/6-most-important-cryptocurrencies-other-bitcoin/)
  - [Big Brother](https://www.socialcooling.com/)
  - [How cryptocurrencies work](https://www.youtube.com/watch?time_continue=741&v=bBC-nXj3Ng4)
+ - [Crypto Guide on all the Altcoins](https://mycrypto.guide/)
  
 ### Monero 
 
