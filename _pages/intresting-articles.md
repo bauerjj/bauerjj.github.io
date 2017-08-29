@@ -40,6 +40,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
  - [Big Brother](https://www.socialcooling.com/)
  - [How cryptocurrencies work](https://www.youtube.com/watch?time_continue=741&v=bBC-nXj3Ng4)
  - [Crypto Guide on all the Altcoins](https://mycrypto.guide/)
+ - [List of ICOs](https://www.smithandcrown.com/icos/)
  
 ### Monero 
 
