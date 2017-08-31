@@ -62,6 +62,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
     - YELLOW='\033[0;33m'
     - NC='\033[0m' # no color
  * `set -e` causes the shell to exit if any subcommand or pipeline returns a non-zero status.
+ * [Load uncompressed kernel image in ARM](http://free-electrons.com/blog/uncompressed-linux-kernel-on-arm/)
 
 ### Variables and Quotes
  * Putting spaces around equals sign (=) will cause the shell to mistake the variable name for a command name
