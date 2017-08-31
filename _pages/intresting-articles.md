@@ -57,8 +57,9 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 ## Scams
  - [Skeptical Overview of MLM schemes](http://www.mlmwatch.org/)
   
-## Investing
+## Stocks
  - [Rate Company 401k Plans](https://www.brightscope.com/ratings/)
+ - [Charts that make Technical Analysis look funny](https://pensionpartners.com/put-these-charts-on-your-wall/)
 
 # Documentaries
 
