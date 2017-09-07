@@ -130,7 +130,14 @@ Get the correct headers: `sudo apt-get update && sudo apt-get install linux-head
  * To copy/paste pipe inside the terminal using BASH: https://stackoverflow.com/a/27456981
    - `sudo apt-get install xclip` then `xclip -sel clip < <whatever you want to copy to clipboard>
 
+## vim
 
+ * To enable color highlighting, paste this into ~/.vimrc:
+   ```
+    if $COLORTERM == 'gnome-terminal'
+  		set t_Co=256
+	endif
+   ```
 
 ## Yocto Stuff
 
