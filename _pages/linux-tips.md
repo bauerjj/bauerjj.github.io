@@ -113,6 +113,7 @@ Get the correct headers: `sudo apt-get update && sudo apt-get install linux-head
 ## Utilities 
 
 `disks` for formatting
+[Unix as an IDE](https://sanctum.geek.nz/arabesque/series/unix-as-ide/)
 
 
 ## Bash
