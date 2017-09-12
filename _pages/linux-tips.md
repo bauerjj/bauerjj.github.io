@@ -114,6 +114,7 @@ Get the correct headers: `sudo apt-get update && sudo apt-get install linux-head
 
 `disks` for formatting
 [Unix as an IDE](https://sanctum.geek.nz/arabesque/series/unix-as-ide/)
+[expect programming](http://www.thegeekstuff.com/2010/10/expect-examples) for automated scripts over ssh or from std input
 
 
 ## Bash
@@ -129,6 +130,7 @@ Get the correct headers: `sudo apt-get update && sudo apt-get install linux-head
 
  * To copy/paste pipe inside the terminal using BASH: https://stackoverflow.com/a/27456981
    - `sudo apt-get install xclip` then `xclip -sel clip < <whatever you want to copy to clipboard>
+ * [usage() function example](https://stackoverflow.com/a/687820)
 
 ## vim
 
