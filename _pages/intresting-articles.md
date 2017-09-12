@@ -20,6 +20,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Software Update System for Embedded Devices (yocto)](https://github.com/sbabic/swupdate) 
 - [IoT Platform Called MQTT](http://mqtt.org/faq)
 - [Lean `awk`](https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux)
+- [101 Linux Hacks eBook](http://thegeekstuff.s3.amazonaws.com/files/linux-101-hacks.zip)
 
 ## Web
 
