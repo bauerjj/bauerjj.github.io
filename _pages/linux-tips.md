@@ -86,7 +86,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
    - `grep -l mdadm /var/log/*` prints log entries from `mdadm` have appeared such as `/var/log/auth.log` and `/var/log/syslog.0`
  * `find . -type f -name '*.log' | while read fname; do echo mv $fname ${fname/log/.LOG/}; done | bash -x` finds files with matching .log extension and then ranames them all to uppercase .LOG. This prints the commands to the terminal and then executes the steps in bash. @see pg 39
  * `$0`: name of file of script that is invoked. `$#` total of arguments supplied. 
-
+ * To convert string to all lowercase: `echo "MyStRiNG" | awk '{print tolower($0)}'`
 
 
 
@@ -114,8 +114,10 @@ Get the correct headers: `sudo apt-get update && sudo apt-get install linux-head
 
 `disks` for formatting
 [Unix as an IDE](https://sanctum.geek.nz/arabesque/series/unix-as-ide/)
+### Expect
 [expect programming](http://www.thegeekstuff.com/2010/10/expect-examples) for automated scripts over ssh or from std input
-
+[More expect programming](https://likegeeks.com/expect-command/)
+[All available commands](https://www.tcl.tk/man/expect5.31/expect.1.html)
 
 ## Bash
 
