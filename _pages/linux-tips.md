@@ -87,6 +87,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * `find . -type f -name '*.log' | while read fname; do echo mv $fname ${fname/log/.LOG/}; done | bash -x` finds files with matching .log extension and then ranames them all to uppercase .LOG. This prints the commands to the terminal and then executes the steps in bash. @see pg 39
  * `$0`: name of file of script that is invoked. `$#` total of arguments supplied. 
  * To convert string to all lowercase: `echo "MyStRiNG" | awk '{print tolower($0)}'`
+ * If you want to remount a fs from read-only to RW, do: `mount -orw,remount /dev/root`
 
 
 
