@@ -91,10 +91,14 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
 
 
 
-## Git
+### Git
 
  * [Merging/rebasing](https://stackoverflow.com/questions/25933056/how-can-i-do-a-bugfix-on-master-and-integrate-it-into-my-less-stable-branches/25934341#25934341)
  * [Pretty git branches software](https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs)
+
+### svn
+ * View externals URLs `svn propget -R svn:externals`
+ * Setup an external `svn propset svn:externals 'myExternalFolderDestination <my_url>'`
 
 ### systemd
 
@@ -116,9 +120,10 @@ Get the correct headers: `sudo apt-get update && sudo apt-get install linux-head
 `disks` for formatting
 [Unix as an IDE](https://sanctum.geek.nz/arabesque/series/unix-as-ide/)
 ### Expect
-[expect programming](http://www.thegeekstuff.com/2010/10/expect-examples) for automated scripts over ssh or from std input
-[More expect programming](https://likegeeks.com/expect-command/)
-[All available commands](https://www.tcl.tk/man/expect5.31/expect.1.html)
+ * [expect programming](http://www.thegeekstuff.com/2010/10/expect-examples) for automated scripts over ssh or from std input
+ * [More expect programming](https://likegeeks.com/expect-command/)
+ * [All available commands](https://www.tcl.tk/man/expect5.31/expect.1.html)
+ * `#!/usr/bin/expect -d` for debugging
 
 ## Bash
 
