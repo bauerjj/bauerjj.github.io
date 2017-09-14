@@ -224,8 +224,12 @@
       <li><a href="#systemd" id="markdown-toc-systemd">systemd</a></li>
     </ul>
   </li>
-  <li><a href="#utilities" id="markdown-toc-utilities">Utilities</a></li>
+  <li><a href="#utilities" id="markdown-toc-utilities">Utilities</a>    <ul>
+      <li><a href="#expect" id="markdown-toc-expect">Expect</a></li>
+    </ul>
+  </li>
   <li><a href="#bash" id="markdown-toc-bash">Bash</a></li>
+  <li><a href="#vim" id="markdown-toc-vim">vim</a></li>
   <li><a href="#yocto-stuff" id="markdown-toc-yocto-stuff">Yocto Stuff</a>    <ul>
       <li><a href="#yocto-errors" id="markdown-toc-yocto-errors">Yocto Errors</a>        <ul>
           <li><a href="#error-filesdirectories-were-installed-but-not-shipped-in-any-package-xxx" id="markdown-toc-error-filesdirectories-were-installed-but-not-shipped-in-any-package-xxx">Error: “Files/directories were installed, but not shipped in any package: xxx”</a></li>
@@ -339,6 +343,8 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
   </li>
   <li><code class="highlighter-rouge">find . -type f -name '*.log' | while read fname; do echo mv $fname ${fname/log/.LOG/}; done | bash -x</code> finds files with matching .log extension and then ranames them all to uppercase .LOG. This prints the commands to the terminal and then executes the steps in bash. @see pg 39</li>
   <li><code class="highlighter-rouge">$0</code>: name of file of script that is invoked. <code class="highlighter-rouge">$#</code> total of arguments supplied.</li>
+  <li>To convert string to all lowercase: <code class="highlighter-rouge">echo "MyStRiNG" | awk '{print tolower($0)}'</code></li>
+  <li>If you want to remount a fs from read-only to RW, do: <code class="highlighter-rouge">mount -orw,remount /dev/root</code></li>
 </ul>
 
 <h2 id="git">Git</h2>
@@ -370,6 +376,10 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
 
 <p><code class="highlighter-rouge">disks</code> for formatting
 <a href="https://sanctum.geek.nz/arabesque/series/unix-as-ide/">Unix as an IDE</a></p>
+<h3 id="expect">Expect</h3>
+<p><a href="http://www.thegeekstuff.com/2010/10/expect-examples">expect programming</a> for automated scripts over ssh or from std input
+<a href="https://likegeeks.com/expect-command/">More expect programming</a>
+<a href="https://www.tcl.tk/man/expect5.31/expect.1.html">All available commands</a></p>
 
 <h2 id="bash">Bash</h2>
 
@@ -389,6 +399,19 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
     <ul>
       <li><code class="highlighter-rouge">sudo apt-get install xclip</code> then `xclip -sel clip &lt; <whatever you="" want="" to="" copy="" clipboard=""></whatever></li>
     </ul>
+  </li>
+  <li><a href="https://stackoverflow.com/a/687820">usage() function example</a></li>
+</ul>
+
+<h2 id="vim">vim</h2>
+
+<ul>
+  <li>To enable color highlighting, paste this into ~/.vimrc:
+    <div class="highlighter-rouge"><pre class="highlight"><code> if $COLORTERM == 'gnome-terminal'
+  		set t_Co=256
+ endif
+</code></pre>
+    </div>
   </li>
 </ul>
 
