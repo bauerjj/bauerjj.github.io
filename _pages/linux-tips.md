@@ -70,6 +70,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
     * `xprop WM_CLASS`
     * *click on window* *see output*. That output will show executable name of that window! No more running top to try and discern the actual process name!
  * Use `xdg-open` to open any file using its default handler (ex: `xdg-open mytext.txt` will use default text viewer)
+ * Use the [online debian package search](https://packages.debian.org/search?searchon=contents&keywords=sdl-config) to find how to spell the special debian package that contains what you need
 
 
 
