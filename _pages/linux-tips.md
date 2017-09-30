@@ -71,6 +71,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
     * *click on window* *see output*. That output will show executable name of that window! No more running top to try and discern the actual process name!
  * Use `xdg-open` to open any file using its default handler (ex: `xdg-open mytext.txt` will use default text viewer)
  * Use the [online debian package search](https://packages.debian.org/search?searchon=contents&keywords=sdl-config) to find how to spell the special debian package that contains what you need
+ * An equivalent of `dd if=/dev/zero` is: `tr '\0' '\377' < /dev/zero | dd bs=64K of=/dev/sdx` from [source](https://stackoverflow.com/questions/10905062/how-do-i-get-an-equivalent-of-dev-one-in-linux)
 
 
 
