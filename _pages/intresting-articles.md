@@ -42,6 +42,11 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
  - [How cryptocurrencies work](https://www.youtube.com/watch?time_continue=741&v=bBC-nXj3Ng4)
  - [Crypto Guide on all the Altcoins](https://mycrypto.guide/)
  - [List of ICOs](https://www.smithandcrown.com/icos/)
+
+> Currencies have two purposes:
+> Medium of exchange
+> Store of value
+> Inflationary currencies are well suited to #1, deflationary currencies are well suited to #2.
  
 ### Monero 
 
