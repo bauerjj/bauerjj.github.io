@@ -51,6 +51,7 @@ Chuckbox  - Authentic, classic cheeseburgers. Get it before the building is knoc
 Hurts Donughts  
 Flemings - Get their sunday special of prime rid which comes with salad and dessert for only $36 each. Also, seafood tower is awesome  
 The Henry - Trendy place for brunch  
+El Paisano - Awesome place for huge burritos. Sketchy outside though. 
 
 ## Leisure
 

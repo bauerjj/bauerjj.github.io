@@ -193,6 +193,8 @@ bitbake-layers show-appends shows all of the .bbappend files
  * clean: Removes all output files for a target 
  * cleansstate:Removes all output files and shared state (sstate) cache for a target
  * cleanall: Removes all output files, shared state (sstate) cache, and downloaded source files for a target
+ * Search for the manifest file inside of the deploy folder to figure out which packages have been included in the image
+ * Show all available recipes: bitbake-layers show-recipes
 
 ### Yocto Errors
 
