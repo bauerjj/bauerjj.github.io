@@ -42,6 +42,9 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
  - [How cryptocurrencies work](https://www.youtube.com/watch?time_continue=741&v=bBC-nXj3Ng4)
  - [Crypto Guide on all the Altcoins](https://mycrypto.guide/)
  - [List of ICOs](https://www.smithandcrown.com/icos/)
+ - [Counter to SegWit2x](https://medium.com/@thepiratewhocantbenamed/my-thoughts-on-your-thoughts-17474d800dda)
+
+>The higher the cost of running a validating node gets, the higher the total percentage of Bitcoin users forced to use Bitcoin as a trusted system gets. And the less people decide what the rules of that system are.
 
 > Currencies have two purposes:
 > Medium of exchange

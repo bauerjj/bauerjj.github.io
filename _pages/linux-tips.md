@@ -73,6 +73,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * Use the [online debian package search](https://packages.debian.org/search?searchon=contents&keywords=sdl-config) to find how to spell the special debian package that contains what you need
  * An equivalent of `dd if=/dev/zero` is: `tr '\0' '\377' < /dev/zero | dd bs=64K of=/dev/sdx` from [source](https://stackoverflow.com/questions/10905062/how-do-i-get-an-equivalent-of-dev-one-in-linux)
  * [How to use tar and gzip](https://www.crybit.com/difference-between-tar-and-gzip/)
+ * > A block device is a special file that refers to a device. A block special file is normally distinguished from a character special file by providing access to the device in a manner such that the hardware characteristics of the device are not visible.
 
 
 
