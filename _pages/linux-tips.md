@@ -195,6 +195,8 @@ bitbake-layers show-appends shows all of the .bbappend files
  * cleanall: Removes all output files, shared state (sstate) cache, and downloaded source files for a target
  * Search for the manifest file inside of the deploy folder to figure out which packages have been included in the image
  * Show all available recipes: bitbake-layers show-recipes
+ * `TOOLCHAIN_HOST_TASK` and `TOOLCHAIN_TARGET_TASK` variables can be modified to include packages that can run on host or target inside the SDK when you run `bitbake -c populate_sdk`
+ * `IMAGE_FEATURES` in the mega-manual lists what available options there are for this
 
 ### Yocto Errors
 
