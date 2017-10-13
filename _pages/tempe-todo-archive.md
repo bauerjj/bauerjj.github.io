@@ -52,6 +52,8 @@ Hurts Donughts
 Flemings - Get their sunday special of prime rid which comes with salad and dessert for only $36 each. Also, seafood tower is awesome  
 The Henry - Trendy place for brunch  
 El Paisano - Awesome place for huge burritos. Sketchy outside though. 
+Applebees on corner of rural in tempe - dollar marghareitas
+Macayo's - Try to sit on their patio that overlooks a nice pond
 
 ## Leisure
 

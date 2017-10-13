@@ -197,6 +197,16 @@ bitbake-layers show-appends shows all of the .bbappend files
  * Show all available recipes: bitbake-layers show-recipes
  * `TOOLCHAIN_HOST_TASK` and `TOOLCHAIN_TARGET_TASK` variables can be modified to include packages that can run on host or target inside the SDK when you run `bitbake -c populate_sdk`
  * `IMAGE_FEATURES` in the mega-manual lists what available options there are for this
+ * Add the following to your `local.conf` to add build history and package size information for images:
+	```
+	INHERIT += "buildhistory"
+	BUILDHISTORY_COMMIT = "1"
+	```
+### Docs
+
+[Users Guide](http://www.bcmcom.com/CustomerDL/AR6MXCS/Freescale_Yocto_Project_User's_Guide.pdf)
+[Mega Manual]
+
 
 ### Yocto Errors
 
