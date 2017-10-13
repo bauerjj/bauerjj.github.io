@@ -8,11 +8,11 @@ comments: true
 ---
 
 
+I needed to plot a vector diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+
+
 ![Vector Diagram in Qt QML](/assets/images/polar_chart.gif)
 
-I needed to plot vector diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+
-
-It uses [Context2D](http://doc.qt.io/qt-5/qml-qtquick-context2d.html) object to grab the context and draw simple lines along with the arrow head. I override the `onPaint` method. I use some trigonometry to calculate the length and displacement of each vector. There is a dynamically loaded `Text` element where I place descriptive text such as "V1" or "I1" to designate voltage or current. There is a timer that rotates through its full range of motion for testing purposes. 
+It uses the [Context2D](http://doc.qt.io/qt-5/qml-qtquick-context2d.html) object to grab the context and draw vectors along with the arrow head. I override the `onPaint` method to perform all of the math and drawing required. The graph does not appear to cause any performance issues on an iMX6Q processor. I use some trigonometry to calculate the length and displacement of each vector. There is a dynamically loaded `Text` element where I place descriptive text such as "V1" or "I1" to designate voltage or current. There is also a timer that increments the angles through its full range of motion for testing purposes. 
  
 I included a few links at the top of the source that helped me with the mathematics. Please let me know if you have any questions.
 
