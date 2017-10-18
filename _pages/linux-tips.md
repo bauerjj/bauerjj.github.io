@@ -74,6 +74,10 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * An equivalent of `dd if=/dev/zero` is: `tr '\0' '\377' < /dev/zero | dd bs=64K of=/dev/sdx` from [source](https://stackoverflow.com/questions/10905062/how-do-i-get-an-equivalent-of-dev-one-in-linux)
  * [How to use tar and gzip](https://www.crybit.com/difference-between-tar-and-gzip/)
  * > A block device is a special file that refers to a device. A block special file is normally distinguished from a character special file by providing access to the device in a manner such that the hardware characteristics of the device are not visible.
+ * CPPFLAGS is supposed to be for flags for the C PreProcessor; CXXFLAGS is for flags for the C++ compiler. The default rules in make (on my machine, at any rate) pass CPPFLAGS to just about everything, CFLAGS is only passed when compiling and linking C, and CXXFLAGS is only passed when compiling and linking C++
+ * You can always remount the fs RW with `mount -orw,remount /dev/root`
+ * [Sending stdout to multiple commands](https://unix.stackexchange.com/questions/28503/how-can-i-send-stdout-to-multiple-commands)
+	* `grep --color=always --exclude-dir=".svn" --exclude-dir=".git" -rnw ./ -e "armadillo-image-install" -l | tee >(wc -l)`
 
 
 
@@ -201,6 +205,7 @@ bitbake-layers show-appends shows all of the .bbappend files
 	```
 	INHERIT += "buildhistory"
 	BUILDHISTORY_COMMIT = "1"
+ *  `export BB_NUMBER_THREADS=7` will take advantage of more cores. You can also set this inside of your `local.conf`
 	```
 ### Docs
 

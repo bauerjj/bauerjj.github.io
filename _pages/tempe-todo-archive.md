@@ -60,6 +60,7 @@ Macayo's - Try to sit on their patio that overlooks a nice pond
 Tortilla Flats - Decent restauarnt, but mostly it is a nice scenic drive  
 Casino Arizona, Talking stick, etc  
 Jesterz
+Korean Karokee - Group singing. Only go during off-peak hours or it gets real pricey. 
 
 ## Non-phx places
 
