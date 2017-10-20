@@ -19,12 +19,12 @@
 
 
 
-<title>            Automate Jekyll Production      bauerjj.com      </title>
+<title>            Vector Diagram in Qt QML      bauerjj.com      </title>
 
 
 
 
-<meta name="description" content="The main benefit I see of using jekyll is being able to edit a plain markdown file and have it appear live on the Internet in just a few seconds. In order for this to happen, I have to perform the following:">
+<meta name="description" content="I needed to plot a vector diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+">
 
 
 
@@ -33,15 +33,15 @@
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="bauerjj.com">
-<meta property="og:title" content="Automate Jekyll Production">
+<meta property="og:title" content="Vector Diagram in Qt QML">
 
 
-  <link rel="canonical" href="https://bauerjj.github.io/blog/automate-jekyll-production/">
-  <meta property="og:url" content="https://bauerjj.github.io/blog/automate-jekyll-production/">
+  <link rel="canonical" href="https://bauerjj.github.io/blog/vector-diagram-in-qt/">
+  <meta property="og:url" content="https://bauerjj.github.io/blog/vector-diagram-in-qt/">
 
 
 
-  <meta property="og:description" content="The main benefit I see of using jekyll is being able to edit a plain markdown file and have it appear live on the Internet in just a few seconds. In order for this to happen, I have to perform the following:">
+  <meta property="og:description" content="I needed to plot a vector diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+">
 
 
 
@@ -56,7 +56,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-07-27T00:00:00-07:00">
+  <meta property="article:published_time" content="2017-10-12T00:00:00-07:00">
 
 
 
@@ -192,7 +192,7 @@
     
       
       
-        <li class="current">Automate Jekyll Production</li>
+        <li class="current">Vector Diagram in Qt QML</li>
       
     
   </ol>
@@ -331,15 +331,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Automate Jekyll Production">
-    <meta itemprop="description" content="The main benefit I see of using jekyll is being able to edit a plain markdown file and have it appear live on the Internet in just a few seconds. In order for this to happen, I have to perform the following:">
-    <meta itemprop="datePublished" content="July 27, 2017">
+    <meta itemprop="headline" content="Vector Diagram in Qt QML">
+    <meta itemprop="description" content="I needed to plot a vector diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+">
+    <meta itemprop="datePublished" content="October 12, 2017">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Automate Jekyll Production
+          <h1 class="page__title" itemprop="headline">Vector Diagram in Qt QML
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -347,54 +347,338 @@
 
 
 
-  2 minute read
+  5 minute read
 </p>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>The main benefit I see of using jekyll is being able to edit a plain markdown file and have it appear live on the Internet in just a few seconds. In order for this to happen, I have to perform the following:</p>
+        <p>I needed to plot a vector diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+</p>
 
-<ol>
-  <li>Make an edit</li>
-  <li>Build the website</li>
-  <li>Commit and push the changes to <code class="highlighter-rouge">gh-pages</code> branch</li>
-  <li>Copy the contents under <code class="highlighter-rouge">_site</code> from the <code class="highlighter-rouge">gh-pages</code> folder into the <code class="highlighter-rouge">production</code> folder</li>
-  <li><code class="highlighter-rouge">CD</code> into the production-ready folder</li>
-  <li>Commit and push the changes to the <code class="highlighter-rouge">master</code> branch</li>
-  <li>Wait 5 seconds for github to publish the changes live on github.io.</li>
-</ol>
+<p><img src="/assets/images/polar_chart.gif" alt="Vector Diagram in Qt QML" /></p>
 
-<p>I wanted a way to automate this.</p>
+<p>It uses the <a href="http://doc.qt.io/qt-5/qml-qtquick-context2d.html">Context2D</a> object to grab the context and draw vectors along with the arrow head. I override the <code class="highlighter-rouge">onPaint</code> method to perform all of the math and drawing required. The graph does not appear to cause any performance issues on an iMX6Q processor. I use some trigonometry to calculate the length and displacement of each vector. There is a dynamically loaded <code class="highlighter-rouge">Text</code> element where I place descriptive text such as “V1” or “I1” to designate voltage or current. There is also a timer that increments the angles through its full range of motion for testing purposes.</p>
 
-<p>I have to perform the above steps since I am using <a href="https://github.com/ayastreb/jekyll-maps">jekyll-maps</a> which is not one of the <a href="https://pages.github.com/versions/">approved plugins</a> that I can use on github pages. This forces me to NOT have github automatically build my jekyll site. I must therefore upload all of the static HTML content on my master branch and have my source files in a <code class="highlighter-rouge">gh-pages</code> branch. Github pages will serve the static content from the master branch live for you for free!</p>
+<p>I included a few links at the top of the source that helped me with the mathematics. Please let me know if you have any questions.</p>
 
-<p>I created two folders, one for production and one for source edits. I did the following after already creating the gh-pages branch previously:</p>
+<h3 id="vectordiaqml">VectorDia.qml</h3>
 
-<ol>
-  <li><code class="highlighter-rouge">cd ~/Documents/github</code></li>
-  <li><code class="highlighter-rouge">mkdir production source</code></li>
-  <li><code class="highlighter-rouge">cd production; git pull &lt;my_git_repo&gt;.git; git checkout master</code></li>
-  <li><code class="highlighter-rouge">cd ../source; git pull &lt;my_git_repo&gt;.git; git checkout gh-pages</code></li>
-</ol>
+<div class="highlighter-rouge"><pre class="highlight"><code>import QtQuick 2.0
+import "qrc:/utility"
 
-<p>I have already forked a <a href="https://github.com/mmistakes/minimal-mistakes">jekyll theme</a> that includes all of the scaffolding. I can <code class="highlighter-rouge">CD</code> into the <code class="highlighter-rouge">source</code> folder, make an edit, and push my changes. I can see the website live on my localhost by running <code class="highlighter-rouge">bundle exec jekyll serve</code>. All of the links are relative to my localhost, so I now need to <code class="highlighter-rouge">export JEKYLL_ENV=production</code> so that jekyll will produce links with my <code class="highlighter-rouge">http://bauerjj.github.io</code> baseurl.</p>
+/*
+ * Inspiration:
+ *
+ *   https://woboq.com/blog/animations-using-the-qtquick-canvas.html
+ *   http://stackoverflow.com/questions/26044801/draw-na-arc-circle-sector-in-qml
+ *   https://forum.qt.io/topic/56628/qml-canvas-dashed-dotted-lines/2
+*/
 
-<p>This is where I encounter a <a href="https://github.com/jekyll/jekyll/issues/6057">jekyll bug</a> that causes a double slash (//) in place of where a single slash should be (/). For example, links will show up as <code class="highlighter-rouge">http://bauerjj.github.io//blog</code> instead of <code class="highlighter-rouge">http://bauerjj.github.io/blog</code>. I followed <a href="https://github.com/jekyll/jekyll/issues/6057">jira 6057</a> and its proposed solution of using <a href="https://github.com/jekyll/jekyll/pull/6058">URLFilters</a>, however I was not able to resolve my problem. I created a simple script instead that fixes the slashes in the <code class="highlighter-rouge">_site</code> directory by iteratiing through all of the files and performing a replace. My config has this: <code class="highlighter-rouge">baseurl                  : "////"</code>. Notice how I put multiple slahes. This was so that the script could look for 5 slashes and do the replace since some valid <code class="highlighter-rouge">//</code> occur such as those in an <code class="highlighter-rouge">http://</code> url.</p>
+Canvas {
+    id: canvas
+    width: 480
+    height: 272 - 20
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="c"># Small script that replaces \\\\\ with a single \ </span>
-<span class="nv">FILES</span><span class="o">=</span><span class="k">$(</span>find ./ -type f -name <span class="s1">'*'</span><span class="k">)</span>
-<span class="k">for </span>file <span class="k">in</span> <span class="nv">$FILES</span>; <span class="k">do
-   </span>sed -i -e <span class="s1">'s/\/\/\/\/\//\//g'</span> <span class="nv">$file</span>
-<span class="k">done</span>
+    signal rightMove()
+    signal leftMove()
+    signal loaded()
+
+    Component.onCompleted: {
+        canvas.onLoaded()
+    }
+
+    property int vVectorLength: 90
+    property int iVectorLength: (.75 * vVectorLength)
+    property real start_x: width/2
+    property real start_y: 15
+    property real end_x: width/2
+    property real end_y: height - 15
+    property bool dashed: true
+    property real dash_length: 3
+    property real dash_space: 4
+    property real line_width: 0.9
+    property real stipple_length: (dash_length + dash_space) &gt; 0 ? (dash_length + dash_space) : 16
+    property color draw_color: "black"
+
+    property variant vectors: [0,30,120,120,240,210] // test vectors
+
+    property variant alt: [0,0,0,0,0,0]
+    property int i: 0
+
+    property var comp;
+    property   var text;
+
+
+    Timer{ // test timer to paint random stuff
+        interval: 500; running: true; repeat: true;
+        onTriggered: {
+            canvas.requestPaint()
+        }
+    }
+
+
+
+
+    onPaint: {
+        // Get the drawing context
+        var ctx = canvas.getContext('2d')
+        canvas.i = 0;
+        for(var j = 0; j &lt;canvas.alt.length; j++){
+            if(alt[j]!== 0)
+                alt[j].destroy();
+        }
+
+        ctx.fillStyle = "#ffffff"; // "erase" the previously drawn stuff
+        ctx.fillRect(0,0,canvas.width,canvas.height,"#000000")
+
+        // set line color
+        ctx.strokeStyle = draw_color;
+        ctx.lineWidth = line_width;
+        ctx.beginPath();
+
+
+        var centreX = canvas.width / 2;
+        var centreY = canvas.height / 2;
+
+        // draw the circle
+        ctx.beginPath();
+        ctx.lineWidth = 2
+        ctx.fillStyle = "black";
+        ctx.arc(centreX, centreY, (width / 4) - 10, 0, Math.PI * 2, false);
+        ctx.stroke();
+
+        // make the dashed lines
+        drawDashed(ctx,start_x, start_y, end_x, end_y);
+        drawDashed(ctx,130, height/2, width - 130, height/2);
+
+        // draw the vectors
+        drawVector(ctx, true, 1, vectors[0], "V&lt;sub&gt;1&lt;/sub&gt;");
+        drawVector(ctx, false, 1, vectors[1], "I&lt;sub&gt;1&lt;/sub&gt;");
+        drawVector(ctx, true, 2, vectors[2], "V&lt;sub&gt;2&lt;/sub&gt;");
+        drawVector(ctx, false, 2, vectors[3], "I&lt;sub&gt;2&lt;/sub&gt;");
+        drawVector(ctx, true, 3, vectors[4], "V&lt;sub&gt;3&lt;/sub&gt;");
+        drawVector(ctx, false, 3, vectors[5], "I&lt;sub&gt;3&lt;/sub&gt;");
+
+        var i;
+        for(i = 0; i &lt; vectors.length; i++){
+            vectors[i] += 5; // add some degrees for demo
+            if(vectors[i] &gt; 360)
+                vectors[i] -= 360
+        }
+
+    }
+
+    // QML Math library uses radians and not degrees
+    function degToRad(deg){
+        return deg * (Math.PI/180);
+    }
+
+
+
+
+    function drawVector(ctx, isVoltage, phase, angle, label){ // no guards in place for parameters
+
+        var centreX = canvas.width / 2;
+        var centreY = canvas.height / 2;
+        var vectorLength = isVoltage === true ? vVectorLength : iVectorLength; // current and voltage vectors diff length
+        var color; // line color determined from which vector is being drawn
+
+        if(phase === 1)
+            color = "red";
+        else if(phase === 2)
+            color = "#e5e500";
+        else if(phase === 3)
+            color = "green";
+        else
+            color = "black";
+
+
+        // draw the line
+        ctx.strokeStyle = color;
+        ctx.fillStyle= color;
+        ctx.beginPath()
+        var x = Math.cos(degToRad(angle)) * vectorLength;
+        var y = Math.sin(degToRad(angle)) * vectorLength;
+        ctx.moveTo(centreX, centreY)
+        ctx.lineTo(x + centreX, y + centreY);
+        ctx.stroke();
+
+        // now draw the triangle
+        // Derive the two points that make the triangle from the center point
+        // by making a slighly short radius at a few degrees to the left and right
+        // from the center point
+        ctx.beginPath();
+        var triCenterX = x + centreX;
+        var triCenterY = y + centreY
+        var leftX = Math.cos(degToRad(angle + 3)) * (vectorLength - 7);
+        var leftY = Math.sin(degToRad(angle + 3)) * (vectorLength - 7);
+        var rightX = Math.cos(degToRad(angle - 3)) * (vectorLength - 7);
+        var rightY = Math.sin(degToRad(angle - 3)) * (vectorLength - 7);
+
+        ctx.moveTo(triCenterX,triCenterY);
+        ctx.lineTo(leftX + centreX, leftY + centreY);
+        ctx.lineTo(rightX + centreX, rightY + centreY);
+        ctx.closePath();
+        ctx.fill(); // fill the triangle
+
+
+        comp = Qt.createComponent("qrc:/utility/MyLabel.qml")
+
+        if (comp.status === Component.Ready)
+            finishCreation(angle,label,triCenterX,triCenterY);
+        else
+            comp.statusChanged.connect(finishCreation(angle,label,triCenterX,triCenterY));
+
+    }
+
+    // Now draw the text next to the arrows
+    // Check which of the 4 quadrants we are in so that text placement
+    // is optimal
+    function finishCreation(angle,label,triCenterX,triCenterY) {
+        if (comp.status === Component.Ready) {
+
+            if(angle &gt; 180 &amp;&amp; angle &lt; 360 )
+                text = comp.createObject(canvas,{"x": triCenterX , "y": triCenterY -15});
+               // text = comp.createObject(canvas,{"x": triCenterX, "y": triCenterY - 15});
+            //if(angle &gt; 270 &amp;&amp; angle &lt;= 360 )
+              //  text = comp.createObject(canvas,{"x": triCenterX + 10, "y": triCenterY - 15});
+            else //if(angle &gt; 0 &amp;&amp; angle &lt;= 180 )
+                text = comp.createObject(canvas,{"x": triCenterX, "y": triCenterY + 2});
+            text.name = label;
+
+            canvas.alt[canvas.i++] = text;
+
+            if (text === null) {
+                // Error Handling
+                console.log("Error creating object");
+            }
+        } else if (comp.status === Component.Error) {
+            // Error Handling
+            console.log("Error loading component:", comp.errorString());
+        }
+    }
+
+
+    function drawDashed(ctx,startX, startY, endX, endY){
+        // make the dashed line
+        var dashLen = stipple_length;
+        var dX = endX - startX;
+        var dY = endY - startY;
+        var dashes = Math.floor(Math.sqrt(dX * dX + dY * dY) / dashLen);
+
+        if (dashes == 0)
+        {
+            dashes = 1;
+        }
+        var dash_to_length = dash_length/dashLen
+        var space_to_length = 1 - dash_to_length
+        var dashX = dX / dashes;
+        var dashY = dY / dashes;
+        var x1 = startX;
+        var y1 = startY;
+
+        ctx.moveTo(x1,y1);
+
+        var q = 0;
+        while (q++ &lt; dashes) {
+            x1 += dashX*dash_to_length;
+            y1 += dashY*dash_to_length;
+            ctx.lineTo(x1, y1);
+            x1 += dashX*space_to_length;
+            y1 += dashY*space_to_length;
+            ctx.moveTo(x1, y1);
+
+        }
+        ctx.stroke();
+    }
+
+    Text {
+        id: text1
+        x: 100
+        y: 119
+        text: qsTr("180°")
+        font.pixelSize: 10
+    }
+
+    Text {
+        id: text2
+        x: 355
+        y: 119
+        width: 20
+        height: 12
+        text: qsTr("0°")
+        font.pixelSize: 10
+    }
+
+    Text {
+        id: text3
+        x: 231
+        y: 239
+        text: qsTr("-90°")
+        font.pixelSize: 10
+    }
+
+
+
+    Text {
+        id: text4
+        x: 233
+        y: 2
+        text: qsTr("90°")
+        font.pixelSize: 10
+    }
+
+
+    Text {
+        id: update
+        x: 8
+        y: 13
+        text: qsTr("|")
+        font.pixelSize: 20
+        //verticalAlignment: Text.verticalCenter
+        horizontalAlignment: Text.horizontalCenter
+    }
+
+    Timer{
+        interval: 500 //500ms
+        repeat: true
+        running: true
+        onTriggered: {
+            if(update.text == "|")
+                update.text = "/";
+            else if(update.text == "/")
+                update.text = "--";
+            else if(update.text == "--")
+                update.text = "\\"
+            else if(update.text == "\\")
+                update.text = "|"
+
+        }
+    }
+
+
+}
 </code></pre>
 </div>
 
-<p>I then needed a method to monitor the source directory for any changes and then commit, push, and deploy the static content up to github for me. I used <a href="https://github.com/nevik/gitwatch">gitwatch</a> and forked it so that I could customize it do run my <code class="highlighter-rouge">replace.sh</code> script, copy the static contents to my production folder, and then commit/push everything to github. You can see my simple changes to the script <a href="https://github.com/bauerjj/gitwatch/blob/master/gitwatch.sh">on my own fork</a>. Now, just execute <code class="highlighter-rouge">./gitwatch</code> and watch it do its magic whenever you edit a source file!</p>
+<h3 id="mylabelqml">MyLabel.qml</h3>
 
-<p>Please let me know if you have any problems.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>import QtQuick 2.0
+
+Text{
+    id: textId
+    property string name: "";
+    text: textId.name
+    textFormat: Text.RichText
+    font.pixelSize: 12
+
+    function destoryMe(){
+        textId.destory()
+    }
+}
+</code></pre>
+</div>
 
 
         
@@ -425,7 +709,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-07-27T00:00:00-07:00">July 27, 2017</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-10-12T00:00:00-07:00">October 12, 2017</time></p>
         
       </footer>
 
@@ -434,24 +718,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Automate Jekyll Production https://bauerjj.github.io/blog/automate-jekyll-production/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Vector Diagram in Qt QML https://bauerjj.github.io/blog/vector-diagram-in-qt/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://bauerjj.github.io/blog/automate-jekyll-production/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://bauerjj.github.io/blog/vector-diagram-in-qt/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=https://bauerjj.github.io/blog/automate-jekyll-production/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=https://bauerjj.github.io/blog/vector-diagram-in-qt/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://bauerjj.github.io/blog/automate-jekyll-production/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://bauerjj.github.io/blog/vector-diagram-in-qt/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="https://bauerjj.github.io/blog/install-jekyll-on-linux/" class="pagination--pager" title="Installing jekyll on Linux
+      <a href="https://bauerjj.github.io/blog/automate-jekyll-production/" class="pagination--pager" title="Automate Jekyll Production
 ">Previous</a>
     
     
-      <a href="https://bauerjj.github.io/blog/vector-diagram-in-qt/" class="pagination--pager" title="Vector Diagram in Qt QML
+      <a href="https://bauerjj.github.io/blog/terminator-setup-ubuntu/" class="pagination--pager" title="Terminator Setup in Ubuntu
 ">Next</a>
     
   </nav>
@@ -497,7 +781,7 @@
             <input type="url" id="comment-form-url" name="fields[url]" tabindex="4"/>
           </fieldset>
           <fieldset class="hidden" style="display: none;">
-            <input type="hidden" name="options[slug]" value="automate-jekyll-production">
+            <input type="hidden" name="options[slug]" value="vector-diagram-in-qt">
             <label for="comment-form-location">Not used. Leave blank if you are a human.</label>
             <input type="text" id="comment-form-location" name="fields[hidden]" autocomplete="off"/>
           </fieldset>

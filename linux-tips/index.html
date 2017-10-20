@@ -218,9 +218,8 @@
   <li><a href="#debugging-linux-kernel" id="markdown-toc-debugging-linux-kernel">Debugging Linux Kernel</a></li>
   <li><a href="#common-linux-commands" id="markdown-toc-common-linux-commands">Common Linux Commands</a>    <ul>
       <li><a href="#variables-and-quotes" id="markdown-toc-variables-and-quotes">Variables and Quotes</a></li>
-    </ul>
-  </li>
-  <li><a href="#git" id="markdown-toc-git">Git</a>    <ul>
+      <li><a href="#git" id="markdown-toc-git">Git</a></li>
+      <li><a href="#svn" id="markdown-toc-svn">svn</a></li>
       <li><a href="#systemd" id="markdown-toc-systemd">systemd</a></li>
     </ul>
   </li>
@@ -231,6 +230,7 @@
   <li><a href="#bash" id="markdown-toc-bash">Bash</a></li>
   <li><a href="#vim" id="markdown-toc-vim">vim</a></li>
   <li><a href="#yocto-stuff" id="markdown-toc-yocto-stuff">Yocto Stuff</a>    <ul>
+      <li><a href="#docs" id="markdown-toc-docs">Docs</a></li>
       <li><a href="#yocto-errors" id="markdown-toc-yocto-errors">Yocto Errors</a>        <ul>
           <li><a href="#error-filesdirectories-were-installed-but-not-shipped-in-any-package-xxx" id="markdown-toc-error-filesdirectories-were-installed-but-not-shipped-in-any-package-xxx">Error: “Files/directories were installed, but not shipped in any package: xxx”</a></li>
           <li><a href="#error-qa-issue--not-found-in-the-base-feeds-ad10-coretex-blah-blah" id="markdown-toc-error-qa-issue--not-found-in-the-base-feeds-ad10-coretex-blah-blah">Error: “QA Issue: <package> not found in the base feeds (ad10 coretex-......blah blah)"</package></a></li>
@@ -303,6 +303,31 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
   </li>
   <li><code class="highlighter-rouge">set -e</code> causes the shell to exit if any subcommand or pipeline returns a non-zero status.</li>
   <li><a href="http://free-electrons.com/blog/uncompressed-linux-kernel-on-arm/">Load uncompressed kernel image in ARM</a></li>
+  <li>To convert string to all lowercase: <code class="highlighter-rouge">echo "MyStRiNG" | awk '{print tolower($0)}'</code></li>
+  <li>If you want to remount a fs from read-only to RW, do: <code class="highlighter-rouge">mount -orw,remount /dev/root</code></li>
+  <li>x window trick to learn executable name based on x window:
+    <ul>
+      <li><code class="highlighter-rouge">sudo apt install x11-utils</code></li>
+      <li><code class="highlighter-rouge">xprop WM_CLASS</code></li>
+      <li><em>click on window</em> <em>see output</em>. That output will show executable name of that window! No more running top to try and discern the actual process name!</li>
+    </ul>
+  </li>
+  <li>Use <code class="highlighter-rouge">xdg-open</code> to open any file using its default handler (ex: <code class="highlighter-rouge">xdg-open mytext.txt</code> will use default text viewer)</li>
+  <li>Use the <a href="https://packages.debian.org/search?searchon=contents&amp;keywords=sdl-config">online debian package search</a> to find how to spell the special debian package that contains what you need</li>
+  <li>An equivalent of <code class="highlighter-rouge">dd if=/dev/zero</code> is: <code class="highlighter-rouge">tr '\0' '\377' &lt; /dev/zero | dd bs=64K of=/dev/sdx</code> from <a href="https://stackoverflow.com/questions/10905062/how-do-i-get-an-equivalent-of-dev-one-in-linux">source</a></li>
+  <li><a href="https://www.crybit.com/difference-between-tar-and-gzip/">How to use tar and gzip</a></li>
+  <li>
+    <blockquote>
+      <p>A block device is a special file that refers to a device. A block special file is normally distinguished from a character special file by providing access to the device in a manner such that the hardware characteristics of the device are not visible.</p>
+    </blockquote>
+  </li>
+  <li>CPPFLAGS is supposed to be for flags for the C PreProcessor; CXXFLAGS is for flags for the C++ compiler. The default rules in make (on my machine, at any rate) pass CPPFLAGS to just about everything, CFLAGS is only passed when compiling and linking C, and CXXFLAGS is only passed when compiling and linking C++</li>
+  <li>You can always remount the fs RW with <code class="highlighter-rouge">mount -orw,remount /dev/root</code></li>
+  <li><a href="https://unix.stackexchange.com/questions/28503/how-can-i-send-stdout-to-multiple-commands">Sending stdout to multiple commands</a>
+    <ul>
+      <li><code class="highlighter-rouge">grep --color=always --exclude-dir=".svn" --exclude-dir=".git" -rnw ./ -e "armadillo-image-install" -l | tee &gt;(wc -l)</code></li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="variables-and-quotes">Variables and Quotes</h3>
@@ -343,15 +368,19 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
   </li>
   <li><code class="highlighter-rouge">find . -type f -name '*.log' | while read fname; do echo mv $fname ${fname/log/.LOG/}; done | bash -x</code> finds files with matching .log extension and then ranames them all to uppercase .LOG. This prints the commands to the terminal and then executes the steps in bash. @see pg 39</li>
   <li><code class="highlighter-rouge">$0</code>: name of file of script that is invoked. <code class="highlighter-rouge">$#</code> total of arguments supplied.</li>
-  <li>To convert string to all lowercase: <code class="highlighter-rouge">echo "MyStRiNG" | awk '{print tolower($0)}'</code></li>
-  <li>If you want to remount a fs from read-only to RW, do: <code class="highlighter-rouge">mount -orw,remount /dev/root</code></li>
 </ul>
 
-<h2 id="git">Git</h2>
+<h3 id="git">Git</h3>
 
 <ul>
   <li><a href="https://stackoverflow.com/questions/25933056/how-can-i-do-a-bugfix-on-master-and-integrate-it-into-my-less-stable-branches/25934341#25934341">Merging/rebasing</a></li>
   <li><a href="https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs">Pretty git branches software</a></li>
+</ul>
+
+<h3 id="svn">svn</h3>
+<ul>
+  <li>View externals URLs <code class="highlighter-rouge">svn propget -R svn:externals</code></li>
+  <li>Setup an external <code class="highlighter-rouge">svn propset svn:externals 'myExternalFolderDestination &lt;my_url&gt;'</code></li>
 </ul>
 
 <h3 id="systemd">systemd</h3>
@@ -377,9 +406,12 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
 <p><code class="highlighter-rouge">disks</code> for formatting
 <a href="https://sanctum.geek.nz/arabesque/series/unix-as-ide/">Unix as an IDE</a></p>
 <h3 id="expect">Expect</h3>
-<p><a href="http://www.thegeekstuff.com/2010/10/expect-examples">expect programming</a> for automated scripts over ssh or from std input
-<a href="https://likegeeks.com/expect-command/">More expect programming</a>
-<a href="https://www.tcl.tk/man/expect5.31/expect.1.html">All available commands</a></p>
+<ul>
+  <li><a href="http://www.thegeekstuff.com/2010/10/expect-examples">expect programming</a> for automated scripts over ssh or from std input</li>
+  <li><a href="https://likegeeks.com/expect-command/">More expect programming</a></li>
+  <li><a href="https://www.tcl.tk/man/expect5.31/expect.1.html">All available commands</a></li>
+  <li><code class="highlighter-rouge">#!/usr/bin/expect -d</code> for debugging</li>
+</ul>
 
 <h2 id="bash">Bash</h2>
 
@@ -456,7 +488,23 @@ bitbake-layers show-appends shows all of the .bbappend files</li>
   <li>clean: Removes all output files for a target</li>
   <li>cleansstate:Removes all output files and shared state (sstate) cache for a target</li>
   <li>cleanall: Removes all output files, shared state (sstate) cache, and downloaded source files for a target</li>
+  <li>Search for the manifest file inside of the deploy folder to figure out which packages have been included in the image</li>
+  <li>Show all available recipes: bitbake-layers show-recipes</li>
+  <li><code class="highlighter-rouge">TOOLCHAIN_HOST_TASK</code> and <code class="highlighter-rouge">TOOLCHAIN_TARGET_TASK</code> variables can be modified to include packages that can run on host or target inside the SDK when you run <code class="highlighter-rouge">bitbake -c populate_sdk</code></li>
+  <li><code class="highlighter-rouge">IMAGE_FEATURES</code> in the mega-manual lists what available options there are for this</li>
+  <li>Add the following to your <code class="highlighter-rouge">local.conf</code> to add build history and package size information for images:
+ ```
+ INHERIT += “buildhistory”
+ BUILDHISTORY_COMMIT = “1”</li>
+  <li><code class="highlighter-rouge">export BB_NUMBER_THREADS=7</code> will take advantage of more cores. You can also set this inside of your <code class="highlighter-rouge">local.conf</code>
+```</li>
+  <li>Use <code class="highlighter-rouge">PACKAGECONFIG_CONFARGS</code> if the <code class="highlighter-rouge">bb</code> file doesn’t have explicitly set up the array like this: <code class="highlighter-rouge">PACKAGECONFIG[f1] = "--with-f1,--without-f1,build-deps-f1,rt-deps-f1"</code></li>
 </ul>
+
+<h3 id="docs">Docs</h3>
+
+<p><a href="http://www.bcmcom.com/CustomerDL/AR6MXCS/Freescale_Yocto_Project_User's_Guide.pdf">Users Guide</a>
+[Mega Manual]</p>
 
 <h3 id="yocto-errors">Yocto Errors</h3>
 

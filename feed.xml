@@ -1,4 +1,471 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="https://bauerjj.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bauerjj.github.io/" rel="alternate" type="text/html" /><updated>2017-09-13T23:22:16-07:00</updated><id>https://bauerjj.github.io/</id><title type="html">bauerjj.com</title><subtitle>Thoughts on my mind - blog - website - random</subtitle><author><name>Justin Bauer</name><email>justinjbauer1@gmail.com</email><uri>http://mcuhq.com</uri></author><entry><title type="html">Automate Jekyll Production</title><link href="https://bauerjj.github.io/blog/automate-jekyll-production/" rel="alternate" type="text/html" title="Automate Jekyll Production" /><published>2017-07-27T00:00:00-07:00</published><updated>2017-07-27T00:00:00-07:00</updated><id>https://bauerjj.github.io/blog/automate-jekyll-production</id><content type="html" xml:base="https://bauerjj.github.io/blog/automate-jekyll-production/">&lt;p&gt;The main benefit I see of using jekyll is being able to edit a plain markdown file and have it appear live on the Internet in just a few seconds. In order for this to happen, I have to perform the following:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="https://bauerjj.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bauerjj.github.io/" rel="alternate" type="text/html" /><updated>2017-10-19T18:23:58-07:00</updated><id>https://bauerjj.github.io/</id><title type="html">bauerjj.com</title><subtitle>Thoughts on my mind - blog - website - random</subtitle><author><name>Justin Bauer</name><email>justinjbauer1@gmail.com</email><uri>http://mcuhq.com</uri></author><entry><title type="html">Terminator Setup in Ubuntu</title><link href="https://bauerjj.github.io/blog/terminator-setup-ubuntu/" rel="alternate" type="text/html" title="Terminator Setup in Ubuntu" /><published>2017-10-19T00:00:00-07:00</published><updated>2017-10-19T00:00:00-07:00</updated><id>https://bauerjj.github.io/blog/terminator-setup-ubuntu</id><content type="html" xml:base="https://bauerjj.github.io/blog/terminator-setup-ubuntu/">&lt;p&gt;I have found that &lt;a href=&quot;https://gnometerminator.blogspot.com/p/introduction.html&quot;&gt;terminator&lt;/a&gt; is one of the best terminal programs available for managing multiple terminals. I was tired of switching between contexts until I stumbled upon terminator. It makes it easy to spawn multiple terminal instances within a single window by creating another tab or by splitting the existing terminal.&lt;/p&gt;
+
+&lt;p&gt;Install:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo add-apt-repository ppa:gnome-terminator
+sudo apt-get update
+sudo apt-get install terminator
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Here is my exmaple config. This will create a 4 window pane. Paste this inside of &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.config/terminator/config&lt;/code&gt;. You may need to create the file if it isn’t there. Restart terminator to see the new setup. Be sure to replace &lt;code class=&quot;highlighter-rouge&quot;&gt;jbauer&lt;/code&gt; with your username.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[global_config]
+  suppress_multiple_term_dialog = True
+  inactive_color_offset = 0.99
+[keybindings]
+  paste = &amp;lt;Control&amp;gt;v
+  copy = &amp;lt;Control&amp;gt;
+[profiles]
+  [[default]]
+    background_image = None
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 87bdb8ee-fa88-4131-97c9-2209607d2fed
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = &quot;&quot;  
+      position = 525:100
+      size = 1249, 733
+      title = jbauer@ubuntu: ~
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 594
+      ratio = 0.477582065653
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 366
+      ratio = 0.50272851296
+      type = VPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 366
+      ratio = 0.50272851296
+      type = VPaned
+    [[[terminal3]]]
+      directory = /home/jbauer/Desktop
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = d1af43fc-c268-4e1d-a53d-dd501827ac55
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = f25f1048-779f-4c96-a7c4-fd63554cb278
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 87bdb8ee-fa88-4131-97c9-2209607d2fed
+    [[[terminal7]]]
+      directory = /home/jbauer/Desktop
+      order = 1
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = f281f00c-958e-40d3-84d5-a87294fbb75f
+  [[defaultold]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = &quot;&quot;
+      type = Window
+  [[cool]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 87bdb8ee-fa88-4131-97c9-2209607d2fed
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = &quot;&quot;
+      position = 525:100
+      size = 1249, 733
+      title = jbauer@ubuntu: ~
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 594
+      ratio = 0.477582065653
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 366
+      ratio = 0.50272851296
+      type = VPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 366
+      ratio = 0.50272851296
+      type = VPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = d1af43fc-c268-4e1d-a53d-dd501827ac55
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = f25f1048-779f-4c96-a7c4-fd63554cb278
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 87bdb8ee-fa88-4131-97c9-2209607d2fed
+    [[[terminal7]]]
+      order = 1
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = f281f00c-958e-40d3-84d5-a87294fbb75f
+[plugins]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>Justin Bauer</name><email>justinjbauer1@gmail.com</email><uri>http://mcuhq.com</uri></author><summary type="html">I have found that terminator is one of the best terminal programs available for managing multiple terminals. I was tired of switching between contexts until I stumbled upon terminator. It makes it easy to spawn multiple terminal instances within a single window by creating another tab or by splitting the existing terminal.</summary></entry><entry><title type="html">Vector Diagram in Qt QML</title><link href="https://bauerjj.github.io/blog/vector-diagram-in-qt/" rel="alternate" type="text/html" title="Vector Diagram in Qt QML" /><published>2017-10-12T00:00:00-07:00</published><updated>2017-10-12T00:00:00-07:00</updated><id>https://bauerjj.github.io/blog/vector-diagram-in-qt</id><content type="html" xml:base="https://bauerjj.github.io/blog/vector-diagram-in-qt/">&lt;p&gt;I needed to plot a vector diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/polar_chart.gif&quot; alt=&quot;Vector Diagram in Qt QML&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It uses the &lt;a href=&quot;http://doc.qt.io/qt-5/qml-qtquick-context2d.html&quot;&gt;Context2D&lt;/a&gt; object to grab the context and draw vectors along with the arrow head. I override the &lt;code class=&quot;highlighter-rouge&quot;&gt;onPaint&lt;/code&gt; method to perform all of the math and drawing required. The graph does not appear to cause any performance issues on an iMX6Q processor. I use some trigonometry to calculate the length and displacement of each vector. There is a dynamically loaded &lt;code class=&quot;highlighter-rouge&quot;&gt;Text&lt;/code&gt; element where I place descriptive text such as “V1” or “I1” to designate voltage or current. There is also a timer that increments the angles through its full range of motion for testing purposes.&lt;/p&gt;
+
+&lt;p&gt;I included a few links at the top of the source that helped me with the mathematics. Please let me know if you have any questions.&lt;/p&gt;
+
+&lt;h3 id=&quot;vectordiaqml&quot;&gt;VectorDia.qml&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import QtQuick 2.0
+import &quot;qrc:/utility&quot;
+
+/*
+ * Inspiration:
+ *
+ *   https://woboq.com/blog/animations-using-the-qtquick-canvas.html
+ *   http://stackoverflow.com/questions/26044801/draw-na-arc-circle-sector-in-qml
+ *   https://forum.qt.io/topic/56628/qml-canvas-dashed-dotted-lines/2
+*/
+
+Canvas {
+    id: canvas
+    width: 480
+    height: 272 - 20
+
+    signal rightMove()
+    signal leftMove()
+    signal loaded()
+
+    Component.onCompleted: {
+        canvas.onLoaded()
+    }
+
+    property int vVectorLength: 90
+    property int iVectorLength: (.75 * vVectorLength)
+    property real start_x: width/2
+    property real start_y: 15
+    property real end_x: width/2
+    property real end_y: height - 15
+    property bool dashed: true
+    property real dash_length: 3
+    property real dash_space: 4
+    property real line_width: 0.9
+    property real stipple_length: (dash_length + dash_space) &amp;gt; 0 ? (dash_length + dash_space) : 16
+    property color draw_color: &quot;black&quot;
+
+    property variant vectors: [0,30,120,120,240,210] // test vectors
+
+    property variant alt: [0,0,0,0,0,0]
+    property int i: 0
+
+    property var comp;
+    property   var text;
+
+
+    Timer{ // test timer to paint random stuff
+        interval: 500; running: true; repeat: true;
+        onTriggered: {
+            canvas.requestPaint()
+        }
+    }
+
+
+
+
+    onPaint: {
+        // Get the drawing context
+        var ctx = canvas.getContext('2d')
+        canvas.i = 0;
+        for(var j = 0; j &amp;lt;canvas.alt.length; j++){
+            if(alt[j]!== 0)
+                alt[j].destroy();
+        }
+
+        ctx.fillStyle = &quot;#ffffff&quot;; // &quot;erase&quot; the previously drawn stuff
+        ctx.fillRect(0,0,canvas.width,canvas.height,&quot;#000000&quot;)
+
+        // set line color
+        ctx.strokeStyle = draw_color;
+        ctx.lineWidth = line_width;
+        ctx.beginPath();
+
+
+        var centreX = canvas.width / 2;
+        var centreY = canvas.height / 2;
+
+        // draw the circle
+        ctx.beginPath();
+        ctx.lineWidth = 2
+        ctx.fillStyle = &quot;black&quot;;
+        ctx.arc(centreX, centreY, (width / 4) - 10, 0, Math.PI * 2, false);
+        ctx.stroke();
+
+        // make the dashed lines
+        drawDashed(ctx,start_x, start_y, end_x, end_y);
+        drawDashed(ctx,130, height/2, width - 130, height/2);
+
+        // draw the vectors
+        drawVector(ctx, true, 1, vectors[0], &quot;V&amp;lt;sub&amp;gt;1&amp;lt;/sub&amp;gt;&quot;);
+        drawVector(ctx, false, 1, vectors[1], &quot;I&amp;lt;sub&amp;gt;1&amp;lt;/sub&amp;gt;&quot;);
+        drawVector(ctx, true, 2, vectors[2], &quot;V&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;&quot;);
+        drawVector(ctx, false, 2, vectors[3], &quot;I&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt;&quot;);
+        drawVector(ctx, true, 3, vectors[4], &quot;V&amp;lt;sub&amp;gt;3&amp;lt;/sub&amp;gt;&quot;);
+        drawVector(ctx, false, 3, vectors[5], &quot;I&amp;lt;sub&amp;gt;3&amp;lt;/sub&amp;gt;&quot;);
+
+        var i;
+        for(i = 0; i &amp;lt; vectors.length; i++){
+            vectors[i] += 5; // add some degrees for demo
+            if(vectors[i] &amp;gt; 360)
+                vectors[i] -= 360
+        }
+
+    }
+
+    // QML Math library uses radians and not degrees
+    function degToRad(deg){
+        return deg * (Math.PI/180);
+    }
+
+
+
+
+    function drawVector(ctx, isVoltage, phase, angle, label){ // no guards in place for parameters
+
+        var centreX = canvas.width / 2;
+        var centreY = canvas.height / 2;
+        var vectorLength = isVoltage === true ? vVectorLength : iVectorLength; // current and voltage vectors diff length
+        var color; // line color determined from which vector is being drawn
+
+        if(phase === 1)
+            color = &quot;red&quot;;
+        else if(phase === 2)
+            color = &quot;#e5e500&quot;;
+        else if(phase === 3)
+            color = &quot;green&quot;;
+        else
+            color = &quot;black&quot;;
+
+
+        // draw the line
+        ctx.strokeStyle = color;
+        ctx.fillStyle= color;
+        ctx.beginPath()
+        var x = Math.cos(degToRad(angle)) * vectorLength;
+        var y = Math.sin(degToRad(angle)) * vectorLength;
+        ctx.moveTo(centreX, centreY)
+        ctx.lineTo(x + centreX, y + centreY);
+        ctx.stroke();
+
+        // now draw the triangle
+        // Derive the two points that make the triangle from the center point
+        // by making a slighly short radius at a few degrees to the left and right
+        // from the center point
+        ctx.beginPath();
+        var triCenterX = x + centreX;
+        var triCenterY = y + centreY
+        var leftX = Math.cos(degToRad(angle + 3)) * (vectorLength - 7);
+        var leftY = Math.sin(degToRad(angle + 3)) * (vectorLength - 7);
+        var rightX = Math.cos(degToRad(angle - 3)) * (vectorLength - 7);
+        var rightY = Math.sin(degToRad(angle - 3)) * (vectorLength - 7);
+
+        ctx.moveTo(triCenterX,triCenterY);
+        ctx.lineTo(leftX + centreX, leftY + centreY);
+        ctx.lineTo(rightX + centreX, rightY + centreY);
+        ctx.closePath();
+        ctx.fill(); // fill the triangle
+
+
+        comp = Qt.createComponent(&quot;qrc:/utility/MyLabel.qml&quot;)
+
+        if (comp.status === Component.Ready)
+            finishCreation(angle,label,triCenterX,triCenterY);
+        else
+            comp.statusChanged.connect(finishCreation(angle,label,triCenterX,triCenterY));
+
+    }
+
+    // Now draw the text next to the arrows
+    // Check which of the 4 quadrants we are in so that text placement
+    // is optimal
+    function finishCreation(angle,label,triCenterX,triCenterY) {
+        if (comp.status === Component.Ready) {
+
+            if(angle &amp;gt; 180 &amp;amp;&amp;amp; angle &amp;lt; 360 )
+                text = comp.createObject(canvas,{&quot;x&quot;: triCenterX , &quot;y&quot;: triCenterY -15});
+               // text = comp.createObject(canvas,{&quot;x&quot;: triCenterX, &quot;y&quot;: triCenterY - 15});
+            //if(angle &amp;gt; 270 &amp;amp;&amp;amp; angle &amp;lt;= 360 )
+              //  text = comp.createObject(canvas,{&quot;x&quot;: triCenterX + 10, &quot;y&quot;: triCenterY - 15});
+            else //if(angle &amp;gt; 0 &amp;amp;&amp;amp; angle &amp;lt;= 180 )
+                text = comp.createObject(canvas,{&quot;x&quot;: triCenterX, &quot;y&quot;: triCenterY + 2});
+            text.name = label;
+
+            canvas.alt[canvas.i++] = text;
+
+            if (text === null) {
+                // Error Handling
+                console.log(&quot;Error creating object&quot;);
+            }
+        } else if (comp.status === Component.Error) {
+            // Error Handling
+            console.log(&quot;Error loading component:&quot;, comp.errorString());
+        }
+    }
+
+
+    function drawDashed(ctx,startX, startY, endX, endY){
+        // make the dashed line
+        var dashLen = stipple_length;
+        var dX = endX - startX;
+        var dY = endY - startY;
+        var dashes = Math.floor(Math.sqrt(dX * dX + dY * dY) / dashLen);
+
+        if (dashes == 0)
+        {
+            dashes = 1;
+        }
+        var dash_to_length = dash_length/dashLen
+        var space_to_length = 1 - dash_to_length
+        var dashX = dX / dashes;
+        var dashY = dY / dashes;
+        var x1 = startX;
+        var y1 = startY;
+
+        ctx.moveTo(x1,y1);
+
+        var q = 0;
+        while (q++ &amp;lt; dashes) {
+            x1 += dashX*dash_to_length;
+            y1 += dashY*dash_to_length;
+            ctx.lineTo(x1, y1);
+            x1 += dashX*space_to_length;
+            y1 += dashY*space_to_length;
+            ctx.moveTo(x1, y1);
+
+        }
+        ctx.stroke();
+    }
+
+    Text {
+        id: text1
+        x: 100
+        y: 119
+        text: qsTr(&quot;180°&quot;)
+        font.pixelSize: 10
+    }
+
+    Text {
+        id: text2
+        x: 355
+        y: 119
+        width: 20
+        height: 12
+        text: qsTr(&quot;0°&quot;)
+        font.pixelSize: 10
+    }
+
+    Text {
+        id: text3
+        x: 231
+        y: 239
+        text: qsTr(&quot;-90°&quot;)
+        font.pixelSize: 10
+    }
+
+
+
+    Text {
+        id: text4
+        x: 233
+        y: 2
+        text: qsTr(&quot;90°&quot;)
+        font.pixelSize: 10
+    }
+
+
+    Text {
+        id: update
+        x: 8
+        y: 13
+        text: qsTr(&quot;|&quot;)
+        font.pixelSize: 20
+        //verticalAlignment: Text.verticalCenter
+        horizontalAlignment: Text.horizontalCenter
+    }
+
+    Timer{
+        interval: 500 //500ms
+        repeat: true
+        running: true
+        onTriggered: {
+            if(update.text == &quot;|&quot;)
+                update.text = &quot;/&quot;;
+            else if(update.text == &quot;/&quot;)
+                update.text = &quot;--&quot;;
+            else if(update.text == &quot;--&quot;)
+                update.text = &quot;\\&quot;
+            else if(update.text == &quot;\\&quot;)
+                update.text = &quot;|&quot;
+
+        }
+    }
+
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;mylabelqml&quot;&gt;MyLabel.qml&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import QtQuick 2.0
+
+Text{
+    id: textId
+    property string name: &quot;&quot;;
+    text: textId.name
+    textFormat: Text.RichText
+    font.pixelSize: 12
+
+    function destoryMe(){
+        textId.destory()
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>Justin Bauer</name><email>justinjbauer1@gmail.com</email><uri>http://mcuhq.com</uri></author><summary type="html">I needed to plot a vector diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+</summary></entry><entry><title type="html">Automate Jekyll Production</title><link href="https://bauerjj.github.io/blog/automate-jekyll-production/" rel="alternate" type="text/html" title="Automate Jekyll Production" /><published>2017-07-27T00:00:00-07:00</published><updated>2017-07-27T00:00:00-07:00</updated><id>https://bauerjj.github.io/blog/automate-jekyll-production</id><content type="html" xml:base="https://bauerjj.github.io/blog/automate-jekyll-production/">&lt;p&gt;The main benefit I see of using jekyll is being able to edit a plain markdown file and have it appear live on the Internet in just a few seconds. In order for this to happen, I have to perform the following:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Make an edit&lt;/li&gt;
