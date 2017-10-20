@@ -38,7 +38,7 @@ Here is my exmaple config. This will create a 4 window pane. Paste this inside o
       last_active_window = True
       maximised = False
       order = 0
-      parent = "" 
+      parent = ""  
       position = 525:100
       size = 1249, 733
       title = jbauer@ubuntu: ~
