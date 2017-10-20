@@ -207,6 +207,9 @@ bitbake-layers show-appends shows all of the .bbappend files
 	BUILDHISTORY_COMMIT = "1"
  *  `export BB_NUMBER_THREADS=7` will take advantage of more cores. You can also set this inside of your `local.conf`
 	```
+ * Use `PACKAGECONFIG_CONFARGS` if the `bb` file doesn't have explicitly set up the array like this: `PACKAGECONFIG[f1] = "--with-f1,--without-f1,build-deps-f1,rt-deps-f1"`
+
+
 ### Docs
 
 [Users Guide](http://www.bcmcom.com/CustomerDL/AR6MXCS/Freescale_Yocto_Project_User's_Guide.pdf)
