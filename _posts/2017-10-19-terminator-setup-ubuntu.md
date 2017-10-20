@@ -17,7 +17,7 @@ sudo apt-get update
 sudo apt-get install terminator
 ```
 
-Here is my exmaple config. This will create a 4 window pane. Paste this inside of `~/.config/terminator/config`. You may need to create the file if it isn't there. Restart terminator to see the new setup. Be sure to replace `jbauer` with your username. 
+Here is my example config. This will create a 4 window pane. Paste this inside of `~/.config/terminator/config`. You may need to create the file if it isn't there. Restart terminator to see the new setup. Be sure to replace `jbauer` with your username. 
 
 ```
 [global_config]
