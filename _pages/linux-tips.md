@@ -78,7 +78,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * You can always remount the fs RW with `mount -orw,remount /dev/root`
  * [Sending stdout to multiple commands](https://unix.stackexchange.com/questions/28503/how-can-i-send-stdout-to-multiple-commands)
 	* `grep --color=always --exclude-dir=".svn" --exclude-dir=".git" -rnw ./ -e "armadillo-image-install" -l | tee >(wc -l)`
-
+ * To shutdown: `init 0` or `shutdown -h now`
 
 
 
