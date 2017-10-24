@@ -329,6 +329,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
     </ul>
   </li>
   <li>To shutdown: <code class="highlighter-rouge">init 0</code> or <code class="highlighter-rouge">shutdown -h now</code></li>
+  <li><code class="highlighter-rouge">export MAKE_CPU_COUNT=1</code> before compilation to easily find any errors. If using multiple build threads, redirect STDOUT and STDERR to a file to grep: <code class="highlighter-rouge">MAKE_CPU_COUNT=25; ./update_dependencies 2&gt;&amp;1 | tee ~/Desktop/build-dep.log</code></li>
 </ul>
 
 <h3 id="variables-and-quotes">Variables and Quotes</h3>
