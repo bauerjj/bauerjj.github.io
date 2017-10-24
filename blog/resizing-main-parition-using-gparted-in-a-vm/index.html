@@ -357,15 +357,15 @@
         <p>If your main partition (<code class="highlighter-rouge">/dev/sda1</code>) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player</p>
 
 <ol>
-  <li>Locate the originally downloaded Ubuntu download image (~1.2GIG) or download it again</li>
-  <li>In VMware player, right-click the image and goto settings. Select CD/DVD (SATA) and then browse for the ubuntu image under Connection. Check the Enable at PowerOn checkbox.</li>
-  <li>Power on the image and during the initial splash screen, press F2to enter the BIOS.</li>
-  <li>Change the boot sequence so that Boot From CD is first in queue.</li>
+  <li>Locate the originally downloaded Ubuntu image (~1.2GIG) or <a href="https://www.ubuntu.com/download/desktop">download it again</a></li>
+  <li>In VMware player, right-click the image and goto settings. Select <code class="highlighter-rouge">CD/DVD (SATA)</code> and then browse for the ubuntu image under <code class="highlighter-rouge">Connection</code>. Check the <code class="highlighter-rouge">Enable</code> box under <code class="highlighter-rouge">PowerOn</code> so that the VM will first attempt to launch the DVD image.</li>
+  <li>Power on the image and during the initial splash screen, press <code class="highlighter-rouge">F2</code> to enter the BIOS.</li>
+  <li>Change the boot sequence so that <code class="highlighter-rouge">Boot From CD</code> is first in queue.</li>
   <li>Restart the VM and when the CD boots up, press <code class="highlighter-rouge">Try Ubuntu</code></li>
   <li>Launch <code class="highlighter-rouge">gparted</code></li>
   <li>Temporarily remove the swap partition so that the unallocated region aligns with the first partition.</li>
-  <li>Resize the main partition (/dev/sda1) to include all of the space MINUS 1024 MB!</li>
-  <li>Create an logical partition at the end and make it as the swap space.</li>
+  <li>Resize the main partition <code class="highlighter-rouge">(/dev/sda1)</code> to include all of the space MINUS 1024 MB!</li>
+  <li>Create a logical partition at the end and make it as the swap space.</li>
 </ol>
 
 <p><img src="/assets/images/gparted.PNG" alt="QtCreator Cross-Compiler" /></p>
