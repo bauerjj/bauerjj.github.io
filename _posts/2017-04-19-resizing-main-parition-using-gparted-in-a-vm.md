@@ -9,15 +9,15 @@ comments: true
 
 If your main partition (`/dev/sda1`) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player
 
-1. Locate the originally downloaded Ubuntu download image (~1.2GIG) or download it again
-2. In VMware player, right-click the image and goto settings. Select CD/DVD (SATA) and then browse for the ubuntu image under Connection. Check the Enable at PowerOn checkbox.
-3. Power on the image and during the initial splash screen, press F2to enter the BIOS. 
-4. Change the boot sequence so that Boot From CD is first in queue. 
+1. Locate the originally downloaded Ubuntu image (~1.2GIG) or [download it again](https://www.ubuntu.com/download/desktop)
+2. In VMware player, right-click the image and goto settings. Select `CD/DVD (SATA)` and then browse for the ubuntu image under `Connection`. Check the `Enable` box under `PowerOn` so that the VM will first attempt to launch the DVD image. 
+3. Power on the image and during the initial splash screen, press `F2` to enter the BIOS. 
+4. Change the boot sequence so that `Boot From CD` is first in queue. 
 5. Restart the VM and when the CD boots up, press `Try Ubuntu`
 6. Launch `gparted`
 7. Temporarily remove the swap partition so that the unallocated region aligns with the first partition. 
-8. Resize the main partition (/dev/sda1) to include all of the space MINUS 1024 MB!
-9. Create an logical partition at the end and make it as the swap space.
+8. Resize the main partition `(/dev/sda1)` to include all of the space MINUS 1024 MB!
+9. Create a logical partition at the end and make it as the swap space.
 
 ![QtCreator Cross-Compiler](/assets/images/gparted.PNG)
 
