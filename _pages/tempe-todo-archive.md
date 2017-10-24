@@ -54,6 +54,7 @@ The Henry - Trendy place for brunch
 El Paisano - Awesome place for huge burritos. Sketchy outside though. 
 Applebees on corner of rural in tempe - dollar marghareitas
 Macayo's - Try to sit on their patio that overlooks a nice pond
+Frozen Yogurt
 
 ## Leisure
 
@@ -61,6 +62,8 @@ Tortilla Flats - Decent restauarnt, but mostly it is a nice scenic drive
 Casino Arizona, Talking stick, etc  
 Jesterz
 Korean Karokee - Group singing. Only go during off-peak hours or it gets real pricey. 
+MTB on south mountain, papago park, Hawes
+Lucky Strike - Bowling
 
 ## Non-phx places
 

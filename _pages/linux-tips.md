@@ -79,6 +79,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * [Sending stdout to multiple commands](https://unix.stackexchange.com/questions/28503/how-can-i-send-stdout-to-multiple-commands)
 	* `grep --color=always --exclude-dir=".svn" --exclude-dir=".git" -rnw ./ -e "armadillo-image-install" -l | tee >(wc -l)`
  * To shutdown: `init 0` or `shutdown -h now`
+ * `export MAKE_CPU_COUNT=1` before compilation to easily find any errors. If using multiple build threads, redirect STDOUT and STDERR to a file to grep: `MAKE_CPU_COUNT=25; ./update_dependencies 2>&1 | tee ~/Desktop/build-dep.log`
 
 
 
