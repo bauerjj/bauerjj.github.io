@@ -8,7 +8,7 @@
 # Site Settings
 locale                   : "en" 
 title                    : "bauerjj.com"
-title_separator          : "|"
+title_separator          : "-"
 name                     : "Justin Bauer"
 description              : "Thoughts on my mind - blog - website - random"
 url                      : "http://bauerjj.com"
