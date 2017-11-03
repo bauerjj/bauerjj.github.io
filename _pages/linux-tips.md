@@ -83,6 +83,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * To find files with certain extensions: `grep connx -r -i -n --include=*.{cpp,h,pro}`
  * `cat /dev/ttyUSB0` will show continuous data on the serial port. No baud necessary. You can't interact though. 
  * `sudo screen /dev/ttyUSB0 115200` opens a two-way connection with a serial port at 115200 baud
+	* To Quit: “Ctrl-a” then “k”
 
 
 
