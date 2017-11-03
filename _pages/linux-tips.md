@@ -80,6 +80,9 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
 	* `grep --color=always --exclude-dir=".svn" --exclude-dir=".git" -rnw ./ -e "armadillo-image-install" -l | tee >(wc -l)`
  * To shutdown: `init 0` or `shutdown -h now`
  * `export MAKE_CPU_COUNT=1` before compilation to easily find any errors. If using multiple build threads, redirect STDOUT and STDERR to a file to grep: `MAKE_CPU_COUNT=25; ./update_dependencies 2>&1 | tee ~/Desktop/build-dep.log`
+ * To find files with certain extensions: `grep connx -r -i -n --include=*.{cpp,h,pro}`
+ * `cat /dev/ttyUSB0` will show continuous data on the serial port. No baud necessary. You can't interact though. 
+ * `sudo screen /dev/ttyUSB0 115200` opens a two-way connection with a serial port at 115200 baud
 
 
 
@@ -171,7 +174,6 @@ Get the correct headers: `sudo apt-get update && sudo apt-get install linux-head
 ## Yocto Stuff
 
  * Use [hands-on labs about kernel development](https://www.yoctoproject.org/sites/yoctoproject.org/files/elc2013-kernel-lab.pdf)
-
  * [Good resource for adding stuff to kernel](https://www.yoctoproject.org/sites/yoctoproject.org/files/elc2013-kernel-lab.pdf) 
  * Excellent resource on bitbake stuff [Yocto / Bitbake notes](https://confluence.agjunction.net:8443/pages/viewpage.action?pageId=82481008)
  * Page 19 shows how to tell if module was built and how to auto-load it
@@ -209,6 +211,8 @@ bitbake-layers show-appends shows all of the .bbappend files
  *  `export BB_NUMBER_THREADS=7` will take advantage of more cores. You can also set this inside of your `local.conf`
 	```
  * Use `PACKAGECONFIG_CONFARGS` if the `bb` file doesn't have explicitly set up the array like this: `PACKAGECONFIG[f1] = "--with-f1,--without-f1,build-deps-f1,rt-deps-f1"`
+ * If you get an error, set CPU thread to 1 by `export MAKE_CPU_COUNT=1`. Then bitbake to see the error without having to scroll all over the place. You can also just grep the log output if using multi-thread. 
+ * To find similar recipes by part of the name: `bitbake-layers show-recipes "*-image-*"`
 
 
 ### Docs
