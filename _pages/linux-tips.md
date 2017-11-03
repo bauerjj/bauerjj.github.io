@@ -84,6 +84,12 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * `cat /dev/ttyUSB0` will show continuous data on the serial port. No baud necessary. You can't interact though. 
  * `sudo screen /dev/ttyUSB0 115200` opens a two-way connection with a serial port at 115200 baud
 	* To Quit: “Ctrl-a” then “k”
+	* Add this to your ~/.screenrc.
+	```
+	# Enable mouse scrolling and scroll bar history scrolling
+	termcapinfo xterm* ti@:te@
+	```
+ *
 
 
 
