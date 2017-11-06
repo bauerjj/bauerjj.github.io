@@ -55,6 +55,7 @@ El Paisano - Awesome place for huge burritos. Sketchy outside though.
 Applebees on corner of rural in tempe - dollar marghareitas
 Macayo's - Try to sit on their patio that overlooks a nice pond
 Frozen Yogurt
+los favoritos - Delicous and generous portions of mexican food. Pretty fast. You won't go home hungry 
 
 ## Leisure
 
@@ -64,6 +65,8 @@ Jesterz
 Korean Karokee - Group singing. Only go during off-peak hours or it gets real pricey. 
 MTB on south mountain, papago park, Hawes
 Lucky Strike - Bowling
+Arcosanti - A futuristic city just outside north phoenix. Tours on the hour except for noon
+Pioneer Living History Museum - Go when they have re-enactmants of battles. Cool history of phones exhibt at the end. 
 
 ## Non-phx places
 

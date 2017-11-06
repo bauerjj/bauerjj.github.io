@@ -89,7 +89,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
 	# Enable mouse scrolling and scroll bar history scrolling
 	termcapinfo xterm* ti@:te@
 	```
- *
+ *  
 
 
 
@@ -142,6 +142,12 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  
 
 Get the correct headers: `sudo apt-get update && sudo apt-get install linux-headers-$(uname -r)`
+
+
+### u-boot
+
+ * list files in partition: `fatls mmc 2:1`
+ * load file into u-boot memory: `load mmc 2:1 10800000 <file>
 
 
 ## Utilities 
