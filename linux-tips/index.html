@@ -221,6 +221,7 @@
       <li><a href="#git" id="markdown-toc-git">Git</a></li>
       <li><a href="#svn" id="markdown-toc-svn">svn</a></li>
       <li><a href="#systemd" id="markdown-toc-systemd">systemd</a></li>
+      <li><a href="#u-boot" id="markdown-toc-u-boot">u-boot</a></li>
     </ul>
   </li>
   <li><a href="#utilities" id="markdown-toc-utilities">Utilities</a>    <ul>
@@ -330,6 +331,20 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
   </li>
   <li>To shutdown: <code class="highlighter-rouge">init 0</code> or <code class="highlighter-rouge">shutdown -h now</code></li>
   <li><code class="highlighter-rouge">export MAKE_CPU_COUNT=1</code> before compilation to easily find any errors. If using multiple build threads, redirect STDOUT and STDERR to a file to grep: <code class="highlighter-rouge">MAKE_CPU_COUNT=25; ./update_dependencies 2&gt;&amp;1 | tee ~/Desktop/build-dep.log</code></li>
+  <li>To find files with certain extensions: <code class="highlighter-rouge">grep connx -r -i -n --include=*.{cpp,h,pro}</code></li>
+  <li><code class="highlighter-rouge">cat /dev/ttyUSB0</code> will show continuous data on the serial port. No baud necessary. You can’t interact though.</li>
+  <li><code class="highlighter-rouge">sudo screen /dev/ttyUSB0 115200</code> opens a two-way connection with a serial port at 115200 baud
+    <ul>
+      <li>To Quit: “Ctrl-a” then “k”</li>
+      <li>Add this to your ~/.screenrc.
+        <div class="highlighter-rouge"><pre class="highlight"><code> # Enable mouse scrolling and scroll bar history scrolling
+ termcapinfo xterm* ti@:te@
+</code></pre>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li></li>
 </ul>
 
 <h3 id="variables-and-quotes">Variables and Quotes</h3>
@@ -403,6 +418,14 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
 
 <p>Get the correct headers: <code class="highlighter-rouge">sudo apt-get update &amp;&amp; sudo apt-get install linux-headers-$(uname -r)</code></p>
 
+<h3 id="u-boot">u-boot</h3>
+
+<ul>
+  <li>list files in partition: <code class="highlighter-rouge">fatls mmc 2:1</code></li>
+  <li>load file into u-boot memory: `load mmc 2:1 10800000 <file></file></li>
+  <li>To test if multiple cores are present, use <code class="highlighter-rouge">cpu &lt;n&gt; test</code></li>
+</ul>
+
 <h2 id="utilities">Utilities</h2>
 
 <p><code class="highlighter-rouge">disks</code> for formatting
@@ -452,9 +475,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
 <h2 id="yocto-stuff">Yocto Stuff</h2>
 
 <ul>
-  <li>
-    <p>Use <a href="https://www.yoctoproject.org/sites/yoctoproject.org/files/elc2013-kernel-lab.pdf">hands-on labs about kernel development</a></p>
-  </li>
+  <li>Use <a href="https://www.yoctoproject.org/sites/yoctoproject.org/files/elc2013-kernel-lab.pdf">hands-on labs about kernel development</a></li>
   <li><a href="https://www.yoctoproject.org/sites/yoctoproject.org/files/elc2013-kernel-lab.pdf">Good resource for adding stuff to kernel</a></li>
   <li>Excellent resource on bitbake stuff <a href="https://confluence.agjunction.net:8443/pages/viewpage.action?pageId=82481008">Yocto / Bitbake notes</a></li>
   <li>Page 19 shows how to tell if module was built and how to auto-load it
@@ -501,6 +522,10 @@ bitbake-layers show-appends shows all of the .bbappend files</li>
   <li><code class="highlighter-rouge">export BB_NUMBER_THREADS=7</code> will take advantage of more cores. You can also set this inside of your <code class="highlighter-rouge">local.conf</code>
 ```</li>
   <li>Use <code class="highlighter-rouge">PACKAGECONFIG_CONFARGS</code> if the <code class="highlighter-rouge">bb</code> file doesn’t have explicitly set up the array like this: <code class="highlighter-rouge">PACKAGECONFIG[f1] = "--with-f1,--without-f1,build-deps-f1,rt-deps-f1"</code></li>
+  <li>If you get an error, set CPU thread to 1 by <code class="highlighter-rouge">export MAKE_CPU_COUNT=1</code> and/or <code class="highlighter-rouge">BB_NUMBER_THREADS="1"</code> in your local.conf. Then bitbake to see the error without having to scroll all over the place. You can also just grep the log output if using multi-thread.</li>
+  <li>To find similar recipes by part of the name: <code class="highlighter-rouge">bitbake-layers show-recipes "*-image-*"</code></li>
+  <li>To find recipes in numerous layers: http://layers.openembedded.org/layerindex/branch/krogoth/layers/</li>
+  <li><code class="highlighter-rouge">inherit core-image</code> will also pull in the <code class="highlighter-rouge">packagegroup-base.bb</code> recipe inside of poky. Look in this for ideas to add to <code class="highlighter-rouge">FEATURE_INSTALL</code> such as X11, zeroconf, etc</li>
 </ul>
 
 <h3 id="docs">Docs</h3>
