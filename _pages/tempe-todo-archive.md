@@ -67,6 +67,7 @@ MTB on south mountain, papago park, Hawes
 Lucky Strike - Bowling
 Arcosanti - A futuristic city just outside north phoenix. Tours on the hour except for noon
 Pioneer Living History Museum - Go when they have re-enactmants of battles. Cool history of phones exhibt at the end. 
+Diamond backs / Suns / Coyotes - Talking Stick arena games are cheap
 
 ## Non-phx places
 

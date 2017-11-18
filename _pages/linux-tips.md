@@ -148,6 +148,7 @@ Get the correct headers: `sudo apt-get update && sudo apt-get install linux-head
 
  * list files in partition: `fatls mmc 2:1`
  * load file into u-boot memory: `load mmc 2:1 10800000 <file>
+ * To test if multiple cores are present, use `cpu <n> test` 
 
 
 ## Utilities 
@@ -224,8 +225,11 @@ bitbake-layers show-appends shows all of the .bbappend files
  *  `export BB_NUMBER_THREADS=7` will take advantage of more cores. You can also set this inside of your `local.conf`
 	```
  * Use `PACKAGECONFIG_CONFARGS` if the `bb` file doesn't have explicitly set up the array like this: `PACKAGECONFIG[f1] = "--with-f1,--without-f1,build-deps-f1,rt-deps-f1"`
- * If you get an error, set CPU thread to 1 by `export MAKE_CPU_COUNT=1`. Then bitbake to see the error without having to scroll all over the place. You can also just grep the log output if using multi-thread. 
+ * If you get an error, set CPU thread to 1 by `export MAKE_CPU_COUNT=1` and/or `BB_NUMBER_THREADS="1"` in your local.conf. Then bitbake to see the error without having to scroll all over the place. You can also just grep the log output if using multi-thread. 
  * To find similar recipes by part of the name: `bitbake-layers show-recipes "*-image-*"`
+ * To find recipes in numerous layers: http://layers.openembedded.org/layerindex/branch/krogoth/layers/
+ * `inherit core-image` will also pull in the `packagegroup-base.bb` recipe inside of poky. Look in this for ideas to add to `FEATURE_INSTALL` such as X11, zeroconf, etc
+
 
 
 ### Docs
