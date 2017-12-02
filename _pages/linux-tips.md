@@ -89,9 +89,18 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
 	# Enable mouse scrolling and scroll bar history scrolling
 	termcapinfo xterm* ti@:te@
 	```
- *  
+ * move back to previous directory in history `cd -`
 
+### Commandline
 
+ * From http://teohm.com/blog/shortcuts-to-move-faster-in-bash-command-line/
+ * Move back one character. Ctrl + b
+ * Move forward one character. Ctrl + f
+ * Undo. Ctrl + -
+ * Move to the start of line. Ctrl + a
+ * Move to the end of line. Ctrl + e
+ * Cut from cursor to the end of line. Ctrl + k
+ * Cut from cursor to the end of word. Ctrl + d
 
 ### Variables and Quotes
  * Putting spaces around equals sign (=) will cause the shell to mistake the variable name for a command name
