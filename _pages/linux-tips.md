@@ -90,6 +90,8 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
 	termcapinfo xterm* ti@:te@
 	```
  * move back to previous directory in history `cd -`
+ * Use `ghex2` to visually change some bytes in a binary
+ * To find where USB serial devices enumerate as: `ls -l /sys/bus/usb-serial/devices`
 
 ### Commandline
 
@@ -158,6 +160,7 @@ Get the correct headers: `sudo apt-get update && sudo apt-get install linux-head
  * list files in partition: `fatls mmc 2:1`
  * load file into u-boot memory: `load mmc 2:1 10800000 <file>
  * To test if multiple cores are present, use `cpu <n> test` 
+ * The variable, `filesize` is automatically set to equal the size of the kernel `zImage.bin`
 
 
 ## Utilities 
@@ -238,6 +241,7 @@ bitbake-layers show-appends shows all of the .bbappend files
  * To find similar recipes by part of the name: `bitbake-layers show-recipes "*-image-*"`
  * To find recipes in numerous layers: http://layers.openembedded.org/layerindex/branch/krogoth/layers/
  * `inherit core-image` will also pull in the `packagegroup-base.bb` recipe inside of poky. Look in this for ideas to add to `FEATURE_INSTALL` such as X11, zeroconf, etc
+ * you can force any individual bitbake command with `bitbake <recipe> -f -c <step>` will force the build step
 
 
 
