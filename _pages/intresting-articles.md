@@ -82,3 +82,6 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 ## Diet
 
  - [Sour Grapes](http://www.imdb.com/title/tt5728684/) - counterfeit wine is apparently easy to fool even the best connoisseur.
+
+# Misc
+ - [Consumer Complaint Database](https://www.consumerfinance.gov) - Search companies and their complaints

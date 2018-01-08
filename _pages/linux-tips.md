@@ -92,6 +92,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * move back to previous directory in history `cd -`
  * Use `ghex2` to visually change some bytes in a binary
  * To find where USB serial devices enumerate as: `ls -l /sys/bus/usb-serial/devices`
+ * Use `htop` as a substitute of `top` for more detailed info on system processes
 
 ### Commandline
 
