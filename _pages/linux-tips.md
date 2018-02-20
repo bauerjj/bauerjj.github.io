@@ -95,6 +95,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * Use `htop` as a substitute of `top` for more detailed info on system processes
  * On mounting a single partition within a single image: https://unix.stackexchange.com/a/230632
      * Be sure the units are correct `sudo parted <my_disk.img> unit s print`
+ * 'fc-query <name_of_ttf_file> to get the name of the 'font-family'
 
 ### Commandline
 
@@ -245,7 +246,7 @@ bitbake-layers show-appends shows all of the .bbappend files
  * To find recipes in numerous layers: http://layers.openembedded.org/layerindex/branch/krogoth/layers/
  * `inherit core-image` will also pull in the `packagegroup-base.bb` recipe inside of poky. Look in this for ideas to add to `FEATURE_INSTALL` such as X11, zeroconf, etc
  * you can force any individual bitbake command with `bitbake <recipe> -f -c <step>` will force the build step
-
+ * The standard BitBake behavior in most cases is: do_fetch, do_unpack, do_patch, do_configure, do_compile, do_install, do_package, do_package_write_*, and do_build
 
 
 ### Docs
