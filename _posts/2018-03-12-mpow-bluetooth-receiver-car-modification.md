@@ -30,7 +30,6 @@ R1 and C1 create a classic low-pass filter with a charging rate equivalent to th
 I used LTspice to simulate the circuit before I built it. Q1 will start turning ON around 0.6V. The exact turn ON voltage varies between the silicon, so some expermientation may be required. I found a value of XXX to work with the simulation and in real-life. 
 
 
-
 Open the case up 
 
 Here is my example config. This will create a 4 window pane. Paste this inside of `~/.config/terminator/config`. You may need to create the file if it isn't there. Restart terminator to see the new setup. Be sure to replace `jbauer` with your username. 
