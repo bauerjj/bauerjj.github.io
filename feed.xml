@@ -1,11 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://bauerjj.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://bauerjj.com/" rel="alternate" type="text/html" /><updated>2018-03-21T00:26:13-07:00</updated><id>http://bauerjj.com/</id><title type="html">bauerjj</title><subtitle>Thoughts on my mind - blog - website - random</subtitle><author><name>Justin Bauer</name><email>justinjbauer1@gmail.com</email><uri>http://mcuhq.com</uri></author><entry><title type="html">Setup Leger Nano S on Ubuntu Linux</title><link href="http://bauerjj.com/blog/setup-ledger-nano-s-linux/" rel="alternate" type="text/html" title="Setup Leger Nano S on Ubuntu Linux" /><published>2018-03-20T00:00:00-07:00</published><updated>2018-03-20T00:00:00-07:00</updated><id>http://bauerjj.com/blog/setup-ledger-nano-s-linux</id><content type="html" xml:base="http://bauerjj.com/blog/setup-ledger-nano-s-linux/">&lt;p&gt;This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://bauerjj.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://bauerjj.com/" rel="alternate" type="text/html" /><updated>2018-03-21T00:29:56-07:00</updated><id>http://bauerjj.com/</id><title type="html">bauerjj</title><subtitle>Thoughts on my mind - blog - website - random</subtitle><author><name>Justin Bauer</name><email>justinjbauer1@gmail.com</email><uri>http://mcuhq.com</uri></author><entry><title type="html">Setup Leger Nano S on Ubuntu Linux</title><link href="http://bauerjj.com/blog/setup-ledger-nano-s-linux/" rel="alternate" type="text/html" title="Setup Leger Nano S on Ubuntu Linux" /><published>2018-03-20T00:00:00-07:00</published><updated>2018-03-20T00:00:00-07:00</updated><id>http://bauerjj.com/blog/setup-ledger-nano-s-linux</id><content type="html" xml:base="http://bauerjj.com/blog/setup-ledger-nano-s-linux/">&lt;p&gt;This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Install&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Choose a PIN on your Nano S&lt;/li&gt;
   &lt;li&gt;Record the 24-word seed on the supplied papers&lt;/li&gt;
-  &lt;li&gt;Create a new udev rule so that ubuntu will recognize the USB device. &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo subl /etc/udev/rules.d/ledger.rules&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Create a new udev rule so that ubuntu will recognize the USB device.
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo subl /etc/udev/rules.d/ledger.rules
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
   &lt;li&gt;Paste the following into the udev rules file. Be sure to replace your username:
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; SUBSYSTEMS==&quot;usb&quot;, ATTRS{idVendor}==&quot;2c97&quot;, ATTRS{idProduct}==&quot;0000&quot;, MODE=&quot;0660&quot;, TAG+=&quot;uaccess&quot;, TAG+=&quot;udev-acl&quot; OWNER=&quot;&amp;lt;UNIX username&amp;gt;&quot;
  SUBSYSTEMS==&quot;usb&quot;, ATTRS{idVendor}==&quot;2c97&quot;, ATTRS{idProduct}==&quot;0001&quot;, MODE=&quot;0660&quot;, TAG+=&quot;uaccess&quot;, TAG+=&quot;udev-acl&quot; OWNER=&quot;&amp;lt;UNIX username&amp;gt;&quot;
@@ -13,12 +17,16 @@
     &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;Reload the rules. &lt;code class=&quot;highlighter-rouge&quot;&gt;udevadm control --reload-rules &amp;amp;&amp;amp; udevadm trigger&lt;/code&gt;. Optionally just unplug and replug your Nano S.&lt;/li&gt;
-  &lt;li&gt;Your Nano S should now present you with its public key on its screen. See the usb listing: &lt;code class=&quot;highlighter-rouge&quot;&gt;lsusb -d 2c97:0001 -v&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Your Nano S should now present you with its public key on its screen. See the usb listing:
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; lsusb -d 2c97:0001 -v
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;strong&gt;Verify Authenticity&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Be sure that you are using a valid Nano S. &lt;a href=&quot;https://support.ledgerwallet.com/hc/en-us/articles/115005321449-How-to-verify-the-security-integrity-of-my-Nano-S-&quot;&gt;Ledger Nano S help page&lt;/a&gt; and &lt;a href=&quot;https://github.com/LedgerHQ/blue-loader-python&quot;&gt;Python Tools for Ledger Nano S&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The following will ensure that you are using a valid Nano S. Sources: &lt;a href=&quot;https://support.ledgerwallet.com/hc/en-us/articles/115005321449-How-to-verify-the-security-integrity-of-my-Nano-S-&quot;&gt;Ledger Nano S help page&lt;/a&gt; and &lt;a href=&quot;https://github.com/LedgerHQ/blue-loader-python&quot;&gt;Python Tools for Ledger Nano S&lt;/a&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install libudev-dev libusb-1.0.0-dev python-dev virtualenv&lt;/code&gt;&lt;/li&gt;
