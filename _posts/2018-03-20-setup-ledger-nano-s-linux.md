@@ -13,18 +13,24 @@ This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu
 
 1. Choose a PIN on your Nano S
 2. Record the 24-word seed on the supplied papers
-3. Create a new udev rule so that ubuntu will recognize the USB device. `sudo subl /etc/udev/rules.d/ledger.rules`
+3. Create a new udev rule so that ubuntu will recognize the USB device. 
+	```
+	sudo subl /etc/udev/rules.d/ledger.rules
+	```
 4. Paste the following into the udev rules file. Be sure to replace your username:
 	```
 	SUBSYSTEMS=="usb", ATTRS{idVendor}=="2c97", ATTRS{idProduct}=="0000", MODE="0660", TAG+="uaccess", TAG+="udev-acl" OWNER="<UNIX username>"
 	SUBSYSTEMS=="usb", ATTRS{idVendor}=="2c97", ATTRS{idProduct}=="0001", MODE="0660", TAG+="uaccess", TAG+="udev-acl" OWNER="<UNIX username>"
 	```
 5. Reload the rules. `udevadm control --reload-rules && udevadm trigger`. Optionally just unplug and replug your Nano S. 
-6. Your Nano S should now present you with its public key on its screen. See the usb listing: `lsusb -d 2c97:0001 -v`
+6. Your Nano S should now present you with its public key on its screen. See the usb listing: 
+	```
+	lsusb -d 2c97:0001 -v
+	```
 
 **Verify Authenticity**
 
-Be sure that you are using a valid Nano S. [Ledger Nano S help page](https://support.ledgerwallet.com/hc/en-us/articles/115005321449-How-to-verify-the-security-integrity-of-my-Nano-S-) and [Python Tools for Ledger Nano S](https://github.com/LedgerHQ/blue-loader-python)
+The following will ensure that you are using a valid Nano S. Sources: [Ledger Nano S help page](https://support.ledgerwallet.com/hc/en-us/articles/115005321449-How-to-verify-the-security-integrity-of-my-Nano-S-) and [Python Tools for Ledger Nano S](https://github.com/LedgerHQ/blue-loader-python)
 
 1. `sudo apt-get install libudev-dev libusb-1.0.0-dev python-dev virtualenv`
 2. `virtualenv ledger`
