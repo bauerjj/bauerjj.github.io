@@ -19,12 +19,12 @@
 
 
 
-<title>Resizing Main Partition Using gparted in a VM - bauerjj</title>
+<title>Setup Leger Nano S on Ubuntu Linux - bauerjj</title>
 
 
 
 
-<meta name="description" content="If your main partition (/dev/sda1) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player">
+<meta name="description" content="This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu">
 
 
 
@@ -33,15 +33,15 @@
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="bauerjj">
-<meta property="og:title" content="Resizing Main Partition Using gparted in a VM">
+<meta property="og:title" content="Setup Leger Nano S on Ubuntu Linux">
 
 
-  <link rel="canonical" href="http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/">
-  <meta property="og:url" content="http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/">
+  <link rel="canonical" href="http://bauerjj.com/blog/setup-ledger-nano-s-linux/">
+  <meta property="og:url" content="http://bauerjj.com/blog/setup-ledger-nano-s-linux/">
 
 
 
-  <meta property="og:description" content="If your main partition (/dev/sda1) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player">
+  <meta property="og:description" content="This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu">
 
 
 
@@ -56,7 +56,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-04-19T01:03:00-07:00">
+  <meta property="article:published_time" content="2018-03-20T00:00:00-07:00">
 
 
 
@@ -192,7 +192,7 @@
     
       
       
-        <li class="current">Resizing Main Partition Using gparted in a VM</li>
+        <li class="current">Setup Leger Nano S on Ubuntu Linux</li>
       
     
   </ol>
@@ -331,15 +331,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Resizing Main Partition Using gparted in a VM">
-    <meta itemprop="description" content="If your main partition (/dev/sda1) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player">
-    <meta itemprop="datePublished" content="April 19, 2017">
+    <meta itemprop="headline" content="Setup Leger Nano S on Ubuntu Linux">
+    <meta itemprop="description" content="This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu">
+    <meta itemprop="datePublished" content="March 20, 2018">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Resizing Main Partition Using gparted in a VM
+          <h1 class="page__title" itemprop="headline">Setup Leger Nano S on Ubuntu Linux
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -347,37 +347,53 @@
 
 
 
-  1 minute read
+  less than 1 minute read
 </p>
           
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <p>If your main partition (<code class="highlighter-rouge">/dev/sda1</code>) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player</p>
+        <p>This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu</p>
+
+<p><strong>Install</strong></p>
 
 <ol>
-  <li>Locate the originally downloaded Ubuntu image (~1.2GIG) or <a href="https://www.ubuntu.com/download/desktop">download it again</a></li>
-  <li>In VMware player, right-click the image and goto settings. Select <code class="highlighter-rouge">CD/DVD (SATA)</code> and then browse for the ubuntu image under <code class="highlighter-rouge">Connection</code>. Check the <code class="highlighter-rouge">Enable</code> box under <code class="highlighter-rouge">PowerOn</code> so that the VM will first attempt to launch the DVD image.</li>
-  <li>Power on the image and during the initial splash screen, press <code class="highlighter-rouge">F2</code> to enter the BIOS.</li>
-  <li>Change the boot sequence so that <code class="highlighter-rouge">Boot From CD</code> is first in queue.</li>
-  <li>Restart the VM and when the CD boots up, press <code class="highlighter-rouge">Try Ubuntu</code></li>
-  <li>Launch <code class="highlighter-rouge">gparted</code></li>
-  <li>Temporarily remove the swap partition so that the unallocated region aligns with the first partition.</li>
-  <li>Resize the main partition <code class="highlighter-rouge">(/dev/sda1)</code> to include all of the space MINUS 1024 MB!</li>
-  <li>Create a logical partition at the end and make it as the swap space.</li>
+  <li>Choose a PIN on your Nano S</li>
+  <li>Record the 24-word seed on the supplied papers</li>
+  <li>Create a new udev rule so that ubuntu will recognize the USB device.
+    <div class="highlighter-rouge"><pre class="highlight"><code> sudo subl /etc/udev/rules.d/ledger.rules
+</code></pre>
+    </div>
+  </li>
+  <li>Paste the following into the udev rules file. Be sure to replace your username:
+    <div class="highlighter-rouge"><pre class="highlight"><code> SUBSYSTEMS=="usb", ATTRS{idVendor}=="2c97", ATTRS{idProduct}=="0000", MODE="0660", TAG+="uaccess", TAG+="udev-acl" OWNER="&lt;UNIX username&gt;"
+ SUBSYSTEMS=="usb", ATTRS{idVendor}=="2c97", ATTRS{idProduct}=="0001", MODE="0660", TAG+="uaccess", TAG+="udev-acl" OWNER="&lt;UNIX username&gt;"
+</code></pre>
+    </div>
+  </li>
+  <li>Reload the rules. <code class="highlighter-rouge">udevadm control --reload-rules &amp;&amp; udevadm trigger</code>. Optionally just unplug and replug your Nano S.</li>
+  <li>Your Nano S should now present you with its public key on its screen. See the usb listing:
+    <div class="highlighter-rouge"><pre class="highlight"><code> lsusb -d 2c97:0001 -v
+</code></pre>
+    </div>
+  </li>
 </ol>
 
-<p><img src="/assets/images/gparted.PNG" alt="QtCreator Cross-Compiler" /></p>
+<p><strong>Verify Authenticity</strong></p>
+
+<p>The following will ensure that you are using a valid Nano S. Sources: <a href="https://support.ledgerwallet.com/hc/en-us/articles/115005321449-How-to-verify-the-security-integrity-of-my-Nano-S-">Ledger Nano S help page</a> and <a href="https://github.com/LedgerHQ/blue-loader-python">Python Tools for Ledger Nano S</a></p>
 
 <ol>
-  <li>Make sure to right-click the swap partition and select “SwapOn”</li>
-  <li>Exit the live-cd and unmount the CD image inside of VMware player. You can leave the bios as is</li>
+  <li><code class="highlighter-rouge">sudo apt-get install libudev-dev libusb-1.0.0-dev python-dev virtualenv</code></li>
+  <li><code class="highlighter-rouge">virtualenv ledger</code></li>
+  <li><code class="highlighter-rouge">source ledger/bin/activiate</code></li>
+  <li><code class="highlighter-rouge">pip install ECPy==0.8.1</code></li>
+  <li><code class="highlighter-rouge">pip install --no-cache-dir ledgerblue</code></li>
+  <li>For firmware 1.3.1 or below: <code class="highlighter-rouge">python -m ledgerblue.checkGenuine --targetId 0x31100002</code> else <code class="highlighter-rouge">python -m ledgerblue.checkGenuine --targetId 0x31100003</code></li>
 </ol>
 
-<h2 id="converting-a-monolithic-image-to-multiple-separate-files">Converting a monolithic image to multiple separate files</h2>
-
-<p>When creating a VM, you can either create a single file or multiple files. The single file is better for performance, while the multiple file setup is easier to expand in 2GIG increments. Read <a href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=2006898">this article</a> and then download <a href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=1023856">vdisk-manager</a> since it doesn’t come with VMPlayer and only Workstation in order to convert the large image into a lot of smaller separate files.</p>
+<p>You should now be confident in your device and be able to load apps using their <a href="https://chrome.google.com/webstore/detail/ledger-manager/beimhnaefocolcplfimocfiaiefpkgbf">ledger manager</a></p>
 
         
       </section>
@@ -407,7 +423,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-19T01:03:00-07:00">April 19, 2017</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-03-20T00:00:00-07:00">March 20, 2018</time></p>
         
       </footer>
 
@@ -416,25 +432,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Resizing Main Partition Using gparted in a VM http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Setup Leger Nano S on Ubuntu Linux http://bauerjj.com/blog/setup-ledger-nano-s-linux/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://bauerjj.com/blog/setup-ledger-nano-s-linux/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://bauerjj.com/blog/setup-ledger-nano-s-linux/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://bauerjj.com/blog/setup-ledger-nano-s-linux/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="http://bauerjj.com/blog/speeding-up-compilation-time-with-ccache/" class="pagination--pager" title="Speeding Up Native Compiling and Cross-Compiling Time with ccache
+      <a href="http://bauerjj.com/blog/mpow-bluetooth-receiver-car-modification/" class="pagination--pager" title="Mpow Bluetooth Receiver Streambot Car Modification
 ">Previous</a>
     
     
-      <a href="http://bauerjj.com/blog/samsung-migration-tool-fail/" class="pagination--pager" title="Samsung Migration Tool Fail
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -479,7 +494,7 @@
             <input type="url" id="comment-form-url" name="fields[url]" tabindex="4"/>
           </fieldset>
           <fieldset class="hidden" style="display: none;">
-            <input type="hidden" name="options[slug]" value="resizing-main-parition-using-gparted-in-a-vm">
+            <input type="hidden" name="options[slug]" value="setup-ledger-nano-s-linux">
             <label for="comment-form-location">Not used. Leave blank if you are a human.</label>
             <input type="text" id="comment-form-location" name="fields[hidden]" autocomplete="off"/>
           </fieldset>

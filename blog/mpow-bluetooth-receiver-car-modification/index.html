@@ -19,12 +19,12 @@
 
 
 
-<title>Resizing Main Partition Using gparted in a VM - bauerjj</title>
+<title>Mpow Bluetooth Receiver Streambot Car Modification - bauerjj</title>
 
 
 
 
-<meta name="description" content="If your main partition (/dev/sda1) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player">
+<meta name="description" content="WORK IN PROGRESS">
 
 
 
@@ -33,15 +33,15 @@
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="bauerjj">
-<meta property="og:title" content="Resizing Main Partition Using gparted in a VM">
+<meta property="og:title" content="Mpow Bluetooth Receiver Streambot Car Modification">
 
 
-  <link rel="canonical" href="http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/">
-  <meta property="og:url" content="http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/">
+  <link rel="canonical" href="http://bauerjj.com/blog/mpow-bluetooth-receiver-car-modification/">
+  <meta property="og:url" content="http://bauerjj.com/blog/mpow-bluetooth-receiver-car-modification/">
 
 
 
-  <meta property="og:description" content="If your main partition (/dev/sda1) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player">
+  <meta property="og:description" content="WORK IN PROGRESS">
 
 
 
@@ -56,7 +56,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-04-19T01:03:00-07:00">
+  <meta property="article:published_time" content="2018-03-12T00:00:00-07:00">
 
 
 
@@ -192,7 +192,7 @@
     
       
       
-        <li class="current">Resizing Main Partition Using gparted in a VM</li>
+        <li class="current">Mpow Bluetooth Receiver Streambot Car Modification</li>
       
     
   </ol>
@@ -331,15 +331,15 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Resizing Main Partition Using gparted in a VM">
-    <meta itemprop="description" content="If your main partition (/dev/sda1) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player">
-    <meta itemprop="datePublished" content="April 19, 2017">
+    <meta itemprop="headline" content="Mpow Bluetooth Receiver Streambot Car Modification">
+    <meta itemprop="description" content="WORK IN PROGRESS">
+    <meta itemprop="datePublished" content="March 12, 2018">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Resizing Main Partition Using gparted in a VM
+          <h1 class="page__title" itemprop="headline">Mpow Bluetooth Receiver Streambot Car Modification
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -354,30 +354,35 @@
       
 
       <section class="page__content" itemprop="text">
-        <p>If your main partition (<code class="highlighter-rouge">/dev/sda1</code>) is filling up inside of your virtual machine, follow these steps to make it bigger inside of VMware Player</p>
+        <p>WORK IN PROGRESS</p>
+
+<p>I received an <a href="https://www.amazon.com/Mpow-Bluetooth-Receiver-Streambot-Hands-Free/dp/B00MJMV0GU">Mpow Bluetooth Receiver</a> as a gift for use in my car. It quickly became apparent that I would have to manually turn ON the device every time I got in my car to have it connect to my phone. This required a 2-3 second hold on the play/pause button. I also had to turn it OFF once I arrived at my apartment since my phone would stay connected to it after I left my car. I found this tedious, so I created a simple modification that would no longer require any turning ON/OFF the adapter. The bluetooth receiver would turn ON automatically with the car and connect to your phone. It would then turn OFF with the car battery.</p>
+
+<p><strong>Modification</strong>:</p>
+
+<p><strong><em>Parts</em></strong></p>
 
 <ol>
-  <li>Locate the originally downloaded Ubuntu image (~1.2GIG) or <a href="https://www.ubuntu.com/download/desktop">download it again</a></li>
-  <li>In VMware player, right-click the image and goto settings. Select <code class="highlighter-rouge">CD/DVD (SATA)</code> and then browse for the ubuntu image under <code class="highlighter-rouge">Connection</code>. Check the <code class="highlighter-rouge">Enable</code> box under <code class="highlighter-rouge">PowerOn</code> so that the VM will first attempt to launch the DVD image.</li>
-  <li>Power on the image and during the initial splash screen, press <code class="highlighter-rouge">F2</code> to enter the BIOS.</li>
-  <li>Change the boot sequence so that <code class="highlighter-rouge">Boot From CD</code> is first in queue.</li>
-  <li>Restart the VM and when the CD boots up, press <code class="highlighter-rouge">Try Ubuntu</code></li>
-  <li>Launch <code class="highlighter-rouge">gparted</code></li>
-  <li>Temporarily remove the swap partition so that the unallocated region aligns with the first partition.</li>
-  <li>Resize the main partition <code class="highlighter-rouge">(/dev/sda1)</code> to include all of the space MINUS 1024 MB!</li>
-  <li>Create a logical partition at the end and make it as the swap space.</li>
+  <li><a href="https://www.digikey.com/product-detail/en/microchip-technology/VN2222LL-G/VN2222LL-G-ND/4902401">VN2222LL-G-ND</a> MOSFET N-CH 60V 0.23A TO92-3</li>
+  <li><a href="https://www.digikey.com/product-detail/en/tdk-corporation/FK26X7R1C475K/445-2873-ND/1008899">445-2873-ND</a> CAP CER 4.7UF 16V X7R RADIAL</li>
+  <li><a href="https://www.digikey.com/product-detail/en/yageo/MFR-25FBF52-100K/100KXBK-ND/13473">100KXBK-ND</a> RES 100K OHM 1/4W 1% AXIAL</li>
+  <li><a href="https://www.digikey.com/product-detail/en/stackpole-electronics-inc/RNF14FTD1K00/RNF14FTD1K00CT-ND/1975018">RNF14FTD1K00CT-ND</a> RES 1K OHM 1/4W 1% AXIAL</li>
 </ol>
 
-<p><img src="/assets/images/gparted.PNG" alt="QtCreator Cross-Compiler" /></p>
+<p>The basic premise is as follows:</p>
 
 <ol>
-  <li>Make sure to right-click the swap partition and select “SwapOn”</li>
-  <li>Exit the live-cd and unmount the CD image inside of VMware player. You can leave the bios as is</li>
+  <li>Car turns ON, button press is simulated as pressed immediately. Bluetooth search sequence initiated on the Mpow.</li>
+  <li>Capacitor chargers for approximately 2-3 seconds until a threshold of between 0.6-2.5V is reached. The exact turn ON voltage depends on the transistor</li>
+  <li>Button press is simulated as being lifted. Mpow should be connected to phone now.</li>
 </ol>
 
-<h2 id="converting-a-monolithic-image-to-multiple-separate-files">Converting a monolithic image to multiple separate files</h2>
+<p>R1 and C1 create a classic low-pass filter with a charging rate equivalent to the resistance multiplied by the capacitance. We want to carefully tune these values to turn ON transistor Q1 after 3 seconds. This should put the Mpow in its discovery mode so that our phone can connect to it automatically when the car is started. R2 needs to be chosen so that the microcontroller on the Mpow sees a logic 1 (3.7V) when Q1 is OFF. I experimented with a few different values here and arrived at 1k.</p>
 
-<p>When creating a VM, you can either create a single file or multiple files. The single file is better for performance, while the multiple file setup is easier to expand in 2GIG increments. Read <a href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=2006898">this article</a> and then download <a href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=1023856">vdisk-manager</a> since it doesn’t come with VMPlayer and only Workstation in order to convert the large image into a lot of smaller separate files.</p>
+<p>I used LTspice to simulate the circuit before I built it. Q1 will start turning ON around 0.6V. The exact turn ON voltage varies between the silicon, so some expermientation may be required. I found a value of XXX to work with the simulation and in real-life.</p>
+
+<p>Open the case up</p>
+
 
         
       </section>
@@ -407,7 +412,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-19T01:03:00-07:00">April 19, 2017</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-03-12T00:00:00-07:00">March 12, 2018</time></p>
         
       </footer>
 
@@ -416,24 +421,24 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Resizing Main Partition Using gparted in a VM http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Mpow Bluetooth Receiver Streambot Car Modification http://bauerjj.com/blog/mpow-bluetooth-receiver-car-modification/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://bauerjj.com/blog/mpow-bluetooth-receiver-car-modification/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://bauerjj.com/blog/mpow-bluetooth-receiver-car-modification/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://bauerjj.com/blog/mpow-bluetooth-receiver-car-modification/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="http://bauerjj.com/blog/speeding-up-compilation-time-with-ccache/" class="pagination--pager" title="Speeding Up Native Compiling and Cross-Compiling Time with ccache
+      <a href="http://bauerjj.com/blog/terminator-setup-ubuntu/" class="pagination--pager" title="Terminator Setup in Ubuntu
 ">Previous</a>
     
     
-      <a href="http://bauerjj.com/blog/samsung-migration-tool-fail/" class="pagination--pager" title="Samsung Migration Tool Fail
+      <a href="http://bauerjj.com/blog/setup-ledger-nano-s-linux/" class="pagination--pager" title="Setup Leger Nano S on Ubuntu Linux
 ">Next</a>
     
   </nav>
@@ -479,7 +484,7 @@
             <input type="url" id="comment-form-url" name="fields[url]" tabindex="4"/>
           </fieldset>
           <fieldset class="hidden" style="display: none;">
-            <input type="hidden" name="options[slug]" value="resizing-main-parition-using-gparted-in-a-vm">
+            <input type="hidden" name="options[slug]" value="mpow-bluetooth-receiver-car-modification">
             <label for="comment-form-location">Not used. Leave blank if you are a human.</label>
             <input type="text" id="comment-form-location" name="fields[hidden]" autocomplete="off"/>
           </fieldset>
