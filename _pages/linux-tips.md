@@ -96,6 +96,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * On mounting a single partition within a single image: https://unix.stackexchange.com/a/230632
      * Be sure the units are correct `sudo parted <my_disk.img> unit s print`
  * 'fc-query <name_of_ttf_file> to get the name of the 'font-family'
+ * To download a script from the web and then subsequently run it inside of bash: `curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash`
 
 ### Commandline
 
@@ -107,6 +108,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * Move to the end of line. Ctrl + e
  * Cut from cursor to the end of line. Ctrl + k
  * Cut from cursor to the end of word. Ctrl + d
+ * A single hypthen when passing in commandline arguments is for single characters, or a string meant to be interpreted as a bunch of single characters. Use a double hyphen for an actual string
 
 ### Variables and Quotes
  * Putting spaces around equals sign (=) will cause the shell to mistake the variable name for a command name
@@ -280,3 +282,9 @@ One solution was to add a bbappend file for the <package> that included one line
  > An analogy to public key encryption is that of a locked mail box with a mail slot. The mail slot is exposed and accessible to the public – its location (the  street address) is, in essence, the public key. Anyone knowing the street address can go to the door and drop a written message through the slot. However, only the person who possesses the key can open the mailbox and read the message.
 
  > An analogy for digital signatures is the sealing of an envelope with a personal wax seal. The message can be opened by anyone, but the presence of the unique seal authenticates the sender.
+
+### Docker
+
+>A container runs natively on Linux and shares the kernel of the host machine with other containers. It runs a discrete process, taking no more memory than any other executable, making it lightweight.
+
+>By contrast, a virtual machine (VM) runs a full-blown “guest” operating system with virtual access to host resources through a hypervisor. In general, VMs provide an environment with more resources than most applications need.

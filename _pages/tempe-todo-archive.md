@@ -9,7 +9,7 @@ author_profile: false
 
 {% google_map src="_data/places.yml" no_cluster%}
 
-## Active
+## Active / Leisure
 Botanical gardens  
 Castles ~n~ Coasters - Put-Put golf and water park  
 Cue Club on Mill Ave - Pool  
@@ -18,8 +18,25 @@ Smores by Grill
 Apache Junction mining museum, mine tour, jeep tour  
 Phoenix Symphony  
 Pioneer museum  
-AZ historical museum - a lot about dams  
+AZ historical museum - a lot about dams
+[Schnepf Farms](https://beckzlife.com/2018/02/17/schnepf-farms/) - Roller Coaster, pick vegetables, watch pigs race, + more random stuff
+[Mesa Riverview](https://beckzlife.com/2018/01/30/basking-in-arizonas-beauty/) - Great place to throw a frisbee or eat lunch
+Tortilla Flats - Decent restauarnt, but mostly it is a nice scenic drive  
+Casino Arizona, Talking stick, etc  
+Jesterz
+Korean Karokee - Group singing. Only go during off-peak hours or it gets real pricey. 
+Lucky Strike - Bowling
+[Arcosanti](https://beckzlife.com/2018/01/28/arcosanti-a-city-of-the-future-hidden-in-the-desert/) - A futuristic city just outside north phoenix. Tours on the hour except for noon
+Pioneer Living History Museum - Go when they have re-enactmants of battles. Cool history of phones exhibt at the end. 
+Diamond backs / Suns / Coyotes - Talking Stick arena games are cheap
 
+### Hikes
+Lost Dog Wash - easy trail with amazing restrooms
+Black Canyon Trail - Good mountain bike trail. Very long. Creek in the middle
+Javalina - MTB Trail. Medium difficulty
+[Fat Man Pass](https://beckzlife.com/2018/04/04/squeezing-through-fat-mans-pass-to-hidden-valley-south-mountain/) - medium difficulty
+[Wave Cave](https://beckzlife.com/2018/03/23/wave-cave-superstition%e2%80%8b-wilderness/)
+Hawes Trail
  
 ## Restaurants / Bars
 
@@ -42,7 +59,7 @@ Patties - dt scottsdale
 Old Town Tavern -dt scottsdale    
 Capriotts -dt scottsdale  Tasty late-night meal when at the bars
 The Vig
-Greens - Supresingly good vegan food. I get the "dough-boy"  
+Greens - Surprisingly good vegan food. I get the "dough-boy"  
 Taco Shack - A bit of a wait, but worth it  
 Boulders on Broadway - food is meh, beer is good, trivia is fun  
 Polibertos taco shop - authentic mexican. Beware of wait time  
@@ -56,18 +73,8 @@ Applebees on corner of rural in tempe - dollar marghareitas
 Macayo's - Try to sit on their patio that overlooks a nice pond
 Frozen Yogurt
 los favoritos - Delicous and generous portions of mexican food. Pretty fast. You won't go home hungry 
-
-## Leisure
-
-Tortilla Flats - Decent restauarnt, but mostly it is a nice scenic drive  
-Casino Arizona, Talking stick, etc  
-Jesterz
-Korean Karokee - Group singing. Only go during off-peak hours or it gets real pricey. 
-MTB on south mountain, papago park, Hawes
-Lucky Strike - Bowling
-Arcosanti - A futuristic city just outside north phoenix. Tours on the hour except for noon
-Pioneer Living History Museum - Go when they have re-enactmants of battles. Cool history of phones exhibt at the end. 
-Diamond backs / Suns / Coyotes - Talking Stick arena games are cheap
+Salut Kitchen Bar - Mostly Cougars gather here
+Bahama Buck's - everywhere around the valley. Good ice creams and smoothies. 
 
 ## Non-phx places
 
@@ -78,3 +85,4 @@ Catilina Park -> Romero Pools - 1.5 hour hike in for swimming pools. Medium diff
 ### Prescott
 Papas Italian Restaurant - Don't get their shrimp scampi. Everything else is good  
 Prescott Public House - Small, includes games     
+[Barnstar Brewing Company](https://beckzlife.com/2018/04/02/24-hours-in-prescott/) - A hidden gem off the beaten path

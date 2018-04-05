@@ -187,3 +187,12 @@
     latitude:   33.416437 
     longitude:  -111.922332
  
+- title: "Lost Dog Trailhead"
+  location:
+    latitude:   33.610973 
+    longitude:  -111.817593
+
+- title: "Salut Kitchen Bar"
+  location:
+    latitude:   33.421864 
+    longitude:  -111.914848
