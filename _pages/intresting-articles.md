@@ -22,6 +22,8 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Lean `awk`](https://www.digitalocean.com/community/tutorials/how-to-use-the-awk-language-to-manipulate-text-in-linux)
 - [101 Linux Hacks eBook](http://thegeekstuff.s3.amazonaws.com/files/linux-101-hacks.zip)
 - [Overview of GPU/IPU/VPU on iMX6 Processor](http://cache.freescale.com/files/training/doc/ftf/2014/FTF-CON-F0119.pdf)
+- [Static vs Dynamic linking](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html)
+- [How to make dynamic libs - detailed](https://software.intel.com/sites/default/files/m/a/1/e/dsohowto.pdf)
 
 ## Web
 

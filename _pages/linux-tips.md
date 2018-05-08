@@ -79,7 +79,6 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * [Sending stdout to multiple commands](https://unix.stackexchange.com/questions/28503/how-can-i-send-stdout-to-multiple-commands)
 	* `grep --color=always --exclude-dir=".svn" --exclude-dir=".git" -rnw ./ -e "armadillo-image-install" -l | tee >(wc -l)`
  * To shutdown: `init 0` or `shutdown -h now`
- * `export MAKE_CPU_COUNT=1` before compilation to easily find any errors. If using multiple build threads, redirect STDOUT and STDERR to a file to grep: `MAKE_CPU_COUNT=25; ./update_dependencies 2>&1 | tee ~/Desktop/build-dep.log`
  * To find files with certain extensions: `grep connx -r -i -n --include=*.{cpp,h,pro}`
  * `cat /dev/ttyUSB0` will show continuous data on the serial port. No baud necessary. You can't interact though. 
  * `sudo screen /dev/ttyUSB0 115200` opens a two-way connection with a serial port at 115200 baud
@@ -97,6 +96,9 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
      * Be sure the units are correct `sudo parted <my_disk.img> unit s print`
  * 'fc-query <name_of_ttf_file> to get the name of the 'font-family'
  * To download a script from the web and then subsequently run it inside of bash: `curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash`
+ * Use `mktemp` for creating a folder inside your tmp directory as a scratch space. \
+ * Use `nice` for running lower priority applications
+ * [When to use xargs vs pipe](https://stackoverflow.com/questions/35589179/when-to-use-xargs-when-piping)
 
 ### Commandline
 
@@ -243,7 +245,7 @@ bitbake-layers show-appends shows all of the .bbappend files
  *  `export BB_NUMBER_THREADS=7` will take advantage of more cores. You can also set this inside of your `local.conf`
 	```
  * Use `PACKAGECONFIG_CONFARGS` if the `bb` file doesn't have explicitly set up the array like this: `PACKAGECONFIG[f1] = "--with-f1,--without-f1,build-deps-f1,rt-deps-f1"`
- * If you get an error, set CPU thread to 1 by `export MAKE_CPU_COUNT=1` and/or `BB_NUMBER_THREADS="1"` in your local.conf. Then bitbake to see the error without having to scroll all over the place. You can also just grep the log output if using multi-thread. 
+ * If you get an error, set CPU thread to 1 by  `BB_NUMBER_THREADS="1"` in your local.conf. Then bitbake to see the error without having to scroll all over the place. You can also just grep the log output if using multi-thread. 
  * To find similar recipes by part of the name: `bitbake-layers show-recipes "*-image-*"`
  * To find recipes in numerous layers: http://layers.openembedded.org/layerindex/branch/krogoth/layers/
  * `inherit core-image` will also pull in the `packagegroup-base.bb` recipe inside of poky. Look in this for ideas to add to `FEATURE_INSTALL` such as X11, zeroconf, etc
