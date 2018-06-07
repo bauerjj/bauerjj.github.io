@@ -28,6 +28,10 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 ## Web
 
 - [Pixels vs density](http://teknosrc.com/resolution-vs-pixel-density-in-displays-all-you-need-to-know/)
+- [How to Avoid the News](http://www.dobelli.com/wp-content/uploads/2013/03/Avoid_News_Part1_TEXT.pdf)
+
+## Mobile Development 
+- [UI design toolkit](https://www.invisionapp.com/)
 
 ## Security
 
@@ -46,6 +50,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
  - [Crypto Guide on all the Altcoins](https://mycrypto.guide/)
  - [List of ICOs](https://www.smithandcrown.com/icos/)
  - [Counter to SegWit2x](https://medium.com/@thepiratewhocantbenamed/my-thoughts-on-your-thoughts-17474d800dda)
+ - [Overview on calculating value of some cryptos](https://s3.eu-west-2.amazonaws.com/john-pfeffer/An+Investor%27s+Take+on+Cryptoassets+v6.pdf)
 
 >The higher the cost of running a validating node gets, the higher the total percentage of Bitcoin users forced to use Bitcoin as a trusted system gets. And the less people decide what the rules of that system are.
 
