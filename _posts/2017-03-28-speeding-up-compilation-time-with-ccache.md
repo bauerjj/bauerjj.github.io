@@ -43,7 +43,7 @@ cache size                         962.5 MB
 
 You can also just use this to print out the stats directly: `jbauer@ad-dell:~$ ccache -s`
 
-## Cross-Compiling
+## Cross-Compiling (Using Yocto)
 Similar methodology can be used to have your cross-compilers utilize `ccache`. I'm usually using Yocto, which creates an SDK for your target and contains an environment script that I can then `source` and begin compilation for the embedded target. 
 
 1. Install the Yocto supplied SDK after bitbaking it. 
@@ -59,7 +59,12 @@ Similar methodology can be used to have your cross-compilers utilize `ccache`. I
 
 		export PATH=/usr/lib/ccache:/opt/poky/2.1.2/sysroot/....
 
-5. Verify your work 
+5. Edit your `conf/local.conf` file and append this to the end of the file 
+
+		INHERIT += "ccache"
+		CCACHE_DIR = "/home/<username>/.ccache"
+
+6. Verify your work 
 
 		$ ls -al
 		lrwxrwxrwx 1 root root 16 Apr 13 13:25 arm-poky-linux-gnueabi-g++ -> ../../bin/ccache
@@ -79,6 +84,13 @@ Similar methodology can be used to have your cross-compilers utilize `ccache`. I
 		lrwxrwxrwx 1 root root 16 Mar 21 12:24 x86_64-linux-gnu-gcc-4.8 -> ../../bin/ccache
 		lrwxrwxrwx 1 root root 16 Mar 21 12:24 x86_64-linux-gnu-gcc-5 -> ../../bin/ccache
 
+7. Bitbake something and watch it hit your ccache
+ 
+		bitbake gcc
+		watch -n 1 ccache -s
+
+
+Please note that any cleans (`bitbake gcc -c cleanall)` will completely erase the contents in your ccache directory - even unrelated files. I was not able to determine why this is so. You should also be leveraging Yocto's built-in sstate-cache which negates the majority of the need for ccache. 
 
 ## Setting up QtCreator
 You can utilize `ccache` inside of QtCreator by selecting your native and cross-compiler links inside of the `ccache` directory. Below shows two screenshots of setting up my cross-compiler. Notice how I had to manually locate both gcc and g++ and instruct Qt what they are targeting. Your paths will differ slightly since I have my project defined as "Armadillo" or "ado".  
