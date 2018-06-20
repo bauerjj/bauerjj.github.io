@@ -29,6 +29,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 
 - [Pixels vs density](http://teknosrc.com/resolution-vs-pixel-density-in-displays-all-you-need-to-know/)
 - [How to Avoid the News](http://www.dobelli.com/wp-content/uploads/2013/03/Avoid_News_Part1_TEXT.pdf)
+- [Online free Therapy](https://www.7cups.com/)
 
 ## Mobile Development 
 - [UI design toolkit](https://www.invisionapp.com/)
