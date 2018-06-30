@@ -332,7 +332,6 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
     </ul>
   </li>
   <li>To shutdown: <code class="highlighter-rouge">init 0</code> or <code class="highlighter-rouge">shutdown -h now</code></li>
-  <li><code class="highlighter-rouge">export MAKE_CPU_COUNT=1</code> before compilation to easily find any errors. If using multiple build threads, redirect STDOUT and STDERR to a file to grep: <code class="highlighter-rouge">MAKE_CPU_COUNT=25; ./update_dependencies 2&gt;&amp;1 | tee ~/Desktop/build-dep.log</code></li>
   <li>To find files with certain extensions: <code class="highlighter-rouge">grep connx -r -i -n --include=*.{cpp,h,pro}</code></li>
   <li><code class="highlighter-rouge">cat /dev/ttyUSB0</code> will show continuous data on the serial port. No baud necessary. You can’t interact though.</li>
   <li><code class="highlighter-rouge">sudo screen /dev/ttyUSB0 115200</code> opens a two-way connection with a serial port at 115200 baud
@@ -357,6 +356,10 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
   </li>
   <li>‘fc-query <name_of_ttf_file> to get the name of the 'font-family'</name_of_ttf_file></li>
   <li>To download a script from the web and then subsequently run it inside of bash: <code class="highlighter-rouge">curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bash</code></li>
+  <li>Use <code class="highlighter-rouge">mktemp</code> for creating a folder inside your tmp directory as a scratch space. \</li>
+  <li>Use <code class="highlighter-rouge">nice</code> for running lower priority applications</li>
+  <li><a href="https://stackoverflow.com/questions/35589179/when-to-use-xargs-when-piping">When to use xargs vs pipe</a></li>
+  <li>Use <code class="highlighter-rouge">mount --o bind</code> when mounting a directory to another directory. Regular <code class="highlighter-rouge">mount</code> works on block devices.</li>
 </ul>
 
 <h3 id="commandline">Commandline</h3>
@@ -549,7 +552,7 @@ bitbake-layers show-appends shows all of the .bbappend files</li>
   <li><code class="highlighter-rouge">export BB_NUMBER_THREADS=7</code> will take advantage of more cores. You can also set this inside of your <code class="highlighter-rouge">local.conf</code>
 ```</li>
   <li>Use <code class="highlighter-rouge">PACKAGECONFIG_CONFARGS</code> if the <code class="highlighter-rouge">bb</code> file doesn’t have explicitly set up the array like this: <code class="highlighter-rouge">PACKAGECONFIG[f1] = "--with-f1,--without-f1,build-deps-f1,rt-deps-f1"</code></li>
-  <li>If you get an error, set CPU thread to 1 by <code class="highlighter-rouge">export MAKE_CPU_COUNT=1</code> and/or <code class="highlighter-rouge">BB_NUMBER_THREADS="1"</code> in your local.conf. Then bitbake to see the error without having to scroll all over the place. You can also just grep the log output if using multi-thread.</li>
+  <li>If you get an error, set CPU thread to 1 by  <code class="highlighter-rouge">BB_NUMBER_THREADS="1"</code> in your local.conf. Then bitbake to see the error without having to scroll all over the place. You can also just grep the log output if using multi-thread.</li>
   <li>To find similar recipes by part of the name: <code class="highlighter-rouge">bitbake-layers show-recipes "*-image-*"</code></li>
   <li>To find recipes in numerous layers: http://layers.openembedded.org/layerindex/branch/krogoth/layers/</li>
   <li><code class="highlighter-rouge">inherit core-image</code> will also pull in the <code class="highlighter-rouge">packagegroup-base.bb</code> recipe inside of poky. Look in this for ideas to add to <code class="highlighter-rouge">FEATURE_INSTALL</code> such as X11, zeroconf, etc</li>

@@ -361,7 +361,7 @@
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
   <li><a href="#native-compiling" id="markdown-toc-native-compiling">Native Compiling</a></li>
-  <li><a href="#cross-compiling" id="markdown-toc-cross-compiling">Cross-Compiling</a></li>
+  <li><a href="#cross-compiling-using-yocto" id="markdown-toc-cross-compiling-using-yocto">Cross-Compiling (Using Yocto)</a></li>
   <li><a href="#setting-up-qtcreator" id="markdown-toc-setting-up-qtcreator">Setting up QtCreator</a></li>
 </ul>
 
@@ -400,7 +400,7 @@ cache size                         962.5 MB
 
 <p>You can also just use this to print out the stats directly: <code class="highlighter-rouge">jbauer@ad-dell:~$ ccache -s</code></p>
 
-<h2 id="cross-compiling">Cross-Compiling</h2>
+<h2 id="cross-compiling-using-yocto">Cross-Compiling (Using Yocto)</h2>
 <p>Similar methodology can be used to have your cross-compilers utilize <code class="highlighter-rouge">ccache</code>. I’m usually using Yocto, which creates an SDK for your target and contains an environment script that I can then <code class="highlighter-rouge">source</code> and begin compilation for the embedded target.</p>
 
 <ol>
@@ -419,6 +419,14 @@ cache size                         962.5 MB
     <p>Re-open your environment script and prepend <code class="highlighter-rouge">/usr/lib/ccache</code> in the <code class="highlighter-rouge">PATH</code> variable. This ensures that your machine will first look in your <code class="highlighter-rouge">ccache</code> directory for the compilers. Omitting this step will require you to manually export the PATH variable after sourcing the script or else <code class="highlighter-rouge">ccache</code> will never do its job.</p>
 
     <div class="highlighter-rouge"><pre class="highlight"><code> export PATH=/usr/lib/ccache:/opt/poky/2.1.2/sysroot/....
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Edit your <code class="highlighter-rouge">conf/local.conf</code> file and append this to the end of the file</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> INHERIT += "ccache"
+ CCACHE_DIR = "/home/&lt;username&gt;/.ccache"
 </code></pre>
     </div>
   </li>
@@ -445,7 +453,17 @@ cache size                         962.5 MB
 </code></pre>
     </div>
   </li>
+  <li>
+    <p>Bitbake something and watch it hit your ccache</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> bitbake gcc
+ watch -n 1 ccache -s
+</code></pre>
+    </div>
+  </li>
 </ol>
+
+<p>Please note that any cleans (<code class="highlighter-rouge">bitbake gcc -c cleanall)</code> will completely erase the contents in your ccache directory - even unrelated files. I was not able to determine why this is so. You should also be leveraging Yocto’s built-in sstate-cache which negates the majority of the need for ccache.</p>
 
 <h2 id="setting-up-qtcreator">Setting up QtCreator</h2>
 <p>You can utilize <code class="highlighter-rouge">ccache</code> inside of QtCreator by selecting your native and cross-compiler links inside of the <code class="highlighter-rouge">ccache</code> directory. Below shows two screenshots of setting up my cross-compiler. Notice how I had to manually locate both gcc and g++ and instruct Qt what they are targeting. Your paths will differ slightly since I have my project defined as “Armadillo” or “ado”.</p>

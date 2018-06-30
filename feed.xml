@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://bauerjj.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://bauerjj.com/" rel="alternate" type="text/html" /><updated>2018-04-05T12:56:13-07:00</updated><id>http://bauerjj.com/</id><title type="html">bauerjj</title><subtitle>Thoughts on my mind - blog - website - random</subtitle><author><name>Justin Bauer</name><email>justinjbauer1@gmail.com</email><uri>http://mcuhq.com</uri></author><entry><title type="html">Setup Leger Nano S on Ubuntu Linux</title><link href="http://bauerjj.com/blog/setup-ledger-nano-s-linux/" rel="alternate" type="text/html" title="Setup Leger Nano S on Ubuntu Linux" /><published>2018-03-20T00:00:00-07:00</published><updated>2018-03-20T00:00:00-07:00</updated><id>http://bauerjj.com/blog/setup-ledger-nano-s-linux</id><content type="html" xml:base="http://bauerjj.com/blog/setup-ledger-nano-s-linux/">&lt;p&gt;This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.5">Jekyll</generator><link href="http://bauerjj.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://bauerjj.com/" rel="alternate" type="text/html" /><updated>2018-06-30T12:20:31-07:00</updated><id>http://bauerjj.com/</id><title type="html">bauerjj</title><subtitle>Thoughts on my mind - blog - website - random</subtitle><author><name>Justin Bauer</name><email>justinjbauer1@gmail.com</email><uri>http://mcuhq.com</uri></author><entry><title type="html">Setup Leger Nano S on Ubuntu Linux</title><link href="http://bauerjj.com/blog/setup-ledger-nano-s-linux/" rel="alternate" type="text/html" title="Setup Leger Nano S on Ubuntu Linux" /><published>2018-03-20T00:00:00-07:00</published><updated>2018-03-20T00:00:00-07:00</updated><id>http://bauerjj.com/blog/setup-ledger-nano-s-linux</id><content type="html" xml:base="http://bauerjj.com/blog/setup-ledger-nano-s-linux/">&lt;p&gt;This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Install&lt;/strong&gt;&lt;/p&gt;
 
@@ -646,7 +646,7 @@ EndSection
     &lt;header&gt;&lt;h4 class=&quot;nav__title&quot;&gt;&lt;i class=&quot;fa fa-file-text&quot;&gt;&lt;/i&gt; On This Page&lt;/h4&gt;&lt;/header&gt;
 &lt;ul class=&quot;toc__menu&quot; id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#native-compiling&quot; id=&quot;markdown-toc-native-compiling&quot;&gt;Native Compiling&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#cross-compiling&quot; id=&quot;markdown-toc-cross-compiling&quot;&gt;Cross-Compiling&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cross-compiling-using-yocto&quot; id=&quot;markdown-toc-cross-compiling-using-yocto&quot;&gt;Cross-Compiling (Using Yocto)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#setting-up-qtcreator&quot; id=&quot;markdown-toc-setting-up-qtcreator&quot;&gt;Setting up QtCreator&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -685,7 +685,7 @@ cache size                         962.5 MB
 
 &lt;p&gt;You can also just use this to print out the stats directly: &lt;code class=&quot;highlighter-rouge&quot;&gt;jbauer@ad-dell:~$ ccache -s&lt;/code&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;cross-compiling&quot;&gt;Cross-Compiling&lt;/h2&gt;
+&lt;h2 id=&quot;cross-compiling-using-yocto&quot;&gt;Cross-Compiling (Using Yocto)&lt;/h2&gt;
 &lt;p&gt;Similar methodology can be used to have your cross-compilers utilize &lt;code class=&quot;highlighter-rouge&quot;&gt;ccache&lt;/code&gt;. I’m usually using Yocto, which creates an SDK for your target and contains an environment script that I can then &lt;code class=&quot;highlighter-rouge&quot;&gt;source&lt;/code&gt; and begin compilation for the embedded target.&lt;/p&gt;
 
 &lt;ol&gt;
@@ -704,6 +704,14 @@ cache size                         962.5 MB
     &lt;p&gt;Re-open your environment script and prepend &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/ccache&lt;/code&gt; in the &lt;code class=&quot;highlighter-rouge&quot;&gt;PATH&lt;/code&gt; variable. This ensures that your machine will first look in your &lt;code class=&quot;highlighter-rouge&quot;&gt;ccache&lt;/code&gt; directory for the compilers. Omitting this step will require you to manually export the PATH variable after sourcing the script or else &lt;code class=&quot;highlighter-rouge&quot;&gt;ccache&lt;/code&gt; will never do its job.&lt;/p&gt;
 
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; export PATH=/usr/lib/ccache:/opt/poky/2.1.2/sysroot/....
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Edit your &lt;code class=&quot;highlighter-rouge&quot;&gt;conf/local.conf&lt;/code&gt; file and append this to the end of the file&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; INHERIT += &quot;ccache&quot;
+ CCACHE_DIR = &quot;/home/&amp;lt;username&amp;gt;/.ccache&quot;
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
   &lt;/li&gt;
@@ -730,7 +738,17 @@ cache size                         962.5 MB
 &lt;/code&gt;&lt;/pre&gt;
     &lt;/div&gt;
   &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bitbake something and watch it hit your ccache&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; bitbake gcc
+ watch -n 1 ccache -s
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;Please note that any cleans (&lt;code class=&quot;highlighter-rouge&quot;&gt;bitbake gcc -c cleanall)&lt;/code&gt; will completely erase the contents in your ccache directory - even unrelated files. I was not able to determine why this is so. You should also be leveraging Yocto’s built-in sstate-cache which negates the majority of the need for ccache.&lt;/p&gt;
 
 &lt;h2 id=&quot;setting-up-qtcreator&quot;&gt;Setting up QtCreator&lt;/h2&gt;
 &lt;p&gt;You can utilize &lt;code class=&quot;highlighter-rouge&quot;&gt;ccache&lt;/code&gt; inside of QtCreator by selecting your native and cross-compiler links inside of the &lt;code class=&quot;highlighter-rouge&quot;&gt;ccache&lt;/code&gt; directory. Below shows two screenshots of setting up my cross-compiler. Notice how I had to manually locate both gcc and g++ and instruct Qt what they are targeting. Your paths will differ slightly since I have my project defined as “Armadillo” or “ado”.&lt;/p&gt;
