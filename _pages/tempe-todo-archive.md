@@ -78,10 +78,10 @@ Macayo's - Try to sit on their patio that overlooks a nice pond
 Frozen Yogurt  
 los favoritos - Delicous and generous portions of mexican food. Pretty fast. You won't go home hungry   
 Salut Kitchen Bar - Mostly Cougars gather here  
-Bahama Buck's - everywhere around the valley. Good ice creams and smoothies.
-Love Hut - Vegan Cuisine. Small space. 
-Kingo Bowl - Unique bowls from steak and chicken with eggs ontop with your pick of sauce. Pretty cool. 
-Joes Farm Grill / Garage East - Pretty chill barn-like outside eating. Cool rustique shops inside too.
+Bahama Buck's - everywhere around the valley. Good ice creams and smoothies   
+Love Hut - Vegan Cuisine. Small space   
+Kingo Bowl - Unique bowls from steak and chicken with eggs ontop with your pick of sauce. Pretty cool   
+Joes Farm Grill / Garage East - Pretty chill barn-like outside eating. Cool rustique shops inside too  
 
 
 ## Non-phx places
