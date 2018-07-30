@@ -29,7 +29,7 @@ Lucky Strike - Bowling
 [Arcosanti](https://beckzlife.com/2018/01/28/arcosanti-a-city-of-the-future-hidden-in-the-desert/) - A futuristic city just outside north   phoenix. Tours on the hour except for noon  
 Pioneer Living History Museum - Go when they have re-enactmants of battles. Cool history of phones exhibt at the end   
 Diamond backs / Suns / Coyotes - Talking Stick arena games are cheap  
-Scorpion Hunt - Usery Mountain at night (requires $7 entry fee)
+Scorpion Hunt - Usery Mountain at night (requires $7 entry fee)   
 
 ### Hikes
 Lost Dog Wash - easy trail with amazing restrooms  
@@ -37,8 +37,8 @@ Black Canyon Trail - Good mountain bike trail. Very long. Creek in the middle
 Javalina - MTB Trail. Medium difficulty  
 [Fat Man Pass](https://beckzlife.com/2018/04/04/squeezing-through-fat-mans-pass-to-hidden-valley-south-mountain/) - medium difficulty  
 [Wave Cave](https://beckzlife.com/2018/03/23/wave-cave-superstition%e2%80%8b-wilderness/)  
-Hawes Trail
-Wind Cave - Moderate hike in Usery Mountain (requires $7 entry fee)
+Hawes Trail   
+Wind Cave - Moderate hike in Usery Mountain (requires $7 entry fee)   
   
 
  
@@ -82,9 +82,9 @@ Bahama Buck's - everywhere around the valley. Good ice creams and smoothies
 Love Hut - Vegan Cuisine. Small space   
 Kingo Bowl - Unique bowls from steak and chicken with eggs ontop with your pick of sauce. Pretty cool   
 Joes Farm Grill / Garage East - Pretty chill barn-like outside eating. Cool rustique shops inside too  
-It's All Greek To Me - Not super healthy, but open late and fast inside Tempe Marketplace
-Green Corner Restaurant - Huge portions. Open Late. One of the top-rated places in Mesa for food. Super great
-Worth Takeaway - Healthy, good. Closes at 9PM. Right in DT mesa. 
+It's All Greek To Me - Not super healthy, but open late and fast inside Tempe Marketplace   
+Green Corner Restaurant - Huge portions. Open Late. One of the top-rated places in Mesa for food. Super great   
+Worth Takeaway - Healthy, good. Closes at 9PM. Right in DT mesa    
 
 ## Non-phx places
 
