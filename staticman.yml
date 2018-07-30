@@ -16,7 +16,7 @@ comments:
   branch: "gh-pages"
 
   # Text to use as the commit message or pull request title. Accepts placeholders.
-  commitMessage: "Add Staticman data"
+  commitMessage: "New comment"
 
   # (*) REQUIRED
   #
@@ -43,7 +43,7 @@ comments:
   moderation: true
 
   # Name of the site. Used in notification emails.
-  name: "eduardoboucas.com"
+  name: "bauerjj.com"
 
   # Notification settings. When enabled, users can choose to receive notifications
   # via email when someone adds a reply or a new comment. This requires an account
@@ -75,3 +75,7 @@ comments:
   # the name of the field and values are possible transformation types.
   transforms:
 email: md5
+
+reCaptcha.enabled: true
+reCaptcha.siteKey: "6LeTS2cUAAAAAJUNIR1NgM4YupyavIIOlaltG1by"
+reCaptcha.secret: "cFdrsh7exGBPPvj/voGn/Dm1034pJwGeecHBQFFNfgcZK8gtmdBbQLDG1qAThbi6tRQt9WSFdsxOGxH4pA9AoBde8xRuZj4umRDTtwH3nD4AhaLAEzSb0KgXq43lAOSD54juTD9BA/dWLPczKvNPjEv/j493vKWBwxqsuRQslPY="
