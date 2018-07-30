@@ -17,6 +17,10 @@ repository               : bauerjj/bauerjj.github.io
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 breadcrumbs              : true 
 words_per_minute         : 200
+reCaptcha:
+  enabled                : true
+  siteKey                : "6LeTS2cUAAAAAJUNIR1NgM4YupyavIIOlaltG1by"
+  secret                 : "cFdrsh7exGBPPvj/voGn/Dm1034pJwGeecHBQFFNfgcZK8gtmdBbQLDG1qAThbi6tRQt9WSFdsxOGxH4pA9AoBde8xRuZj4umRDTtwH3nD4AhaLAEzSb0KgXq43lAOSD54juTD9BA/dWLPczKvNPjEv/j493vKWBwxqsuRQslPY="
 comments:
   provider               : staticman
   disqus:
