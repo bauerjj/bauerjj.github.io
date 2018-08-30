@@ -25,6 +25,9 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Static vs Dynamic linking](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html)
 - [How to make dynamic libs - detailed](https://software.intel.com/sites/default/files/m/a/1/e/dsohowto.pdf)
 
+## Blogs
+- [Tech/Movie/Misc reviews](https://www.jwz.org/blog/)
+
 ## Web
 
 - [Pixels vs density](http://teknosrc.com/resolution-vs-pixel-density-in-displays-all-you-need-to-know/)
