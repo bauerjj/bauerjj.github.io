@@ -94,5 +94,12 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 
  - [Sour Grapes](http://www.imdb.com/title/tt5728684/) - counterfeit wine is apparently easy to fool even the best connoisseur.
 
+## Privacy
+ - [A Good American](https://en.wikipedia.org/wiki/A_Good_American) - William Binney whistleblower who couldn't trust the entrusted whistleblower program
+ - [CitizenFour](http://thoughtmaybe.com/citizenfour/) - Raw Snowden interview
+
+# Books
+ - Bravehearts: Whistle-blowing in the Age of Snowden
+
 # Misc
  - [Consumer Complaint Database](https://www.consumerfinance.gov) - Search companies and their complaints
