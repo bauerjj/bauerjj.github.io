@@ -25,6 +25,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Static vs Dynamic linking](http://www.yolinux.com/TUTORIALS/LibraryArchives-StaticAndDynamic.html)
 - [How to make dynamic libs - detailed](https://software.intel.com/sites/default/files/m/a/1/e/dsohowto.pdf)
 - [vim refresher](https://www.openvim.com/sandbox.html)
+- [Various docker files for desktop apps](https://github.com/jessfraz/dockerfiles)
 
 ## Blogs
 - [Tech/Movie/Misc reviews](https://www.jwz.org/blog/)
