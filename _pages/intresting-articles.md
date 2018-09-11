@@ -29,6 +29,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 
 ## Blogs
 - [Tech/Movie/Misc reviews](https://www.jwz.org/blog/)
+- [social + software articles](http://blog.cleancoder.com/)
 
 ## Web
 
