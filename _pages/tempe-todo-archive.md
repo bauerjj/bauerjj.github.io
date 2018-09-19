@@ -30,6 +30,7 @@ Lucky Strike - Bowling
 Pioneer Living History Museum - Go when they have re-enactmants of battles. Cool history of phones exhibt at the end   
 Diamond backs / Suns / Coyotes - Talking Stick arena games are cheap  
 Scorpion Hunt - Usery Mountain at night (requires $7 entry fee)   
+Level Up Gaming - Modern video games played on a PC 
 
 ### Hikes
 Lost Dog Wash - easy trail with amazing restrooms  
@@ -39,7 +40,7 @@ Javalina - MTB Trail. Medium difficulty
 [Wave Cave](https://beckzlife.com/2018/03/23/wave-cave-superstition%e2%80%8b-wilderness/)  
 Hawes Trail   
 Wind Cave - Moderate hike in Usery Mountain (requires $7 entry fee)   
-  
+West Fork Trail - The most beautiful hike in Sedona by far 
 
  
 ## Restaurants / Bars
@@ -84,7 +85,9 @@ Kingo Bowl - Unique bowls from steak and chicken with eggs ontop with your pick 
 Joes Farm Grill / Garage East - Pretty chill barn-like outside eating. Cool rustique shops inside too  
 It's All Greek To Me - Not super healthy, but open late and fast inside Tempe Marketplace   
 Green Corner Restaurant - Huge portions. Open Late. One of the top-rated places in Mesa for food. Super great   
-Worth Takeaway - Healthy, good. Closes at 9PM. Right in DT mesa    
+Worth Takeaway - Healthy, good. Closes at 9PM. Right in DT mesa 
+Urbanh cafe - Great Banh Mi sandwiches 
+Mekong Sandwiches - Banh Mi sandwiches 
 
 ## Non-phx places
 
