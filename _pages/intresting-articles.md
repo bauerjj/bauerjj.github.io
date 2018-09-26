@@ -26,6 +26,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [How to make dynamic libs - detailed](https://software.intel.com/sites/default/files/m/a/1/e/dsohowto.pdf)
 - [vim refresher](https://www.openvim.com/sandbox.html)
 - [Various docker files for desktop apps](https://github.com/jessfraz/dockerfiles)
+- [Great yocto and embedded linux reference with training classes](https://bootlin.com/)
 
 ## Blogs
 - [Tech/Movie/Misc reviews](https://www.jwz.org/blog/)
