@@ -41,6 +41,10 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Online free Therapy](https://www.7cups.com/)
 - [Graphs of Patreon Creators](https://graphtreon.com/top-patreon-creators)
 
+## Notable people
+
+- [Olin Lathrop - EE](https://electronics.stackexchange.com/users/4512/olin-lathrop)
+
 ## Mobile Development 
 - [UI design toolkit](https://www.invisionapp.com/)
 
