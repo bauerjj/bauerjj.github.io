@@ -27,6 +27,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [vim refresher](https://www.openvim.com/sandbox.html)
 - [Various docker files for desktop apps](https://github.com/jessfraz/dockerfiles)
 - [Great yocto and embedded linux reference with training classes](https://bootlin.com/)
+- [Beaglebone Black, Wandaboard, & Pi yocto layers](https://jumpnowtek.com/)
 
 ## Blogs
 - [Tech/Movie/Misc reviews](https://www.jwz.org/blog/)
