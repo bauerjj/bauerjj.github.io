@@ -44,7 +44,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 ## Notable people
 
 - [Olin Lathrop - EE](https://electronics.stackexchange.com/users/4512/olin-lathrop)
-
+- [General electronics and circuits](https://forum.allaboutcircuits.com/members/audioguru.16321/) & [source 2](http://electronics-lab.com/community/index.php?/profile/1496-audioguru/)
 ## Mobile Development 
 - [UI design toolkit](https://www.invisionapp.com/)
 
