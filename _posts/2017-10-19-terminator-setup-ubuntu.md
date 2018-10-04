@@ -1,37 +1,9 @@
----
-layout: single
-title: Terminator Setup in Ubuntu
-context: Ramblings
-date: 2017-10-19 
-categories: blog
-comments: true
----
-
-I have found that [terminator](https://gnometerminator.blogspot.com/p/introduction.html) is one of the best terminal programs available for managing multiple terminals. I was tired of switching between contexts until I stumbled upon terminator. It makes it easy to spawn multiple terminal instances within a single window by creating another tab or by splitting the existing terminal. 
-
-**Install**:
-
-```
-sudo add-apt-repository ppa:gnome-terminator
-sudo apt-get update
-sudo apt-get install terminator
-```
-
-Here is my example config. This will create a 4 window pane. Paste this inside of `~/.config/terminator/config`. You may need to create the file if it isn't there. Restart terminator to see the new setup. Be sure to replace `jbauer` with your username. 
-
-![4-screen terminator](/assets/images/terminator.png)
-
-```
 [global_config]
-  suppress_multiple_term_dialog = True
   inactive_color_offset = 0.99
+  suppress_multiple_term_dialog = True
 [keybindings]
-  paste = <Control>v
   copy = <Control>
-[profiles]
-  [[default]]
-    background_image = None
-    scrollback_infinite = True
+  paste = <Control>v
 [layouts]
   [[default]]
     [[[child0]]]
@@ -40,7 +12,7 @@ Here is my example config. This will create a 4 window pane. Paste this inside o
       last_active_window = True
       maximised = False
       order = 0
-      parent = ""  
+      parent = ""
       position = 525:100
       size = 1249, 733
       title = jbauer@ubuntu: ~
@@ -89,14 +61,6 @@ Here is my example config. This will create a 4 window pane. Paste this inside o
       profile = default
       type = Terminal
       uuid = f281f00c-958e-40d3-84d5-a87294fbb75f
-  [[defaultold]]
-    [[[child1]]]
-      parent = window0
-      profile = default
-      type = Terminal
-    [[[window0]]]
-      parent = ""
-      type = Window
   [[cool]]
     [[[child0]]]
       fullscreen = False
@@ -151,5 +115,18 @@ Here is my example config. This will create a 4 window pane. Paste this inside o
       profile = default
       type = Terminal
       uuid = f281f00c-958e-40d3-84d5-a87294fbb75f
+  [[defaultold]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
 [plugins]
-```
+[profiles]
+  [[default]]
+    background_image = None
+    font = Sans 10
+    scroll_on_output = False
+    scrollback_infinite = True
