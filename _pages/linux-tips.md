@@ -136,12 +136,8 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * `find . -type f -name '*.log' | while read fname; do echo mv $fname ${fname/log/.LOG/}; done | bash -x` finds files with matching .log extension and then ranames them all to uppercase .LOG. This prints the commands to the terminal and then executes the steps in bash. @see pg 39
  * `$0`: name of file of script that is invoked. `$#` total of arguments supplied. 
 
-
-
-
-
 ### Git
-
+ * [Good commit message syntax](https://chris.beams.io/posts/git-commit/)
  * [Merging/rebasing](https://stackoverflow.com/questions/25933056/how-can-i-do-a-bugfix-on-master-and-integrate-it-into-my-less-stable-branches/25934341#25934341)
  * [Pretty git branches software](https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs)
 
