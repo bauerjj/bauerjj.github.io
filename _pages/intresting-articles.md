@@ -35,6 +35,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [social + software articles](http://blog.cleancoder.com/)
 - [linux + cpu tricks](http://www.bitsnbites.eu/)
 - [Embedded Arm quick and practical projects](https://www.embeddedarm.com/blog/)
+- [Marcgg](http://marcgg.com/)
 ## Web
 
 - [Pixels vs density](http://teknosrc.com/resolution-vs-pixel-density-in-displays-all-you-need-to-know/)
