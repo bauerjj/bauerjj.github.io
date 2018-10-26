@@ -28,6 +28,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Various docker files for desktop apps](https://github.com/jessfraz/dockerfiles)
 - [Great yocto and embedded linux reference with training classes](https://bootlin.com/)
 - [Beaglebone Black, Wandaboard, & Pi yocto layers](https://jumpnowtek.com/)
+- [Provides embedded linux training. Similar to jumpnowtek](http://www.denx.de/en/News/WebHome)
 
 ## Blogs
 - [Tech/Movie/Misc reviews](https://www.jwz.org/blog/)
