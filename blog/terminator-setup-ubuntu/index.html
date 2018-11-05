@@ -379,15 +379,11 @@ sudo apt-get install terminator
 <p><img src="/assets/images/terminator.png" alt="4-screen terminator" /></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[global_config]
-  suppress_multiple_term_dialog = True
   inactive_color_offset = 0.99
+  suppress_multiple_term_dialog = True
 [keybindings]
-  paste = &lt;Control&gt;v
   copy = &lt;Control&gt;
-[profiles]
-  [[default]]
-    background_image = None
-    scrollback_infinite = True
+  paste = &lt;Control&gt;v
 [layouts]
   [[default]]
     [[[child0]]]
@@ -396,7 +392,7 @@ sudo apt-get install terminator
       last_active_window = True
       maximised = False
       order = 0
-      parent = ""  
+      parent = ""
       position = 525:100
       size = 1249, 733
       title = jbauer@ubuntu: ~
@@ -445,14 +441,6 @@ sudo apt-get install terminator
       profile = default
       type = Terminal
       uuid = f281f00c-958e-40d3-84d5-a87294fbb75f
-  [[defaultold]]
-    [[[child1]]]
-      parent = window0
-      profile = default
-      type = Terminal
-    [[[window0]]]
-      parent = ""
-      type = Window
   [[cool]]
     [[[child0]]]
       fullscreen = False
@@ -507,7 +495,21 @@ sudo apt-get install terminator
       profile = default
       type = Terminal
       uuid = f281f00c-958e-40d3-84d5-a87294fbb75f
+  [[defaultold]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    font = Sans 10
+    scroll_on_output = False
+    scrollback_infinite = True
 </code></pre>
 </div>
 
@@ -587,7 +589,7 @@ sudo apt-get install terminator
         <!-- Start new comment form -->
         <h4 class="page__comments-title">Leave a Comment</h4>
         <p class="small">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
-        <p class="small">Note - Sometimes a comment submission will fail. Simply press the "Submit Content" button again until a green success box is shown</p>
+        <p class="small">Note - Sometimes a comment submission will fail. Simply press the "Submit Comment" button again until a green success box is shown</p>
         <form id="new_comment" class="page__comments-form js-form form" method="post" action="https://api.staticman.net/v2/entry/bauerjj/bauerjj.github.io/gh-pages/comments">
           <div class="form__spinner">
             <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
@@ -717,7 +719,7 @@ sudo apt-get install terminator
           $('#comment-form-submit').html('Submit Comment');
           $('.page__comments-form .js-notice').removeClass('notice--success');
           $('.page__comments-form .js-notice').addClass('notice--danger');
-          showAlert('Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.');
+          showAlert('Sorry, this is embarrassing - please press the 'Submit Comment' button again. There was an error with your submission to staticmanv2. Please make sure all required fields have been completed and try again.');
           $(form).removeClass('disabled');
         }
       });
