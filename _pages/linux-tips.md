@@ -140,6 +140,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * [Good commit message syntax](https://chris.beams.io/posts/git-commit/)
  * [Merging/rebasing](https://stackoverflow.com/questions/25933056/how-can-i-do-a-bugfix-on-master-and-integrate-it-into-my-less-stable-branches/25934341#25934341)
  * [Pretty git branches software](https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs)
+ * Use `--depth 1` when cloning a repo if you only want the latest commit which is typically at master. 
 
 ### svn
  * View externals URLs `svn propget -R svn:externals`
