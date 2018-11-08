@@ -249,7 +249,8 @@ bitbake-layers show-appends shows all of the .bbappend files
  * `inherit core-image` will also pull in the `packagegroup-base.bb` recipe inside of poky. Look in this for ideas to add to `FEATURE_INSTALL` such as X11, zeroconf, etc
  * you can force any individual bitbake command with `bitbake <recipe> -f -c <step>` will force the build step
  * The standard BitBake behavior in most cases is: do_fetch, do_unpack, do_patch, do_configure, do_compile, do_install, do_package, do_package_write_*, and do_build
-
+ * Use `quilt` when performing patches. See [users manual](http://www.shakthimaan.com/downloads/glv/quilt-tutorial/quilt-doc.pdf) and [stackoverflow yocto answer](https://stackoverflow.com/questions/53113672/how-to-edit-the-kernel-files-using-yocto-recipe/53179602#53179602)
+ * Use `bitbake <recipe> -k` to force a build as far as it can go even with errors
 
 ### Docs
 
