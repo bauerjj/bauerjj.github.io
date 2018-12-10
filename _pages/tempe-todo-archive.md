@@ -85,9 +85,10 @@ Kingo Bowl - Unique bowls from steak and chicken with eggs ontop with your pick 
 Joes Farm Grill / Garage East - Pretty chill barn-like outside eating. Cool rustique shops inside too  
 It's All Greek To Me - Not super healthy, but open late and fast inside Tempe Marketplace   
 Green Corner Restaurant - Huge portions. Open Late. One of the top-rated places in Mesa for food. Super great   
-Worth Takeaway - Healthy, good. Closes at 9PM. Right in DT mesa 
-Urbanh cafe - Great Banh Mi sandwiches 
-Mekong Sandwiches - Banh Mi sandwiches 
+Worth Takeaway - Healthy, good. Closes at 9PM. Right in DT mesa   
+Urbanh cafe - Great Banh Mi sandwiches  
+Mekong Sandwiches - Banh Mi sandwiches  
+The Grid - Old arcade and xbox/ps2/nintendo games. Good selection of beer  
 
 ## Non-phx places
 
