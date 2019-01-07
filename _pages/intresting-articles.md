@@ -29,6 +29,8 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Great yocto and embedded linux reference with training classes](https://bootlin.com/)
 - [Beaglebone Black, Wandaboard, & Pi yocto layers](https://jumpnowtek.com/)
 - [Provides embedded linux training. Similar to jumpnowtek](http://www.denx.de/en/News/WebHome)
+- [The Definitive C++ Book Guide and List](https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
+- [The Definitive C Book Guide and List - (Was deleted)](https://web.archive.org/web/20180217064544/https://stackoverflow.com/questions/562303/the-definitive-c-book-guide-and-list)
 
 ## Blogs
 - [Tech/Movie/Misc reviews](https://www.jwz.org/blog/)
