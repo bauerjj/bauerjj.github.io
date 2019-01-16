@@ -99,6 +99,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
   
 ## Scams
  - [Skeptical Overview of MLM schemes](http://www.mlmwatch.org/)
+ - [TRON marketing scam](https://beincrypto.com/trons-1-million-contest-looks-like-a-massive-pump-scheme/)
   
 ## Stocks
  - [Rate Company 401k Plans](https://www.brightscope.com/ratings/)
@@ -111,6 +112,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
  - [Water and Power:  the California heist](http://www.imdb.com/title/tt6290202/)  Water == $$$
  - [Merchants of Doubt](http://www.imdb.com/title/tt3675568/) - Public health research 
  - [Betting on Zero](https://www.netflix.com/title/80108609) - How Herbalife is a scam
+ - [Bleed Out](https://www.bitchute.com/video/mRysdkFxDjHh/) - Hospital neglict and malpractice account for 3rd highest death rate in US. One of the most difficult documentaries to watch
 
 ## Diet
 
