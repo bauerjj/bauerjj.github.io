@@ -32,6 +32,10 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [The Definitive C++ Book Guide and List](https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
 - [The Definitive C Book Guide and List - (Was deleted)](https://web.archive.org/web/20180217064544/https://stackoverflow.com/questions/562303/the-definitive-c-book-guide-and-list)
 
+## Hacking
+- [Rubber Ducky USB Attack](https://github.com/hak5darren/USB-Rubber-Ducky)
+
+
 ## Blogs
 - [Tech/Movie/Misc reviews](https://www.jwz.org/blog/)
 - [social + software articles](http://blog.cleancoder.com/)
