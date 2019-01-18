@@ -34,6 +34,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 
 ## Hacking
 - [Rubber Ducky USB Attack](https://github.com/hak5darren/USB-Rubber-Ducky)
+- [haveibeenpwned](https://haveibeenpwned.com/Passwords)
 
 
 ## Blogs
