@@ -31,6 +31,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Provides embedded linux training. Similar to jumpnowtek](http://www.denx.de/en/News/WebHome)
 - [The Definitive C++ Book Guide and List](https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
 - [The Definitive C Book Guide and List - (Was deleted)](https://web.archive.org/web/20180217064544/https://stackoverflow.com/questions/562303/the-definitive-c-book-guide-and-list)
+- [Failures of Scrum and time estimates](https://www.reddit.com/r/programming/comments/am7kp1/a_summary_of_the_whole_noestimates_argument/)
 
 ## Hacking
 - [Rubber Ducky USB Attack](https://github.com/hak5darren/USB-Rubber-Ducky)
