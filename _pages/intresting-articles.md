@@ -32,6 +32,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [The Definitive C++ Book Guide and List](https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
 - [The Definitive C Book Guide and List - (Was deleted)](https://web.archive.org/web/20180217064544/https://stackoverflow.com/questions/562303/the-definitive-c-book-guide-and-list)
 - [Failures of Scrum and time estimates](https://www.reddit.com/r/programming/comments/am7kp1/a_summary_of_the_whole_noestimates_argument/)
+- [How Uber Detects fraud and its different methods](https://eng.uber.com/advanced-technologies-detecting-preventing-fraud-uber/)
 
 ## Hacking
 - [Rubber Ducky USB Attack](https://github.com/hak5darren/USB-Rubber-Ducky)
