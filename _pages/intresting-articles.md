@@ -34,6 +34,10 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Failures of Scrum and time estimates](https://www.reddit.com/r/programming/comments/am7kp1/a_summary_of_the_whole_noestimates_argument/)
 - [How Uber Detects fraud and its different methods](https://eng.uber.com/advanced-technologies-detecting-preventing-fraud-uber/)
 
+## Programming
+
+- [Cool site that expands c++ code](https://cppinsights.io/)
+
 ## Hacking
 - [Rubber Ducky USB Attack](https://github.com/hak5darren/USB-Rubber-Ducky)
 - [haveibeenpwned](https://haveibeenpwned.com/Passwords)
