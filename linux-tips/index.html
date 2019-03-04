@@ -431,6 +431,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf</li>
   <li><a href="https://chris.beams.io/posts/git-commit/">Good commit message syntax</a></li>
   <li><a href="https://stackoverflow.com/questions/25933056/how-can-i-do-a-bugfix-on-master-and-integrate-it-into-my-less-stable-branches/25934341#25934341">Merging/rebasing</a></li>
   <li><a href="https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs">Pretty git branches software</a></li>
+  <li>Use <code class="highlighter-rouge">--depth 1</code> when cloning a repo if you only want the latest commit which is typically at master.</li>
 </ul>
 
 <h3 id="svn">svn</h3>
@@ -568,6 +569,8 @@ bitbake-layers show-appends shows all of the .bbappend files</li>
   <li><code class="highlighter-rouge">inherit core-image</code> will also pull in the <code class="highlighter-rouge">packagegroup-base.bb</code> recipe inside of poky. Look in this for ideas to add to <code class="highlighter-rouge">FEATURE_INSTALL</code> such as X11, zeroconf, etc</li>
   <li>you can force any individual bitbake command with <code class="highlighter-rouge">bitbake &lt;recipe&gt; -f -c &lt;step&gt;</code> will force the build step</li>
   <li>The standard BitBake behavior in most cases is: do_fetch, do_unpack, do_patch, do_configure, do_compile, do_install, do_package, do_package_write_*, and do_build</li>
+  <li>Use <code class="highlighter-rouge">quilt</code> when performing patches. See <a href="http://www.shakthimaan.com/downloads/glv/quilt-tutorial/quilt-doc.pdf">users manual</a> and <a href="https://stackoverflow.com/questions/53113672/how-to-edit-the-kernel-files-using-yocto-recipe/53179602#53179602">stackoverflow yocto answer</a></li>
+  <li>Use <code class="highlighter-rouge">bitbake &lt;recipe&gt; -k</code> to force a build as far as it can go even with errors</li>
 </ul>
 
 <h3 id="docs">Docs</h3>
@@ -661,7 +664,7 @@ One solution was to add a bbappend file for the <package> that included one line
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2018 Justin Bauer. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; modified version of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</div>
+<div class="page__footer-copyright">&copy; 2019 Justin Bauer. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; modified version of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</div>
       </footer>
     </div>
 
