@@ -59,6 +59,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [How to Avoid the News](http://www.dobelli.com/wp-content/uploads/2013/03/Avoid_News_Part1_TEXT.pdf)
 - [Online free Therapy](https://www.7cups.com/)
 - [Graphs of Patreon Creators](https://graphtreon.com/top-patreon-creators)
+- [See removed posts/comments from Reddit](https://removeddit.com/)
 
 ## Notable people
 
