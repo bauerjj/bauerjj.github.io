@@ -34,6 +34,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Failures of Scrum and time estimates](https://www.reddit.com/r/programming/comments/am7kp1/a_summary_of_the_whole_noestimates_argument/)
 - [How Uber Detects fraud and its different methods](https://eng.uber.com/advanced-technologies-detecting-preventing-fraud-uber/)
 - [Embedded Engineering tips from Cobus and Microchip people](https://www.microforum.cc/blogs/entry/28-what-every-embedded-programmer-should-know-about-adc-measurement/)
+- [Merging vs Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 
 ## Programming
 
