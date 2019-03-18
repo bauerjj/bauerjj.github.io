@@ -89,6 +89,8 @@ Worth Takeaway - Healthy, good. Closes at 9PM. Right in DT mesa
 Urbanh cafe - Great Banh Mi sandwiches  
 Mekong Sandwiches - Banh Mi sandwiches  
 The Grid - Old arcade and xbox/ps2/nintendo games. Good selection of beer  
+Jewel of the Crown - Best Indian food in the valley    
+
 
 ## Non-phx places
 
