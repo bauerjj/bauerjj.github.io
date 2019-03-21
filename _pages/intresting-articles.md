@@ -79,6 +79,8 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [macrofab](https://macrofab.com/blog/podcast/)
 - [Amp Hour](https://theamphour.com/) - A lot of different topics here
 - [SparkGap](http://thesparkgap.net) - There has only been 1 post in all of 2018...
+- [Motley Fool Money](https://www.fool.com/podcasts/motley-fool-money/) - Longterm investing advice
+
 ## Cooking
 
  - [Stir Fry recipe](https://www.lifehacker.com.au/2016/04/make-foolproof-stir-fry-dishes-with-this-simple-formula/)
