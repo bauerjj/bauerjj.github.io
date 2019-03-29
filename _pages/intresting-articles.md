@@ -35,6 +35,8 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [How Uber Detects fraud and its different methods](https://eng.uber.com/advanced-technologies-detecting-preventing-fraud-uber/)
 - [Embedded Engineering tips from Cobus and Microchip people](https://www.microforum.cc/blogs/entry/28-what-every-embedded-programmer-should-know-about-adc-measurement/)
 - [Merging vs Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+- [Embedded.fm - Being a Grownup Engineer](http://embedded.fm/episodes/53)
+- [Coding Blocks](http://www.codingblocks.net)
 
 ## Programming
 
