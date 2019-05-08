@@ -46,6 +46,9 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Rubber Ducky USB Attack](https://github.com/hak5darren/USB-Rubber-Ducky)
 - [haveibeenpwned](https://haveibeenpwned.com/Passwords)
 
+## People
+- [Elizabeth Blackburn](https://en.wikipedia.org/wiki/Elizabeth_Blackburn)
+   - Noble Peace prize winner - omments on aging reversal and care for one's telomeres through lifestyle: managing chronic stress, exercising, eating better and getting enough sleep; telomere testing, plus cautions and advice
 
 ## Blogs
 - [Tech/Movie/Misc reviews](https://www.jwz.org/blog/)
