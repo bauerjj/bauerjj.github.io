@@ -1,0 +1,570 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.2.2 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Git History Graphs - bauerjj</title>
+
+
+
+
+<meta name="description" content="This is more of a reminder for myself so that I can remember how to edit my banner image.">
+
+
+
+
+<meta name="author" content="Justin Bauer">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="bauerjj">
+<meta property="og:title" content="Git History Graphs">
+
+
+  <link rel="canonical" href="http://bauerjj.com/blog/git-history-graphs/">
+  <meta property="og:url" content="http://bauerjj.com/blog/git-history-graphs/">
+
+
+
+  <meta property="og:description" content="This is more of a reminder for myself so that I can remember how to edit my banner image.">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2019-06-14T00:00:00-07:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Justin Bauer",
+      "url" : "http://bauerjj.com////",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://bauerjj.com/feed.xml" type="application/atom+xml" rel="alternate" title="bauerjj Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://bauerjj.com/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://bauerjj.com/">bauerjj</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/about/">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/year-archive/">Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/projects/">Projects</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://mcuhq.com">Microcontrollers</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/linux-tips/">Linux</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/stuff-to-do-in-phoenix/">Stuff to do in Phoenix, AZ</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/misc/">Misc</a></li>
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a href="http://bauerjj.com/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a href="http://bauerjj.com/categories#blog" itemprop="item"><span itemprop="name">Blog</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Git History Graphs</li>
+      
+    
+  </ol>
+</nav>
+  
+
+
+<div id="main" role="main">
+  
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Git History Graphs">
+    <meta itemprop="description" content="This is more of a reminder for myself so that I can remember how to edit my banner image.">
+    <meta itemprop="datePublished" content="June 14, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Git History Graphs
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>This is more of a reminder for myself so that I can remember how to edit my banner image.</p>
+
+<p>I was looking for a way to generate pretty git graphs for my webpage to showcase my professional progression when I stumpled upon this <a href="https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs">stackoverflow post</a>. From there I followed one of the answers to <a href="https://github.com/ianmiell/gitdags">gitdags</a> repo. I would encourage new users to use the supplied docker image to save yourself from installing numerous software packages like I did.</p>
+
+<p>Here is the source of my <code class="highlighter-rouge">tex</code> file to generate my banner image:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">\documentclass</span><span class="na">[preview]</span><span class="p">{</span>standalone<span class="p">}</span>
+<span class="c">%\documentclass{article}</span>
+<span class="k">\usepackage</span><span class="na">[a4paper, landscape, total={20in, 20in}, margin=0pt]</span><span class="p">{</span>geometry<span class="p">}</span>
+
+
+
+<span class="k">\usepackage</span><span class="p">{</span>subcaption<span class="p">}</span>
+<span class="k">\usepackage</span><span class="p">{</span>gitdags<span class="p">}</span>
+
+<span class="nt">\begin{document}</span>
+
+<span class="nt">\begin{figure}</span>
+  <span class="nt">\begin{subfigure}</span>[b]<span class="p">{</span><span class="k">\textwidth</span><span class="p">}</span>
+    <span class="k">\centering</span>
+    <span class="nt">\begin{tikzpicture}</span>
+      <span class="c">% Commit DAG</span>
+      <span class="k">\gitDAG</span><span class="na">[grow right sep = 2.5em, branch down=4em]</span><span class="p">{</span>
+          1989[xshift=-4em] -- 2011 -- feb --     
+          <span class="p">{</span>  microchip<span class="p">{</span>-<span class="p">}</span>technology[yshift=2em, xshift=0em] -- 2014[yshift=2em] -- blockwise<span class="p">{</span>-<span class="p">}</span>engineering[yshift=2em] -- 2017[yshift=2em] --  agjunction[yshift=2em] -- 2019[yshift=2em] -- axon[yshift=2em] ,  
+            sphinx<span class="p">{</span>-<span class="p">}</span>search[xshift=0em, yshift=0em] -- http<span class="p">{</span>://<span class="p">}</span>mcuhq<span class="p">{</span>.<span class="p">}</span>com -- http<span class="p">{</span>://<span class="p">}</span>bauerjj<span class="p">{</span>.<span class="p">}</span>github<span class="p">{</span>.<span class="p">}</span>io[yshift=0em] <span class="p">}</span>
+           -- justin<span class="p">{</span>-<span class="p">}</span>bauer
+      <span class="p">}</span>;
+      <span class="c">% Tag reference</span>
+      <span class="k">\gittag</span>
+        [v0p1]       <span class="c">% node name</span>
+        <span class="p">{</span>electrical<span class="k">\char</span>`<span class="p">_</span>engineering<span class="p">}</span>       <span class="c">% node text</span>
+        <span class="p">{</span>above=of 2011<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>2011<span class="p">}</span>  
+      <span class="k">\gittag</span>
+        [v0p2]       <span class="c">% node name</span>
+        <span class="p">{</span>rose-hulman<span class="k">\char</span>`<span class="p">_</span>inst<span class="k">\char</span>`<span class="p">_</span>of<span class="k">\char</span>`<span class="p">_</span>tech<span class="p">}</span>       <span class="c">% node text</span>
+        <span class="p">{</span>above=of v0p1<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>v0p1<span class="p">}</span>          <span class="c">% target        % target</span>
+      <span class="k">\gittag</span>
+        [appEngineer]       <span class="c">% node name</span>
+        <span class="p">{</span>applications<span class="k">\char</span>`<span class="p">_</span>engineer<span class="p">}</span>       <span class="c">% node text</span>
+        <span class="p">{</span>above=of microchip<span class="p">{</span>-<span class="p">}</span>technology<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>microchip<span class="p">{</span>-<span class="p">}</span>technology<span class="p">}</span>
+      <span class="k">\gittag</span>
+        [bwisejob]       <span class="c">% node name</span>
+        <span class="p">{</span>embedded<span class="k">\char</span>`<span class="p">_</span>electrical<span class="k">\char</span>`<span class="p">_</span>engineer<span class="p">}</span>       <span class="c">% node text</span>
+        <span class="p">{</span>above=of blockwise<span class="p">{</span>-<span class="p">}</span>engineering<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>blockwise<span class="p">{</span>-<span class="p">}</span>engineering<span class="p">}</span> 
+      <span class="k">\gittag</span>
+        [agjunctionjob]       <span class="c">% node name</span>
+        <span class="p">{</span>embedded<span class="k">\char</span>`<span class="p">_</span>software<span class="k">\char</span>`<span class="p">_</span>engineer<span class="p">}</span>       <span class="c">% node text</span>
+        <span class="p">{</span>above=of agjunction<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>agjunction<span class="p">}</span> 
+      <span class="k">\gittag</span>
+        [axonjob]       <span class="c">% node name</span>
+        <span class="p">{</span>senior<span class="k">\char</span>`<span class="p">_</span>software<span class="k">\char</span>`<span class="p">_</span>engineer<span class="p">}</span>       <span class="c">% node text</span>
+        <span class="p">{</span>above=of axon<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>axon<span class="p">}</span> 
+      <span class="c">% Remote branch</span>
+      <span class="k">\gitremotebranch</span>
+        [origmaster]    <span class="c">% node name</span>
+        <span class="p">{</span>origin/master<span class="p">}</span> <span class="c">% node text</span>
+        <span class="p">{</span>above=of 1989<span class="p">}</span>    <span class="c">% node placement</span>
+        <span class="p">{</span>1989<span class="p">}</span>             <span class="c">% target</span>
+      <span class="c">% Branch</span>
+      <span class="k">\gitbranch</span>
+        <span class="p">{</span>chicago<span class="p">{</span>-<span class="p">}</span>il<span class="p">}</span>     <span class="c">% node name and text </span>
+        <span class="p">{</span>below=of 1989<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>1989<span class="p">}</span>          <span class="c">% target</span>
+      <span class="k">\gitbranch</span>
+        <span class="p">{</span>indy-in<span class="p">}</span>     <span class="c">% node name and text </span>
+        <span class="p">{</span>below=of 2011<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>2011<span class="p">}</span>          <span class="c">% target</span>
+      <span class="k">\gitbranch</span>
+        <span class="p">{</span>tempe<span class="p">{</span>-<span class="p">}</span>az<span class="p">}</span>     <span class="c">% node name and text </span>
+        <span class="p">{</span>below=of feb<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>feb<span class="p">}</span>          <span class="c">% target</span>
+      <span class="k">\gitHEAD</span>
+        <span class="p">{</span>above=of justin<span class="p">{</span>-<span class="p">}</span>bauer<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>justin<span class="p">{</span>-<span class="p">}</span>bauer<span class="p">}</span>          <span class="c">% target</span>
+      <span class="k">\gitbranch</span>
+        <span class="p">{</span>dev<span class="p">{</span>-<span class="p">}</span>hobby<span class="p">}</span>     <span class="c">% node name and text </span>
+        <span class="p">{</span>below=of sphinx<span class="p">{</span>-<span class="p">}</span>search<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>sphinx<span class="p">{</span>-<span class="p">}</span>search<span class="p">}</span>          <span class="c">% target</span>
+      <span class="k">\gitbranch</span>
+        <span class="p">{</span>dev<span class="p">{</span>-<span class="p">}</span>hobby<span class="p">}</span>     <span class="c">% node name and text </span>
+        <span class="p">{</span>below=of http<span class="p">{</span>://<span class="p">}</span>mcuhq<span class="p">{</span>.<span class="p">}</span>com<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>http<span class="p">{</span>://<span class="p">}</span>mcuhq<span class="p">{</span>.<span class="p">}</span>com<span class="p">}</span>          <span class="c">% target</span>
+      <span class="k">\gitbranch</span>
+        <span class="p">{</span>dev<span class="p">{</span>-<span class="p">}</span>hobby<span class="p">}</span>     <span class="c">% node name and text </span>
+        <span class="p">{</span>below=of http<span class="p">{</span>://<span class="p">}</span>bauerjj<span class="p">{</span>.<span class="p">}</span>github<span class="p">{</span>.<span class="p">}</span>io<span class="p">}</span> <span class="c">% node placement</span>
+        <span class="p">{</span>http<span class="p">{</span>://<span class="p">}</span>bauerjj<span class="p">{</span>.<span class="p">}</span>github<span class="p">{</span>.<span class="p">}</span>io<span class="p">}</span>          <span class="c">% target</span>
+    <span class="nt">\end{tikzpicture}</span>
+  <span class="nt">\end{subfigure}</span>
+
+
+ 
+<span class="nt">\end{figure}</span>
+
+<span class="nt">\end{document}</span>
+</code></pre>
+</div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://bauerjj.com/categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-06-14T00:00:00-07:00">June 14, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Git History Graphs http://bauerjj.com/blog/git-history-graphs/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://bauerjj.com/blog/git-history-graphs/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://bauerjj.com/blog/git-history-graphs/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://bauerjj.com/blog/git-history-graphs/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://bauerjj.com/blog/tearing-in-ubuntu18/" class="pagination--pager" title="Fix tearing for NVIDIA in Ubuntu 18.04 Mate
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+    <section id="static-comments">
+      
+        <!-- Start static comments -->
+        <div class="js-comments">
+          
+        </div>
+        <!-- End static comments -->
+
+        <!-- Start new comment form -->
+        <h4 class="page__comments-title">Leave a Comment</h4>
+        <p class="small">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
+        <p class="small">Note - Sometimes a comment submission will fail. Simply press the "Submit Comment" button again until a green success box is shown</p>
+        <form id="new_comment" class="page__comments-form js-form form" method="post" action="https://api.staticman.net/v2/entry/bauerjj/bauerjj.github.io/gh-pages/comments">
+          <div class="form__spinner">
+            <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+          </div>
+
+          <fieldset>
+            <label for="comment-form-message">Comment <small class="required">*</small></label>
+            <textarea type="text" rows="3" id="comment-form-message" name="fields[message]" tabindex="1"></textarea>
+            <div class="small help-block"><a href="https://daringfireball.net/projects/markdown/">Markdown is supported.</a></div>
+          </fieldset>
+          <fieldset>
+            <label for="comment-form-name">Name <small class="required">*</small></label>
+            <input type="text" id="comment-form-name" name="fields[name]" tabindex="2" />
+          </fieldset>
+          <fieldset>
+            <label for="comment-form-email">Email address <small class="required">*</small></label>
+            <input type="email" id="comment-form-email" name="fields[email]" tabindex="3" />
+          </fieldset>
+          <fieldset>
+            <label for="comment-form-url">Website (optional)</label>
+            <input type="url" id="comment-form-url" name="fields[url]" tabindex="4"/>
+          </fieldset>
+          <fieldset class="hidden" style="display: none;">
+            <input type="hidden" name="options[slug]" value="git-history-graphs">
+            <label for="comment-form-location">Not used. Leave blank if you are a human.</label>
+            <input type="text" id="comment-form-location" name="fields[hidden]" autocomplete="off"/>
+            <input type="hidden" name="options[reCaptcha][siteKey]" value="6LeTS2cUAAAAAJUNIR1NgM4YupyavIIOlaltG1by">
+            <input type="hidden" name="options[reCaptcha][secret]" value="cFdrsh7exGBPPvj/voGn/Dm1034pJwGeecHBQFFNfgcZK8gtmdBbQLDG1qAThbi6tRQt9WSFdsxOGxH4pA9AoBde8xRuZj4umRDTtwH3nD4AhaLAEzSb0KgXq43lAOSD54juTD9BA/dWLPczKvNPjEv/j493vKWBwxqsuRQslPY=">
+          </fieldset>
+          <!-- Start comment form alert messaging -->
+          <p class="hidden js-notice">
+            <strong class="js-notice-text"></strong>
+          </p>
+          <!-- End comment form alert messaging -->
+          <div class="g-recaptcha" data-sitekey="6LeTS2cUAAAAAJUNIR1NgM4YupyavIIOlaltG1by"></div>
+          <fieldset>
+            <button type="submit" id="comment-form-submit" tabindex="5" class="btn btn--large">Submit Comment</button>
+          </fieldset>
+          
+        </form>
+        <!-- End new comment form -->
+      
+      <script async src="https://www.google.com/recaptcha/api.js"></script>
+    </section>
+  
+</div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+      <li><a href="http://github.com/bauerjj"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://bauerjj.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Justin Bauer. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; modified version of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</div>
+      </footer>
+    </div>
+
+    <script src="http://bauerjj.com/assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-105362058-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+
+  
+  <script>
+    (function ($) {
+    var $comments = $('.js-comments');
+
+    $('#new_comment').submit(function () {
+      var form = this;
+
+      $(form).addClass('disabled');
+      $('#comment-form-submit').html('<i class="fa fa-spinner fa-spin fa-fw"></i> Loading...');
+
+      $.ajax({
+        type: $(this).attr('method'),
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        contentType: 'application/x-www-form-urlencoded',
+        success: function (data) {
+          $('#comment-form-submit').html('Submitted');
+          $('.page__comments-form .js-notice').removeClass('notice--danger');
+          $('.page__comments-form .js-notice').addClass('notice--success');
+          showAlert('Thanks for your comment! It will show on the site once it has been approved.');
+        },
+        error: function (err) {
+          console.log(err);
+          $('#comment-form-submit').html('Submit Comment');
+          $('.page__comments-form .js-notice').removeClass('notice--success');
+          $('.page__comments-form .js-notice').addClass('notice--danger');
+          showAlert('Sorry, this is embarrassing - please press the 'Submit Comment' button again. There was an error with your submission to staticmanv2. Please make sure all required fields have been completed and try again.');
+          $(form).removeClass('disabled');
+        }
+      });
+
+      return false;
+    });
+
+    function showAlert(message) {
+      $('.page__comments-form .js-notice').removeClass('hidden');
+      $('.page__comments-form .js-notice-text').html(message);
+    }
+  })(jQuery);
+  </script>
+
+
+
+
+
+
+  </body>
+</html>
