@@ -90,7 +90,11 @@ Urbanh cafe - Great Banh Mi sandwiches
 Mekong Sandwiches - Banh Mi sandwiches  
 The Grid - Old arcade and xbox/ps2/nintendo games. Good selection of beer  
 Jewel of the Crown - Best Indian food in the valley    
-
+Pita House - Old Town Scottsdale with cheap food and hookah. Get the falafel    
+Persian Room - Fancy, but good quantity of authentic persian cuisine  
+Salad To Go - All over the valley   
+Korean BBQ - $25 all you can eat  
+ 
 
 ## Non-phx places
 
