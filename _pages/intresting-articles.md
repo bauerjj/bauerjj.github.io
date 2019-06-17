@@ -37,6 +37,8 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Merging vs Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 - [Embedded.fm - Being a Grownup Engineer](http://embedded.fm/episodes/53)
 - [Coding Blocks](http://www.codingblocks.net)
+- [Great linux programming blog](https://zwischenzugs.com/)
+
 
 ## Programming
 
