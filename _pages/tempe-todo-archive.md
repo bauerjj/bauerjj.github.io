@@ -94,7 +94,7 @@ Pita House - Old Town Scottsdale with cheap food and hookah. Get the falafel
 Persian Room - Fancy, but good quantity of authentic persian cuisine  
 Salad To Go - All over the valley   
 Korean BBQ - $25 all you can eat  
- 
+Del Falcos - Huge quantity of pizza-related food  
 
 ## Non-phx places
 
