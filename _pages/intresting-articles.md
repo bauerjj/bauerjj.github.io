@@ -61,6 +61,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [MySQL Creator, now mariaDB](http://monty-says.blogspot.com/)
 - [yocto tutor](https://stackoverflow.com/users/6484851/yoctotutor-com?tab=profile)
 - [General programming](https://blog.probablyfine.co.uk/)
+- [Friends blog with podcasts](https://malutavision.com)
 
 ## Web
 
