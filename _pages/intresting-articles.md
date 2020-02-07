@@ -38,7 +38,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Embedded.fm - Being a Grownup Engineer](http://embedded.fm/episodes/53)
 - [Coding Blocks](http://www.codingblocks.net)
 - [Great linux programming blog](https://zwischenzugs.com/)
-
+- [c++ layout](https://api.csswg.org/bikeshed/?force=1&url=https://raw.githubusercontent.com/vector-of-bool/pitchfork/develop/data/spec.bs)    
 
 ## Programming
 
