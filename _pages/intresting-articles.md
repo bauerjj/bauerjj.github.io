@@ -39,6 +39,7 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 - [Coding Blocks](http://www.codingblocks.net)
 - [Great linux programming blog](https://zwischenzugs.com/)
 - [c++ layout](https://api.csswg.org/bikeshed/?force=1&url=https://raw.githubusercontent.com/vector-of-bool/pitchfork/develop/data/spec.bs)    
+- [The Cuckoo’s Egg Decompiled Course - Infosec hands-on tutorial](https://chrissanders.org/training/cuckoosegg/   
 
 ## Programming
 
