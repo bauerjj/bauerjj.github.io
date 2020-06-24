@@ -15,7 +15,8 @@ I'm going to dedicate this page to be a "living document" of random articles, ti
 # Web Links
 
 ## Engineering
-
+- [List of engineering blogs](https://engineeringblogs.xyz/)
+- [Text-only websites](https://sjmulder.nl/en/textonly.html)
 - [How to reverse engineer from looking at the disassembly of a program](https://beginners.re/RE4B-EN.pdf)
 - [Software Update System for Embedded Devices (yocto)](https://github.com/sbabic/swupdate) 
 - [IoT Platform Called MQTT](http://mqtt.org/faq)
