@@ -11,20 +11,22 @@ header:
 
 ---
 
-My name is Justin Bauer and I'm an electrical Engineer that works mostly on software coincidently. I've spent vast more numbers of hours on a keyboard compared to that with a soldering iron. This website is meant to catalog technology related ideas among other various topics that I think myself and other people may find useful. Most of the pages are "living documents" that I edit continuously on a day-to-day basis.
+My name is Justin Bauer and I'm an electrical Engineer that works mostly on software coincidently. This website is meant to catalog technology related ideas among other various topics that I think myself and other people may find useful. Most of the pages are "living documents" that I edit continuously on a day-to-day basis.
 
 ### Professional
 
-I graduated Rose-Hulman Institute of Technology in 2011 with a BS in Electrical Engineering. I've since worked at both big and small companies:
+I graduated Rose-Hulman Institute of Technology in 2011 with a BS in Electrical Engineering. I've since worked:
 
  * Microchip Technology - Applications Engineer in their 8-bit division (2011-2015)
 	- 8-bit microcontrollers, PCB/Circuit design, technical teaching on various new peripherals, GUIs (java, C#), low-level programming, documentation
  * Blockwise Engineering - Lead Software/Electrical Engineer (2015-2017)
     - 32-bit ARM microcontrollers, GUIs (LabVIEW, C#, Qt), Web dev, PCB/Circuit design, CE certification  
- * AgJunction - Embedded Software Engineer (2017-present)
+ * AgJunction - Embedded Software Engineer (2017-2019)
     - A lot of Linux, kernel and U-Boot development, Qt, Yocto Linux
+ * Axon - Senior Software Engineer (2019-present)
+    - Police body cameras and tasers
   
-I also do freelance work with various clients on mostly embedded or mobile software applications. Please contact me if you'd like for me to work on your idea.
+I also do freelance work with various clients. Please contact me if you'd like for me to work on your idea.
 
 Please see my [linkedin](https://www.linkedin.com/in/justin-bauer-a7a9ba116) for more information. 
 
