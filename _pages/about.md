@@ -11,7 +11,7 @@ header:
 
 ---
 
-My name is Justin Bauer and I'm an electrical Engineer that works mostly on software coincidently. This website is meant to catalog technology related ideas among other various topics that I think myself and other people may find useful. Most of the pages are "living documents" that I edit continuously on a day-to-day basis.
+My name is Justin Bauer and I'm an electrical Engineer that works mostly on embedded systems. This website is meant to catalog technology related ideas among other various topics that I think myself and other people may find useful. Most of the pages are "living documents" that I edit continuously on a day-to-day basis.
 
 ### Professional
 
