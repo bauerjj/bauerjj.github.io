@@ -83,7 +83,7 @@
 <!-- end SEO -->
 
 
-<link href="http://bauerjj.com/feed.xml" type="application/atom+xml" rel="alternate" title="bauerjj Feed">
+<link href="http://bauerjj.com////feed.xml" type="application/atom+xml" rel="alternate" title="bauerjj Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -95,7 +95,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="http://bauerjj.com/assets/css/main.css">
+<link rel="stylesheet" href="http://bauerjj.com////assets/css/main.css">
 
 <!--[if lte IE 9]>
   <style>
@@ -139,7 +139,7 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="http://bauerjj.com/">bauerjj</a>
+        <a class="site-title" href="http://bauerjj.com////">bauerjj</a>
         <ul class="visible-links">
           
             
@@ -237,7 +237,7 @@
       
 
       <section class="page__content" itemprop="text">
-        <p>It took me years to finally realize that I could greatly speed up compilation time using a utility called <code class="highlighter-rouge">ccache</code>.</p>
+        <p>It took me years to finally realize that I could greatly speed up compilation time using a utility called <code class="language-plaintext highlighter-rouge">ccache</code>.</p>
 
 <aside class="sidebar__right">
 <nav class="toc">
@@ -251,20 +251,20 @@
   </nav>
 </aside>
 
-<p>It is essentially a wrapper around your compiler, most likely g++, that caches the compiled objects from your source and saves them in your home directory (<code class="highlighter-rouge">.ccache</code> folder) so that subsequent builds with the <em>identical environment settings</em> will use the cache. Not using it is pretty much wasting time. Sourcing an environment script that changes any compiler flags or targets that are different from the already compiled objects from the same source files in prior builds will inflict a “cache miss”.</p>
+<p>It is essentially a wrapper around your compiler, most likely g++, that caches the compiled objects from your source and saves them in your home directory (<code class="language-plaintext highlighter-rouge">.ccache</code> folder) so that subsequent builds with the <em>identical environment settings</em> will use the cache. Not using it is pretty much wasting time. Sourcing an environment script that changes any compiler flags or targets that are different from the already compiled objects from the same source files in prior builds will inflict a “cache miss”.</p>
 
-<p>To install: <code class="highlighter-rouge">sudo apt-get install ccache</code></p>
+<p>To install: <code class="language-plaintext highlighter-rouge">sudo apt-get install ccache</code></p>
 
-<p><code class="highlighter-rouge">ccache</code> includes the compiler name in the hash as shown in the <a href="http://ccache.samba.org/manual.html#_common_hashed_information">manual</a>, making it safe for multiple architectures to use <code class="highlighter-rouge">ccache</code>.</p>
+<p><code class="language-plaintext highlighter-rouge">ccache</code> includes the compiler name in the hash as shown in the <a href="http://ccache.samba.org/manual.html#_common_hashed_information">manual</a>, making it safe for multiple architectures to use <code class="language-plaintext highlighter-rouge">ccache</code>.</p>
 
 <h2 id="native-compiling">Native Compiling</h2>
 
-<p>In your <code class="highlighter-rouge">.bash_rc</code> file or similar, place: <code class="highlighter-rouge">export PATH=/usr/lib/ccache:$PATH</code></p>
+<p>In your <code class="language-plaintext highlighter-rouge">.bash_rc</code> file or similar, place: <code class="language-plaintext highlighter-rouge">export PATH=/usr/lib/ccache:$PATH</code></p>
 
-<p>Run <code class="highlighter-rouge">which gcc</code> to ensure that it is pointing at ccache. The paths that show up first in the variable are parsed first - a “first come first served” situation.</p>
+<p>Run <code class="language-plaintext highlighter-rouge">which gcc</code> to ensure that it is pointing at ccache. The paths that show up first in the variable are parsed first - a “first come first served” situation.</p>
 
 <p>To verify operation and see the cache grow in size, start compiling something and invoke the following:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>jbauer@ad-dell:~$ watch -n 1 ccache -s
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jbauer@ad-dell:~$ watch -n 1 ccache -s
 
 Every 1.0s: ccache -s               Thu Apr 13 14:32:22 2017
 
@@ -278,45 +278,41 @@ called for link                      369
 no input file                          2
 files in cache                      4217
 cache size                         962.5 MB
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>You can also just use this to print out the stats directly: <code class="highlighter-rouge">jbauer@ad-dell:~$ ccache -s</code></p>
+<p>You can also just use this to print out the stats directly: <code class="language-plaintext highlighter-rouge">jbauer@ad-dell:~$ ccache -s</code></p>
 
 <h2 id="cross-compiling-using-yocto">Cross-Compiling (Using Yocto)</h2>
-<p>Similar methodology can be used to have your cross-compilers utilize <code class="highlighter-rouge">ccache</code>. I’m usually using Yocto, which creates an SDK for your target and contains an environment script that I can then <code class="highlighter-rouge">source</code> and begin compilation for the embedded target.</p>
+<p>Similar methodology can be used to have your cross-compilers utilize <code class="language-plaintext highlighter-rouge">ccache</code>. I’m usually using Yocto, which creates an SDK for your target and contains an environment script that I can then <code class="language-plaintext highlighter-rouge">source</code> and begin compilation for the embedded target.</p>
 
 <ol>
   <li>Install the Yocto supplied SDK after bitbaking it.</li>
-  <li>Open your environment script and find the name of your cross-compiler. My location was: <code class="highlighter-rouge">/opt/poky/2.1.2/environment-setup-cortexa9hf-neon-poky-linux-gnueabi</code>. The compiler name is then found under the <code class="highlighter-rouge">export CC=</code> line.</li>
+  <li>Open your environment script and find the name of your cross-compiler. My location was: <code class="language-plaintext highlighter-rouge">/opt/poky/2.1.2/environment-setup-cortexa9hf-neon-poky-linux-gnueabi</code>. The compiler name is then found under the <code class="language-plaintext highlighter-rouge">export CC=</code> line.</li>
   <li>
-    <p>Create two soft links in your <code class="highlighter-rouge">ccache</code> directory</p>
+    <p>Create two soft links in your <code class="language-plaintext highlighter-rouge">ccache</code> directory</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> $ cd /usr/lib/ccache
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ cd /usr/lib/ccache
  $ ln -s /usr/bin/ccache arm-poky-linux-gnueabi-g++ 
  $ ln -s /usr/bin/ccache arm-poky-linux-gnueabi-gcc 
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
-    <p>Re-open your environment script and prepend <code class="highlighter-rouge">/usr/lib/ccache</code> in the <code class="highlighter-rouge">PATH</code> variable. This ensures that your machine will first look in your <code class="highlighter-rouge">ccache</code> directory for the compilers. Omitting this step will require you to manually export the PATH variable after sourcing the script or else <code class="highlighter-rouge">ccache</code> will never do its job.</p>
+    <p>Re-open your environment script and prepend <code class="language-plaintext highlighter-rouge">/usr/lib/ccache</code> in the <code class="language-plaintext highlighter-rouge">PATH</code> variable. This ensures that your machine will first look in your <code class="language-plaintext highlighter-rouge">ccache</code> directory for the compilers. Omitting this step will require you to manually export the PATH variable after sourcing the script or else <code class="language-plaintext highlighter-rouge">ccache</code> will never do its job.</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> export PATH=/usr/lib/ccache:/opt/poky/2.1.2/sysroot/....
-</code></pre>
-    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> export PATH=/usr/lib/ccache:/opt/poky/2.1.2/sysroot/....
+</code></pre></div>    </div>
   </li>
   <li>
-    <p>Edit your <code class="highlighter-rouge">conf/local.conf</code> file and append this to the end of the file</p>
+    <p>Edit your <code class="language-plaintext highlighter-rouge">conf/local.conf</code> file and append this to the end of the file</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> INHERIT += "ccache"
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> INHERIT += "ccache"
  CCACHE_DIR = "/home/&lt;username&gt;/.ccache"
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Verify your work</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> $ ls -al
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ ls -al
  lrwxrwxrwx 1 root root 16 Apr 13 13:25 arm-poky-linux-gnueabi-g++ -&gt; ../../bin/ccache
  lrwxrwxrwx 1 root root 16 Apr 13 13:25 arm-poky-linux-gnueabi-gcc -&gt; ../../bin/ccache
  lrwxrwxrwx 1 root root 16 Mar 21 12:24 c++ -&gt; ../../bin/ccache
@@ -333,23 +329,21 @@ cache size                         962.5 MB
  lrwxrwxrwx 1 root root 16 Mar 21 12:24 x86_64-linux-gnu-gcc -&gt; ../../bin/ccache
  lrwxrwxrwx 1 root root 16 Mar 21 12:24 x86_64-linux-gnu-gcc-4.8 -&gt; ../../bin/ccache
  lrwxrwxrwx 1 root root 16 Mar 21 12:24 x86_64-linux-gnu-gcc-5 -&gt; ../../bin/ccache
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Bitbake something and watch it hit your ccache</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> bitbake gcc
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> bitbake gcc
  watch -n 1 ccache -s
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ol>
 
-<p>Please note that any cleans (<code class="highlighter-rouge">bitbake gcc -c cleanall)</code> will completely erase the contents in your ccache directory - even unrelated files. I was not able to determine why this is so. You should also be leveraging Yocto’s built-in sstate-cache which negates the majority of the need for ccache.</p>
+<p>Please note that any cleans (<code class="language-plaintext highlighter-rouge">bitbake gcc -c cleanall)</code> will completely erase the contents in your ccache directory - even unrelated files. I was not able to determine why this is so. You should also be leveraging Yocto’s built-in sstate-cache which negates the majority of the need for ccache.</p>
 
 <h2 id="setting-up-qtcreator">Setting up QtCreator</h2>
-<p>You can utilize <code class="highlighter-rouge">ccache</code> inside of QtCreator by selecting your native and cross-compiler links inside of the <code class="highlighter-rouge">ccache</code> directory. Below shows two screenshots of setting up my cross-compiler. Notice how I had to manually locate both gcc and g++ and instruct Qt what they are targeting. Your paths will differ slightly since I have my project defined as “Armadillo” or “ado”.</p>
+<p>You can utilize <code class="language-plaintext highlighter-rouge">ccache</code> inside of QtCreator by selecting your native and cross-compiler links inside of the <code class="language-plaintext highlighter-rouge">ccache</code> directory. Below shows two screenshots of setting up my cross-compiler. Notice how I had to manually locate both gcc and g++ and instruct Qt what they are targeting. Your paths will differ slightly since I have my project defined as “Armadillo” or “ado”.</p>
 
 <p><img src="/assets/images/kit-overall.png" alt="QtCreator Cross-Compiler" /></p>
 
@@ -378,7 +372,7 @@ cache size                         962.5 MB
     
       
       
-      <a href="http://bauerjj.com/categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
+      <a href="http://bauerjj.com////categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
     
     </span>
   </p>
@@ -394,24 +388,24 @@ cache size                         962.5 MB
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=Speeding Up Native Compiling and Cross-Compiling Time with ccache http://bauerjj.com/blog/speeding-up-compilation-time-with-ccache/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Speeding Up Native Compiling and Cross-Compiling Time with ccache http://bauerjj.com////blog/speeding-up-compilation-time-with-ccache/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://bauerjj.com/blog/speeding-up-compilation-time-with-ccache/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://bauerjj.com////blog/speeding-up-compilation-time-with-ccache/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=http://bauerjj.com/blog/speeding-up-compilation-time-with-ccache/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://bauerjj.com////blog/speeding-up-compilation-time-with-ccache/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://bauerjj.com/blog/speeding-up-compilation-time-with-ccache/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://bauerjj.com////blog/speeding-up-compilation-time-with-ccache/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="http://bauerjj.com/blog/hackster-io-phoenix/" class="pagination--pager" title="Hackster.io Phoenix - What Happened?
+      <a href="http://bauerjj.com////blog/hackster-io-phoenix/" class="pagination--pager" title="Hackster.io Phoenix - What Happened?
 ">Previous</a>
     
     
-      <a href="http://bauerjj.com/blog/resizing-main-parition-using-gparted-in-a-vm/" class="pagination--pager" title="Resizing Main Partition Using gparted in a VM
+      <a href="http://bauerjj.com////blog/resizing-main-parition-using-gparted-in-a-vm/" class="pagination--pager" title="Resizing Main Partition Using gparted in a VM
 ">Next</a>
     
   </nav>
@@ -487,6 +481,123 @@ cache size                         962.5 MB
 
   
   
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/git-history-graphs/" rel="permalink">Git History Graphs
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">This is more of a reminder for myself so that I can remember how to edit my banner image.
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/tearing-in-ubuntu18/" rel="permalink">Fix tearing for NVIDIA in Ubuntu 18.04 Mate
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">I noticed terrible tearing inside firefox after upgrading to 18.04 and getting new 2k monitors finally. I had a guess that it was related to vsync not being ...</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/setup-ledger-nano-s-linux/" rel="permalink">Setup Leger Nano S on Ubuntu Linux
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/mpow-bluetooth-receiver-car-modification/" rel="permalink">Mpow Bluetooth Receiver Streambot Car Modification
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">WORK IN PROGRESS
+
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
 </div>
 
 
@@ -506,15 +617,15 @@ cache size                         962.5 MB
       <li><a href="http://github.com/bauerjj"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    <li><a href="http://bauerjj.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    <li><a href="http://bauerjj.com////feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2019 Justin Bauer. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; modified version of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</div>
+<div class="page__footer-copyright">&copy; 2020 Justin Bauer. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; modified version of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</div>
       </footer>
     </div>
 
-    <script src="http://bauerjj.com/assets/js/main.min.js"></script>
+    <script src="http://bauerjj.com////assets/js/main.min.js"></script>
 
 
 

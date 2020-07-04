@@ -83,7 +83,7 @@
 <!-- end SEO -->
 
 
-<link href="http://bauerjj.com/feed.xml" type="application/atom+xml" rel="alternate" title="bauerjj Feed">
+<link href="http://bauerjj.com////feed.xml" type="application/atom+xml" rel="alternate" title="bauerjj Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -95,7 +95,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="http://bauerjj.com/assets/css/main.css">
+<link rel="stylesheet" href="http://bauerjj.com////assets/css/main.css">
 
 <!--[if lte IE 9]>
   <style>
@@ -139,7 +139,7 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="http://bauerjj.com/">bauerjj</a>
+        <a class="site-title" href="http://bauerjj.com////">bauerjj</a>
         <ul class="visible-links">
           
             
@@ -239,32 +239,31 @@
       <section class="page__content" itemprop="text">
         <p>I struggled for a bit to get my <a href="plugable.com/products/ud-3900/">UD-3900</a> working under Ubuntu MATE 16.04.2. Here are the steps I took:</p>
 
-<p>1) Ensure that the kernel is AT LEAST 4.8 by running <code class="highlighter-rouge">uname -r</code>. I tried to downgrade my kernel to 4.4 after failing a few times to no avail.</p>
+<p>1) Ensure that the kernel is AT LEAST 4.8 by running <code class="language-plaintext highlighter-rouge">uname -r</code>. I tried to downgrade my kernel to 4.4 after failing a few times to no avail.</p>
 
-<p>2) Update your system. <code class="highlighter-rouge">sudo apt-get update</code> and <code class="highlighter-rouge">sudo apt-get dist-upgrade</code></p>
+<p>2) Update your system. <code class="language-plaintext highlighter-rouge">sudo apt-get update</code> and <code class="language-plaintext highlighter-rouge">sudo apt-get dist-upgrade</code></p>
 
 <p>3) <a href="http://www.displaylink.com/downloads/ubuntu">Download the DisplayLink Driver</a></p>
 
-<p>4) If you haven’t already, install dkms <code class="highlighter-rouge">sudo apt-get install dkms</code></p>
+<p>4) If you haven’t already, install dkms <code class="language-plaintext highlighter-rouge">sudo apt-get install dkms</code></p>
 
-<p>5) <code class="highlighter-rouge">chmod a+x displaylink-driver-xxxx</code></p>
+<p>5) <code class="language-plaintext highlighter-rouge">chmod a+x displaylink-driver-xxxx</code></p>
 
-<p>6) <code class="highlighter-rouge">./displaylink-driver-xx</code></p>
+<p>6) <code class="language-plaintext highlighter-rouge">./displaylink-driver-xx</code></p>
 
-<p>7) nano <code class="highlighter-rouge">/usr/share/X11/xorg.cong.d/20-displaylink.conf</code>
+<p>7) nano <code class="language-plaintext highlighter-rouge">/usr/share/X11/xorg.cong.d/20-displaylink.conf</code>
    Paste this into that file:</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>Section "Device" 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Section "Device" 
   Identifier "Intel Graphics"
   Driver "intel"
 EndSection
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>8) <code class="highlighter-rouge">reboot</code></p>
+<p>8) <code class="language-plaintext highlighter-rouge">reboot</code></p>
 
-<p>After a reboot, I had to wait 50 seconds before Ubuntu recognized the screens. If something went wrong, you can uninstall the driver <code class="highlighter-rouge">sudo displaylink-installer uninstall</code></p>
+<p>After a reboot, I had to wait 50 seconds before Ubuntu recognized the screens. If something went wrong, you can uninstall the driver <code class="language-plaintext highlighter-rouge">sudo displaylink-installer uninstall</code></p>
 
-<p>Use <code class="highlighter-rouge">lsusb</code> to see if the driver is installed or not.</p>
+<p>Use <code class="language-plaintext highlighter-rouge">lsusb</code> to see if the driver is installed or not.</p>
 
 <p><a href="http://support.displaylink.com/knowledgebase/articles/1181623-displaylink-ubuntu-driver-after-recent-x-upgrades">DisplyLink Troubleshoot Article</a></p>
 
@@ -290,7 +289,7 @@ EndSection
     
       
       
-      <a href="http://bauerjj.com/categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
+      <a href="http://bauerjj.com////categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
     
     </span>
   </p>
@@ -306,24 +305,24 @@ EndSection
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=UD-3900 Pluggable Docking Station with Ubuntu Dual-Monitors http://bauerjj.com/blog/how-to-install-plugable-usb-3-0-docking-station-ubuntu/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=UD-3900 Pluggable Docking Station with Ubuntu Dual-Monitors http://bauerjj.com////blog/how-to-install-plugable-usb-3-0-docking-station-ubuntu/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://bauerjj.com/blog/how-to-install-plugable-usb-3-0-docking-station-ubuntu/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://bauerjj.com////blog/how-to-install-plugable-usb-3-0-docking-station-ubuntu/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=http://bauerjj.com/blog/how-to-install-plugable-usb-3-0-docking-station-ubuntu/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://bauerjj.com////blog/how-to-install-plugable-usb-3-0-docking-station-ubuntu/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://bauerjj.com/blog/how-to-install-plugable-usb-3-0-docking-station-ubuntu/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://bauerjj.com////blog/how-to-install-plugable-usb-3-0-docking-station-ubuntu/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="http://bauerjj.com/blog/samsung-migration-tool-fail/" class="pagination--pager" title="Samsung Migration Tool Fail
+      <a href="http://bauerjj.com////blog/samsung-migration-tool-fail/" class="pagination--pager" title="Samsung Migration Tool Fail
 ">Previous</a>
     
     
-      <a href="http://bauerjj.com/blog/install-jekyll-on-linux/" class="pagination--pager" title="Installing jekyll on Linux
+      <a href="http://bauerjj.com////blog/install-jekyll-on-linux/" class="pagination--pager" title="Installing jekyll on Linux
 ">Next</a>
     
   </nav>
@@ -399,6 +398,123 @@ EndSection
 
   
   
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/git-history-graphs/" rel="permalink">Git History Graphs
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">This is more of a reminder for myself so that I can remember how to edit my banner image.
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/tearing-in-ubuntu18/" rel="permalink">Fix tearing for NVIDIA in Ubuntu 18.04 Mate
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">I noticed terrible tearing inside firefox after upgrading to 18.04 and getting new 2k monitors finally. I had a guess that it was related to vsync not being ...</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/setup-ledger-nano-s-linux/" rel="permalink">Setup Leger Nano S on Ubuntu Linux
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/mpow-bluetooth-receiver-car-modification/" rel="permalink">Mpow Bluetooth Receiver Streambot Car Modification
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">WORK IN PROGRESS
+
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
 </div>
 
 
@@ -418,15 +534,15 @@ EndSection
       <li><a href="http://github.com/bauerjj"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    <li><a href="http://bauerjj.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    <li><a href="http://bauerjj.com////feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2019 Justin Bauer. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; modified version of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</div>
+<div class="page__footer-copyright">&copy; 2020 Justin Bauer. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; modified version of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</div>
       </footer>
     </div>
 
-    <script src="http://bauerjj.com/assets/js/main.min.js"></script>
+    <script src="http://bauerjj.com////assets/js/main.min.js"></script>
 
 
 
