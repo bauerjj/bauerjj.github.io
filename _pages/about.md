@@ -37,14 +37,3 @@ In 2016 I created a microcontroller discussion website called [mcuhq](http://mcu
 In 2017 I launched this blog initially as a means for me to easily keep track of places to go in Phoenix. I've since grown it to encompass some tech posts along with other useful notes that I can easily reference again. 
 
 Please see the [projects page](https://bauerjj.github.io/projects/) for more information on past and current projects of mine as well as my [github](https://github.com/bauerjj). 
-
-### Technologies
-
-(coming soon)
-
-### Meetups
-
- - [Arizona Bitcoin Meetup](https://www.meetup.com/Arizona-Bitcoin-Meetup/)
- - [hackster.io Phoenix](https://www.meetup.com/hacksterlivephx/)
- - [Phoenix Linux Users Group](https://www.meetup.com/Phoenix-Linux-Users-Group/)
- - [Southsideout Volleyball](https://www.meetup.com/southsideout/)
