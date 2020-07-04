@@ -7,7 +7,7 @@ author_profile: true
 permalink: /about/
 header:
   image: /assets/images/lake.jpg
-  caption: "Grandma's lake"
+  caption: "lake"
 
 ---
 
