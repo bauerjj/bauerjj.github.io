@@ -100,6 +100,7 @@ http://free-electrons.com/doc/legacy/command-line/command_memento.pdf
  * Use `nice` for running lower priority applications
  * [When to use xargs vs pipe](https://stackoverflow.com/questions/35589179/when-to-use-xargs-when-piping)
  * Use `mount --o bind` when mounting a directory to another directory. Regular `mount` works on block devices. 
+ * You can also confirm by booting from the new kernel and doing: `zgrep LOGO /proc/config.gz` to verify the the new kernel has the desired options set.
 
 ### Commandline
 
