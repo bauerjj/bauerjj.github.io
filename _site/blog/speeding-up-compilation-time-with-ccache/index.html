@@ -1,0 +1,698 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.2.2 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Speeding Up Native Compiling and Cross-Compiling Time with ccache - bauerjj</title>
+
+
+
+
+<meta name="description" content="It took me years to finally realize that I could greatly speed up compilation time using a utility called ccache.">
+
+
+
+
+<meta name="author" content="Justin Bauer">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="bauerjj">
+<meta property="og:title" content="Speeding Up Native Compiling and Cross-Compiling Time with ccache">
+
+
+  <link rel="canonical" href="http://bauerjj.com/blog/speeding-up-compilation-time-with-ccache/">
+  <meta property="og:url" content="http://bauerjj.com/blog/speeding-up-compilation-time-with-ccache/">
+
+
+
+  <meta property="og:description" content="It took me years to finally realize that I could greatly speed up compilation time using a utility called ccache.">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-04-13T01:03:00-07:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Justin Bauer",
+      "url" : "http://bauerjj.com////",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://bauerjj.com////feed.xml" type="application/atom+xml" rel="alternate" title="bauerjj Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://bauerjj.com////assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://bauerjj.com////">bauerjj</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/about/">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/year-archive/">Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/projects/">Projects</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://mcuhq.com">Microcontrollers</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/linux-tips/">Linux</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/stuff-to-do-in-phoenix/">Stuff to do in Phoenix, AZ</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/misc/">Misc</a></li>
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a href="http://bauerjj.com/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a href="http://bauerjj.com/categories#blog" itemprop="item"><span itemprop="name">Blog</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Speeding Up Native Compiling and Cross-Compiling Time with ccache</li>
+      
+    
+  </ol>
+</nav>
+  
+
+
+<div id="main" role="main">
+  
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Speeding Up Native Compiling and Cross-Compiling Time with ccache">
+    <meta itemprop="description" content="It took me years to finally realize that I could greatly speed up compilation time using a utility called ccache.">
+    <meta itemprop="datePublished" content="April 13, 2017">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Speeding Up Native Compiling and Cross-Compiling Time with ccache
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>It took me years to finally realize that I could greatly speed up compilation time using a utility called <code class="language-plaintext highlighter-rouge">ccache</code>.</p>
+
+<aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#native-compiling" id="markdown-toc-native-compiling">Native Compiling</a></li>
+  <li><a href="#cross-compiling-using-yocto" id="markdown-toc-cross-compiling-using-yocto">Cross-Compiling (Using Yocto)</a></li>
+  <li><a href="#setting-up-qtcreator" id="markdown-toc-setting-up-qtcreator">Setting up QtCreator</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<p>It is essentially a wrapper around your compiler, most likely g++, that caches the compiled objects from your source and saves them in your home directory (<code class="language-plaintext highlighter-rouge">.ccache</code> folder) so that subsequent builds with the <em>identical environment settings</em> will use the cache. Not using it is pretty much wasting time. Sourcing an environment script that changes any compiler flags or targets that are different from the already compiled objects from the same source files in prior builds will inflict a “cache miss”.</p>
+
+<p>To install: <code class="language-plaintext highlighter-rouge">sudo apt-get install ccache</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">ccache</code> includes the compiler name in the hash as shown in the <a href="http://ccache.samba.org/manual.html#_common_hashed_information">manual</a>, making it safe for multiple architectures to use <code class="language-plaintext highlighter-rouge">ccache</code>.</p>
+
+<h2 id="native-compiling">Native Compiling</h2>
+
+<p>In your <code class="language-plaintext highlighter-rouge">.bash_rc</code> file or similar, place: <code class="language-plaintext highlighter-rouge">export PATH=/usr/lib/ccache:$PATH</code></p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">which gcc</code> to ensure that it is pointing at ccache. The paths that show up first in the variable are parsed first - a “first come first served” situation.</p>
+
+<p>To verify operation and see the cache grow in size, start compiling something and invoke the following:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jbauer@ad-dell:~$ watch -n 1 ccache -s
+
+Every 1.0s: ccache -s               Thu Apr 13 14:32:22 2017
+
+cache directory                     /home/jbauer/.ccache
+primary config                      /home/jbauer/.ccache/ccache.conf
+secondary config      (readonly)    /etc/ccache.conf
+cache hit (direct)                    56
+cache hit (preprocessed)               0
+cache miss                          1991
+called for link                      369
+no input file                          2
+files in cache                      4217
+cache size                         962.5 MB
+</code></pre></div></div>
+
+<p>You can also just use this to print out the stats directly: <code class="language-plaintext highlighter-rouge">jbauer@ad-dell:~$ ccache -s</code></p>
+
+<h2 id="cross-compiling-using-yocto">Cross-Compiling (Using Yocto)</h2>
+<p>Similar methodology can be used to have your cross-compilers utilize <code class="language-plaintext highlighter-rouge">ccache</code>. I’m usually using Yocto, which creates an SDK for your target and contains an environment script that I can then <code class="language-plaintext highlighter-rouge">source</code> and begin compilation for the embedded target.</p>
+
+<ol>
+  <li>Install the Yocto supplied SDK after bitbaking it.</li>
+  <li>Open your environment script and find the name of your cross-compiler. My location was: <code class="language-plaintext highlighter-rouge">/opt/poky/2.1.2/environment-setup-cortexa9hf-neon-poky-linux-gnueabi</code>. The compiler name is then found under the <code class="language-plaintext highlighter-rouge">export CC=</code> line.</li>
+  <li>
+    <p>Create two soft links in your <code class="language-plaintext highlighter-rouge">ccache</code> directory</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ cd /usr/lib/ccache
+ $ ln -s /usr/bin/ccache arm-poky-linux-gnueabi-g++ 
+ $ ln -s /usr/bin/ccache arm-poky-linux-gnueabi-gcc 
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Re-open your environment script and prepend <code class="language-plaintext highlighter-rouge">/usr/lib/ccache</code> in the <code class="language-plaintext highlighter-rouge">PATH</code> variable. This ensures that your machine will first look in your <code class="language-plaintext highlighter-rouge">ccache</code> directory for the compilers. Omitting this step will require you to manually export the PATH variable after sourcing the script or else <code class="language-plaintext highlighter-rouge">ccache</code> will never do its job.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> export PATH=/usr/lib/ccache:/opt/poky/2.1.2/sysroot/....
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Edit your <code class="language-plaintext highlighter-rouge">conf/local.conf</code> file and append this to the end of the file</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> INHERIT += "ccache"
+ CCACHE_DIR = "/home/&lt;username&gt;/.ccache"
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Verify your work</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ ls -al
+ lrwxrwxrwx 1 root root 16 Apr 13 13:25 arm-poky-linux-gnueabi-g++ -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Apr 13 13:25 arm-poky-linux-gnueabi-gcc -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 c++ -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 c89-gcc -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 c99-gcc -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 cc -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 g++ -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 g++-5 -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 gcc -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 gcc-4.8 -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 gcc-5 -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 x86_64-linux-gnu-g++ -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 x86_64-linux-gnu-g++-5 -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 x86_64-linux-gnu-gcc -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 x86_64-linux-gnu-gcc-4.8 -&gt; ../../bin/ccache
+ lrwxrwxrwx 1 root root 16 Mar 21 12:24 x86_64-linux-gnu-gcc-5 -&gt; ../../bin/ccache
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Bitbake something and watch it hit your ccache</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> bitbake gcc
+ watch -n 1 ccache -s
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Please note that any cleans (<code class="language-plaintext highlighter-rouge">bitbake gcc -c cleanall)</code> will completely erase the contents in your ccache directory - even unrelated files. I was not able to determine why this is so. You should also be leveraging Yocto’s built-in sstate-cache which negates the majority of the need for ccache.</p>
+
+<h2 id="setting-up-qtcreator">Setting up QtCreator</h2>
+<p>You can utilize <code class="language-plaintext highlighter-rouge">ccache</code> inside of QtCreator by selecting your native and cross-compiler links inside of the <code class="language-plaintext highlighter-rouge">ccache</code> directory. Below shows two screenshots of setting up my cross-compiler. Notice how I had to manually locate both gcc and g++ and instruct Qt what they are targeting. Your paths will differ slightly since I have my project defined as “Armadillo” or “ado”.</p>
+
+<p><img src="/assets/images/kit-overall.png" alt="QtCreator Cross-Compiler" /></p>
+
+<p><img src="/assets/images/gcc-ccache.png" alt="QtCreator Cross-Compiler" /></p>
+
+<p>Be sure to source your environment before launching QtCreator!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://bauerjj.com////categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-04-13T01:03:00-07:00">April 13, 2017</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Speeding Up Native Compiling and Cross-Compiling Time with ccache http://bauerjj.com////blog/speeding-up-compilation-time-with-ccache/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://bauerjj.com////blog/speeding-up-compilation-time-with-ccache/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://bauerjj.com////blog/speeding-up-compilation-time-with-ccache/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://bauerjj.com////blog/speeding-up-compilation-time-with-ccache/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://bauerjj.com////blog/hackster-io-phoenix/" class="pagination--pager" title="Hackster.io Phoenix - What Happened?
+">Previous</a>
+    
+    
+      <a href="http://bauerjj.com////blog/resizing-main-parition-using-gparted-in-a-vm/" class="pagination--pager" title="Resizing Main Partition Using gparted in a VM
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+    <section id="static-comments">
+      
+        <!-- Start static comments -->
+        <div class="js-comments">
+          
+        </div>
+        <!-- End static comments -->
+
+        <!-- Start new comment form -->
+        <h4 class="page__comments-title">Leave a Comment</h4>
+        <p class="small">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
+        <p class="small">Note - Sometimes a comment submission will fail. Simply press the "Submit Comment" button again until a green success box is shown</p>
+        <form id="new_comment" class="page__comments-form js-form form" method="post" action="https://api.staticman.net/v2/entry/bauerjj/bauerjj.github.io/gh-pages/comments">
+          <div class="form__spinner">
+            <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+          </div>
+
+          <fieldset>
+            <label for="comment-form-message">Comment <small class="required">*</small></label>
+            <textarea type="text" rows="3" id="comment-form-message" name="fields[message]" tabindex="1"></textarea>
+            <div class="small help-block"><a href="https://daringfireball.net/projects/markdown/">Markdown is supported.</a></div>
+          </fieldset>
+          <fieldset>
+            <label for="comment-form-name">Name <small class="required">*</small></label>
+            <input type="text" id="comment-form-name" name="fields[name]" tabindex="2" />
+          </fieldset>
+          <fieldset>
+            <label for="comment-form-email">Email address <small class="required">*</small></label>
+            <input type="email" id="comment-form-email" name="fields[email]" tabindex="3" />
+          </fieldset>
+          <fieldset>
+            <label for="comment-form-url">Website (optional)</label>
+            <input type="url" id="comment-form-url" name="fields[url]" tabindex="4"/>
+          </fieldset>
+          <fieldset class="hidden" style="display: none;">
+            <input type="hidden" name="options[slug]" value="speeding-up-compilation-time-with-ccache">
+            <label for="comment-form-location">Not used. Leave blank if you are a human.</label>
+            <input type="text" id="comment-form-location" name="fields[hidden]" autocomplete="off"/>
+            <input type="hidden" name="options[reCaptcha][siteKey]" value="6LeTS2cUAAAAAJUNIR1NgM4YupyavIIOlaltG1by">
+            <input type="hidden" name="options[reCaptcha][secret]" value="cFdrsh7exGBPPvj/voGn/Dm1034pJwGeecHBQFFNfgcZK8gtmdBbQLDG1qAThbi6tRQt9WSFdsxOGxH4pA9AoBde8xRuZj4umRDTtwH3nD4AhaLAEzSb0KgXq43lAOSD54juTD9BA/dWLPczKvNPjEv/j493vKWBwxqsuRQslPY=">
+          </fieldset>
+          <!-- Start comment form alert messaging -->
+          <p class="hidden js-notice">
+            <strong class="js-notice-text"></strong>
+          </p>
+          <!-- End comment form alert messaging -->
+          <div class="g-recaptcha" data-sitekey="6LeTS2cUAAAAAJUNIR1NgM4YupyavIIOlaltG1by"></div>
+          <fieldset>
+            <button type="submit" id="comment-form-submit" tabindex="5" class="btn btn--large">Submit Comment</button>
+          </fieldset>
+          
+        </form>
+        <!-- End new comment form -->
+      
+      <script async src="https://www.google.com/recaptcha/api.js"></script>
+    </section>
+  
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/git-history-graphs/" rel="permalink">Git History Graphs
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">This is more of a reminder for myself so that I can remember how to edit my banner image.
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/tearing-in-ubuntu18/" rel="permalink">Fix tearing for NVIDIA in Ubuntu 18.04 Mate
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">I noticed terrible tearing inside firefox after upgrading to 18.04 and getting new 2k monitors finally. I had a guess that it was related to vsync not being ...</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/setup-ledger-nano-s-linux/" rel="permalink">Setup Leger Nano S on Ubuntu Linux
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/mpow-bluetooth-receiver-car-modification/" rel="permalink">Mpow Bluetooth Receiver Streambot Car Modification
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">WORK IN PROGRESS
+
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+      <li><a href="http://github.com/bauerjj"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://bauerjj.com////feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Justin Bauer. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; modified version of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</div>
+      </footer>
+    </div>
+
+    <script src="http://bauerjj.com////assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-105362058-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+
+  
+  <script>
+    (function ($) {
+    var $comments = $('.js-comments');
+
+    $('#new_comment').submit(function () {
+      var form = this;
+
+      $(form).addClass('disabled');
+      $('#comment-form-submit').html('<i class="fa fa-spinner fa-spin fa-fw"></i> Loading...');
+
+      $.ajax({
+        type: $(this).attr('method'),
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        contentType: 'application/x-www-form-urlencoded',
+        success: function (data) {
+          $('#comment-form-submit').html('Submitted');
+          $('.page__comments-form .js-notice').removeClass('notice--danger');
+          $('.page__comments-form .js-notice').addClass('notice--success');
+          showAlert('Thanks for your comment! It will show on the site once it has been approved.');
+        },
+        error: function (err) {
+          console.log(err);
+          $('#comment-form-submit').html('Submit Comment');
+          $('.page__comments-form .js-notice').removeClass('notice--success');
+          $('.page__comments-form .js-notice').addClass('notice--danger');
+          showAlert('Sorry, this is embarrassing - please press the 'Submit Comment' button again. There was an error with your submission to staticmanv2. Please make sure all required fields have been completed and try again.');
+          $(form).removeClass('disabled');
+        }
+      });
+
+      return false;
+    });
+
+    function showAlert(message) {
+      $('.page__comments-form .js-notice').removeClass('hidden');
+      $('.page__comments-form .js-notice-text').html(message);
+    }
+  })(jQuery);
+  </script>
+
+
+
+
+
+
+  </body>
+</html>

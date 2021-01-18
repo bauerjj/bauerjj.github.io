@@ -1,0 +1,943 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.2.2 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Three Phase Vector Diagram in Qt QML - bauerjj</title>
+
+
+
+
+<meta name="description" content="I needed to draw a phasor diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+">
+
+
+
+
+<meta name="author" content="Justin Bauer">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="bauerjj">
+<meta property="og:title" content="Three Phase Vector Diagram in Qt QML">
+
+
+  <link rel="canonical" href="http://bauerjj.com/blog/three-phase-vector-diagram-in-qt/">
+  <meta property="og:url" content="http://bauerjj.com/blog/three-phase-vector-diagram-in-qt/">
+
+
+
+  <meta property="og:description" content="I needed to draw a phasor diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2017-10-12T00:00:00-07:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Justin Bauer",
+      "url" : "http://bauerjj.com////",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://bauerjj.com////feed.xml" type="application/atom+xml" rel="alternate" title="bauerjj Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://bauerjj.com////assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="http://bauerjj.com////">bauerjj</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/about/">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/year-archive/">Posts</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/projects/">Projects</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://mcuhq.com">Microcontrollers</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/linux-tips/">Linux</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/stuff-to-do-in-phoenix/">Stuff to do in Phoenix, AZ</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://bauerjj.com/misc/">Misc</a></li>
+          
+        </ul>
+        <button><div class="navicon"></div></button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a href="http://bauerjj.com/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a href="http://bauerjj.com/categories#blog" itemprop="item"><span itemprop="name">Blog</span></a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <span class="sep">/</span>
+      
+    
+      
+      
+        <li class="current">Three Phase Vector Diagram in Qt QML</li>
+      
+    
+  </ol>
+</nav>
+  
+
+
+<div id="main" role="main">
+  
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Three Phase Vector Diagram in Qt QML">
+    <meta itemprop="description" content="I needed to draw a phasor diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+">
+    <meta itemprop="datePublished" content="October 12, 2017">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Three Phase Vector Diagram in Qt QML
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>I needed to draw a phasor diagram that is typical of a three-phase power system. I chose Qt because I was most comfortable with the framework. I quickly realized that there exists no such readily available QML element, so I decided to write my own. The code requires QtQuick 2 and Qt 5.5+</p>
+
+<p><img src="/assets/images/polar_chart.gif" alt="Vector Diagram in Qt QML" /></p>
+
+<p>It uses the <a href="http://doc.qt.io/qt-5/qml-qtquick-context2d.html">Context2D</a> object to grab the context and draw vectors along with the arrow head. I override the <code class="language-plaintext highlighter-rouge">onPaint</code> method to perform all of the math and drawing required. The graph does not appear to cause any performance issues on an iMX6Q processor. I use some trigonometry to calculate the length and displacement of each vector. There is a dynamically loaded <code class="language-plaintext highlighter-rouge">Text</code> element where I place descriptive text such as “V1” or “I1” to designate voltage or current. There is also a timer that increments the angles through its full range of motion for testing purposes.</p>
+
+<p>I included a few links at the top of the source that helped me with the mathematics. Please let me know if you have any questions.</p>
+
+<h3 id="vectordiaqml">VectorDia.qml</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import QtQuick 2.0
+import "qrc:/utility"
+
+/*
+ * Inspiration:
+ *
+ *   https://woboq.com/blog/animations-using-the-qtquick-canvas.html
+ *   http://stackoverflow.com/questions/26044801/draw-na-arc-circle-sector-in-qml
+ *   https://forum.qt.io/topic/56628/qml-canvas-dashed-dotted-lines/2
+*/
+
+Canvas {
+    id: canvas
+    width: 480
+    height: 272 - 20
+
+    signal rightMove()
+    signal leftMove()
+    signal loaded()
+
+    Component.onCompleted: {
+        canvas.onLoaded()
+    }
+
+    property int vVectorLength: 90
+    property int iVectorLength: (.75 * vVectorLength)
+    property real start_x: width/2
+    property real start_y: 15
+    property real end_x: width/2
+    property real end_y: height - 15
+    property bool dashed: true
+    property real dash_length: 3
+    property real dash_space: 4
+    property real line_width: 0.9
+    property real stipple_length: (dash_length + dash_space) &gt; 0 ? (dash_length + dash_space) : 16
+    property color draw_color: "black"
+
+    property variant vectors: [0,30,120,120,240,210] // test vectors
+
+    property variant alt: [0,0,0,0,0,0]
+    property int i: 0
+
+    property var comp;
+    property   var text;
+
+
+    Timer{ // test timer to paint random stuff
+        interval: 500; running: true; repeat: true;
+        onTriggered: {
+            canvas.requestPaint()
+        }
+    }
+
+
+
+
+    onPaint: {
+        // Get the drawing context
+        var ctx = canvas.getContext('2d')
+        canvas.i = 0;
+        for(var j = 0; j &lt;canvas.alt.length; j++){
+            if(alt[j]!== 0)
+                alt[j].destroy();
+        }
+
+        ctx.fillStyle = "#ffffff"; // "erase" the previously drawn stuff
+        ctx.fillRect(0,0,canvas.width,canvas.height,"#000000")
+
+        // set line color
+        ctx.strokeStyle = draw_color;
+        ctx.lineWidth = line_width;
+        ctx.beginPath();
+
+
+        var centreX = canvas.width / 2;
+        var centreY = canvas.height / 2;
+
+        // draw the circle
+        ctx.beginPath();
+        ctx.lineWidth = 2
+        ctx.fillStyle = "black";
+        ctx.arc(centreX, centreY, (width / 4) - 10, 0, Math.PI * 2, false);
+        ctx.stroke();
+
+        // make the dashed lines
+        drawDashed(ctx,start_x, start_y, end_x, end_y);
+        drawDashed(ctx,130, height/2, width - 130, height/2);
+
+        // draw the vectors
+        drawVector(ctx, true, 1, vectors[0], "V&lt;sub&gt;1&lt;/sub&gt;");
+        drawVector(ctx, false, 1, vectors[1], "I&lt;sub&gt;1&lt;/sub&gt;");
+        drawVector(ctx, true, 2, vectors[2], "V&lt;sub&gt;2&lt;/sub&gt;");
+        drawVector(ctx, false, 2, vectors[3], "I&lt;sub&gt;2&lt;/sub&gt;");
+        drawVector(ctx, true, 3, vectors[4], "V&lt;sub&gt;3&lt;/sub&gt;");
+        drawVector(ctx, false, 3, vectors[5], "I&lt;sub&gt;3&lt;/sub&gt;");
+
+        var i;
+        for(i = 0; i &lt; vectors.length; i++){
+            vectors[i] += 5; // add some degrees for demo
+            if(vectors[i] &gt; 360)
+                vectors[i] -= 360
+        }
+
+    }
+
+    // QML Math library uses radians and not degrees
+    function degToRad(deg){
+        return deg * (Math.PI/180);
+    }
+
+
+
+
+    function drawVector(ctx, isVoltage, phase, angle, label){ // no guards in place for parameters
+
+        var centreX = canvas.width / 2;
+        var centreY = canvas.height / 2;
+        var vectorLength = isVoltage === true ? vVectorLength : iVectorLength; // current and voltage vectors diff length
+        var color; // line color determined from which vector is being drawn
+
+        if(phase === 1)
+            color = "red";
+        else if(phase === 2)
+            color = "#e5e500";
+        else if(phase === 3)
+            color = "green";
+        else
+            color = "black";
+
+
+        // draw the line
+        ctx.strokeStyle = color;
+        ctx.fillStyle= color;
+        ctx.beginPath()
+        var x = Math.cos(degToRad(angle)) * vectorLength;
+        var y = Math.sin(degToRad(angle)) * vectorLength;
+        ctx.moveTo(centreX, centreY)
+        ctx.lineTo(x + centreX, y + centreY);
+        ctx.stroke();
+
+        // now draw the triangle
+        // Derive the two points that make the triangle from the center point
+        // by making a slighly short radius at a few degrees to the left and right
+        // from the center point
+        ctx.beginPath();
+        var triCenterX = x + centreX;
+        var triCenterY = y + centreY
+        var leftX = Math.cos(degToRad(angle + 3)) * (vectorLength - 7);
+        var leftY = Math.sin(degToRad(angle + 3)) * (vectorLength - 7);
+        var rightX = Math.cos(degToRad(angle - 3)) * (vectorLength - 7);
+        var rightY = Math.sin(degToRad(angle - 3)) * (vectorLength - 7);
+
+        ctx.moveTo(triCenterX,triCenterY);
+        ctx.lineTo(leftX + centreX, leftY + centreY);
+        ctx.lineTo(rightX + centreX, rightY + centreY);
+        ctx.closePath();
+        ctx.fill(); // fill the triangle
+
+
+        comp = Qt.createComponent("qrc:/utility/MyLabel.qml")
+
+        if (comp.status === Component.Ready)
+            finishCreation(angle,label,triCenterX,triCenterY);
+        else
+            comp.statusChanged.connect(finishCreation(angle,label,triCenterX,triCenterY));
+
+    }
+
+    // Now draw the text next to the arrows
+    // Check which of the 4 quadrants we are in so that text placement
+    // is optimal
+    function finishCreation(angle,label,triCenterX,triCenterY) {
+        if (comp.status === Component.Ready) {
+
+            if(angle &gt; 180 &amp;&amp; angle &lt; 360 )
+                text = comp.createObject(canvas,{"x": triCenterX , "y": triCenterY -15});
+               // text = comp.createObject(canvas,{"x": triCenterX, "y": triCenterY - 15});
+            //if(angle &gt; 270 &amp;&amp; angle &lt;= 360 )
+              //  text = comp.createObject(canvas,{"x": triCenterX + 10, "y": triCenterY - 15});
+            else //if(angle &gt; 0 &amp;&amp; angle &lt;= 180 )
+                text = comp.createObject(canvas,{"x": triCenterX, "y": triCenterY + 2});
+            text.name = label;
+
+            canvas.alt[canvas.i++] = text;
+
+            if (text === null) {
+                // Error Handling
+                console.log("Error creating object");
+            }
+        } else if (comp.status === Component.Error) {
+            // Error Handling
+            console.log("Error loading component:", comp.errorString());
+        }
+    }
+
+
+    function drawDashed(ctx,startX, startY, endX, endY){
+        // make the dashed line
+        var dashLen = stipple_length;
+        var dX = endX - startX;
+        var dY = endY - startY;
+        var dashes = Math.floor(Math.sqrt(dX * dX + dY * dY) / dashLen);
+
+        if (dashes == 0)
+        {
+            dashes = 1;
+        }
+        var dash_to_length = dash_length/dashLen
+        var space_to_length = 1 - dash_to_length
+        var dashX = dX / dashes;
+        var dashY = dY / dashes;
+        var x1 = startX;
+        var y1 = startY;
+
+        ctx.moveTo(x1,y1);
+
+        var q = 0;
+        while (q++ &lt; dashes) {
+            x1 += dashX*dash_to_length;
+            y1 += dashY*dash_to_length;
+            ctx.lineTo(x1, y1);
+            x1 += dashX*space_to_length;
+            y1 += dashY*space_to_length;
+            ctx.moveTo(x1, y1);
+
+        }
+        ctx.stroke();
+    }
+
+    Text {
+        id: text1
+        x: 100
+        y: 119
+        text: qsTr("180°")
+        font.pixelSize: 10
+    }
+
+    Text {
+        id: text2
+        x: 355
+        y: 119
+        width: 20
+        height: 12
+        text: qsTr("0°")
+        font.pixelSize: 10
+    }
+
+    Text {
+        id: text3
+        x: 231
+        y: 239
+        text: qsTr("-90°")
+        font.pixelSize: 10
+    }
+
+
+
+    Text {
+        id: text4
+        x: 233
+        y: 2
+        text: qsTr("90°")
+        font.pixelSize: 10
+    }
+
+
+    Text {
+        id: update
+        x: 8
+        y: 13
+        text: qsTr("|")
+        font.pixelSize: 20
+        //verticalAlignment: Text.verticalCenter
+        horizontalAlignment: Text.horizontalCenter
+    }
+
+    Timer{
+        interval: 500 //500ms
+        repeat: true
+        running: true
+        onTriggered: {
+            if(update.text == "|")
+                update.text = "/";
+            else if(update.text == "/")
+                update.text = "--";
+            else if(update.text == "--")
+                update.text = "\\"
+            else if(update.text == "\\")
+                update.text = "|"
+
+        }
+    }
+
+
+}
+</code></pre></div></div>
+
+<h3 id="mylabelqml">MyLabel.qml</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import QtQuick 2.0
+
+Text{
+    id: textId
+    property string name: "";
+    text: textId.name
+    textFormat: Text.RichText
+    font.pixelSize: 12
+
+    function destoryMe(){
+        textId.destory()
+    }
+}
+</code></pre></div></div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://bauerjj.com////categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-10-12T00:00:00-07:00">October 12, 2017</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Three Phase Vector Diagram in Qt QML http://bauerjj.com////blog/three-phase-vector-diagram-in-qt/" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://bauerjj.com////blog/three-phase-vector-diagram-in-qt/" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://bauerjj.com////blog/three-phase-vector-diagram-in-qt/" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://bauerjj.com////blog/three-phase-vector-diagram-in-qt/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://bauerjj.com////blog/automate-jekyll-production/" class="pagination--pager" title="Automate Jekyll Production
+">Previous</a>
+    
+    
+      <a href="http://bauerjj.com////blog/terminator-setup-ubuntu/" class="pagination--pager" title="Terminator Setup in Ubuntu
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+    <section id="static-comments">
+      
+        <!-- Start static comments -->
+        <div class="js-comments">
+          
+            <h4 class="page__comments-title">Comments</h4>
+            
+
+            
+              
+              
+              
+              
+              
+              <article id="comment1" class="js-comment comment" itemprop="comment" itemscope itemtype="http://schema.org/Comment">
+  <div class="comment__avatar-wrapper">
+    <img class="comment__avatar" src="https://www.gravatar.com/avatar/3c7503cb57cfc480a9aab650a5ae60e2?d=mm&s=80">
+  </div>
+  <div class="comment__content-wrapper">
+    <h3 class="comment__author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      
+        <span itemprop="name">ramyken</span>
+      
+    </h3>
+    <p class="comment__date">
+      
+        <a href="#comment1" itemprop="url">
+        <time datetime="2018-08-01T00:51:17-07:00" itemprop="datePublished">August 01, 2018 at 07:51 AM</time>
+        </a>
+      
+    </p>
+    <div itemprop="text"><p>Hi Justin, many thanks for the article, part of your code about finishCreation() and its connection with params helped me very much in my application.
+kind regards,
+Pavel</p>
+</div>
+  </div>
+</article>
+            
+          
+        </div>
+        <!-- End static comments -->
+
+        <!-- Start new comment form -->
+        <h4 class="page__comments-title">Leave a Comment</h4>
+        <p class="small">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
+        <p class="small">Note - Sometimes a comment submission will fail. Simply press the "Submit Comment" button again until a green success box is shown</p>
+        <form id="new_comment" class="page__comments-form js-form form" method="post" action="https://api.staticman.net/v2/entry/bauerjj/bauerjj.github.io/gh-pages/comments">
+          <div class="form__spinner">
+            <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+          </div>
+
+          <fieldset>
+            <label for="comment-form-message">Comment <small class="required">*</small></label>
+            <textarea type="text" rows="3" id="comment-form-message" name="fields[message]" tabindex="1"></textarea>
+            <div class="small help-block"><a href="https://daringfireball.net/projects/markdown/">Markdown is supported.</a></div>
+          </fieldset>
+          <fieldset>
+            <label for="comment-form-name">Name <small class="required">*</small></label>
+            <input type="text" id="comment-form-name" name="fields[name]" tabindex="2" />
+          </fieldset>
+          <fieldset>
+            <label for="comment-form-email">Email address <small class="required">*</small></label>
+            <input type="email" id="comment-form-email" name="fields[email]" tabindex="3" />
+          </fieldset>
+          <fieldset>
+            <label for="comment-form-url">Website (optional)</label>
+            <input type="url" id="comment-form-url" name="fields[url]" tabindex="4"/>
+          </fieldset>
+          <fieldset class="hidden" style="display: none;">
+            <input type="hidden" name="options[slug]" value="three-phase-vector-diagram-in-qt">
+            <label for="comment-form-location">Not used. Leave blank if you are a human.</label>
+            <input type="text" id="comment-form-location" name="fields[hidden]" autocomplete="off"/>
+            <input type="hidden" name="options[reCaptcha][siteKey]" value="6LeTS2cUAAAAAJUNIR1NgM4YupyavIIOlaltG1by">
+            <input type="hidden" name="options[reCaptcha][secret]" value="cFdrsh7exGBPPvj/voGn/Dm1034pJwGeecHBQFFNfgcZK8gtmdBbQLDG1qAThbi6tRQt9WSFdsxOGxH4pA9AoBde8xRuZj4umRDTtwH3nD4AhaLAEzSb0KgXq43lAOSD54juTD9BA/dWLPczKvNPjEv/j493vKWBwxqsuRQslPY=">
+          </fieldset>
+          <!-- Start comment form alert messaging -->
+          <p class="hidden js-notice">
+            <strong class="js-notice-text"></strong>
+          </p>
+          <!-- End comment form alert messaging -->
+          <div class="g-recaptcha" data-sitekey="6LeTS2cUAAAAAJUNIR1NgM4YupyavIIOlaltG1by"></div>
+          <fieldset>
+            <button type="submit" id="comment-form-submit" tabindex="5" class="btn btn--large">Submit Comment</button>
+          </fieldset>
+          
+        </form>
+        <!-- End new comment form -->
+      
+      <script async src="https://www.google.com/recaptcha/api.js"></script>
+    </section>
+  
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/git-history-graphs/" rel="permalink">Git History Graphs
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">This is more of a reminder for myself so that I can remember how to edit my banner image.
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/tearing-in-ubuntu18/" rel="permalink">Fix tearing for NVIDIA in Ubuntu 18.04 Mate
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">I noticed terrible tearing inside firefox after upgrading to 18.04 and getting new 2k monitors finally. I had a guess that it was related to vsync not being ...</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/setup-ledger-nano-s-linux/" rel="permalink">Setup Leger Nano S on Ubuntu Linux
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">This is a quick HOW-TO for getting your new Ledger Nano S running in Ubuntu
+
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://bauerjj.com////blog/mpow-bluetooth-receiver-car-modification/" rel="permalink">Mpow Bluetooth Receiver Streambot Car Modification
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">WORK IN PROGRESS
+
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+      <li><a href="http://github.com/bauerjj"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://bauerjj.com////feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Justin Bauer. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; modified version of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a> theme.</div>
+      </footer>
+    </div>
+
+    <script src="http://bauerjj.com////assets/js/main.min.js"></script>
+
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-105362058-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+
+  
+  <script>
+    (function ($) {
+    var $comments = $('.js-comments');
+
+    $('#new_comment').submit(function () {
+      var form = this;
+
+      $(form).addClass('disabled');
+      $('#comment-form-submit').html('<i class="fa fa-spinner fa-spin fa-fw"></i> Loading...');
+
+      $.ajax({
+        type: $(this).attr('method'),
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        contentType: 'application/x-www-form-urlencoded',
+        success: function (data) {
+          $('#comment-form-submit').html('Submitted');
+          $('.page__comments-form .js-notice').removeClass('notice--danger');
+          $('.page__comments-form .js-notice').addClass('notice--success');
+          showAlert('Thanks for your comment! It will show on the site once it has been approved.');
+        },
+        error: function (err) {
+          console.log(err);
+          $('#comment-form-submit').html('Submit Comment');
+          $('.page__comments-form .js-notice').removeClass('notice--success');
+          $('.page__comments-form .js-notice').addClass('notice--danger');
+          showAlert('Sorry, this is embarrassing - please press the 'Submit Comment' button again. There was an error with your submission to staticmanv2. Please make sure all required fields have been completed and try again.');
+          $(form).removeClass('disabled');
+        }
+      });
+
+      return false;
+    });
+
+    function showAlert(message) {
+      $('.page__comments-form .js-notice').removeClass('hidden');
+      $('.page__comments-form .js-notice-text').html(message);
+    }
+  })(jQuery);
+  </script>
+
+
+
+
+
+
+  </body>
+</html>
