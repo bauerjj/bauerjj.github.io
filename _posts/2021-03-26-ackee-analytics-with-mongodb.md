@@ -2,7 +2,7 @@
 layout: single
 title: Ackee Analytics with MongoDB Atlas using Netlify
 context: Ramblings
-date: 2021-06-26
+date: 2021-03-26
 categories: blog
 comments: true
 ---
